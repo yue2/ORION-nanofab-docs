@@ -1,0 +1,145 @@
+<!doctype html><html><head><meta charset="utf-8"><title>ORION NanoFab User Guide</title><style>@page{size:A4;margin:16mm 17mm 18mm}body{font:10.5pt/1.48 Arial,sans-serif;color:#20242a}h1{font-size:22pt;margin:0 0 12px}h2{font-size:15pt;margin-top:20px}h3{font-size:12pt}img{max-width:100%;height:auto;break-inside:avoid}ol,ul{padding-left:22px}li{margin:4px 0}blockquote{margin:12px 0;padding:8px 12px;border-left:4px solid #d18b00;background:#fff8e8}.cover{height:245mm;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;page-break-after:always}.cover h1{font-size:28pt}.cover-img{max-height:145mm;max-width:150mm}.doc-section{page-break-before:always}.doc-section:first-of-type{page-break-before:auto}table{border-collapse:collapse;width:100%}th,td{border:1px solid #bbb;padding:5px;vertical-align:top}a{color:#111;text-decoration:none}</style></head><body><div class="cover"><img class="cover-img" src="../assets/img/general/orion-nanofab.png" alt="ZEISS ORION NanoFab"><h1>ORION NanoFab User Guide</h1><p>Generated from the maintained Markdown documentation.</p><p><b>Controlled source:</b> online/Markdown documentation. Exported copies may become outdated.</p></div><section class="doc-section"><h1>Before You Start</h1>
+<p>Complete the pre-use checks before beginning a work session.</p>
+<blockquote>
+<p><strong>WARNING</strong><br />
+Stop conditions Do not proceed if there are unexplained errors, gun temperature is above about 84 K, less than 2 h LN₂ remains, or vacuum is abnormal. Contact a Superuser.</p>
+</blockquote>
+<ol>
+<li><p>Cool down body/clothing temperature before entering.</p>
+</li>
+<li><p>Open System Manager, ZEN (after the server starts), and Tools → Vacuum Screen.</p>
+</li>
+<li><p>Check error messages and the logbook; check trimer status.</p>
+</li>
+<li><p>Check gun temperature (local SOP target &lt; ~80 K).</p>
+</li>
+<li><p>Check LN₂ remaining time; do not proceed if &lt;2 h.</p>
+</li>
+<li><p>Check vacuum status before loading.</p>
+</li>
+</ol>
+<p>Local SOP: Before Measurement.</p>
+</section><section class="doc-section"><h1>Sample Loading &amp; Unloading</h1>
+<p>Use Sample Management to exchange the holder through the air lock.</p>
+<ol>
+<li><p>Select Exchange .</p>
+</li>
+<li><p>If the holder is in the chamber, select Transfer , insert the transfer rod steadily, fully couple it to the holder, then retract.</p>
+</li>
+<li><p>Keep the transfer rod fully retracted before Store ; verify the Rod Retracted interlock.</p>
+</li>
+<li><p>Select Vent , open the load lock and mount the sample. Photograph the holder position when useful for the Sample Map.</p>
+</li>
+<li><p>Close the load lock and return to Store . Wait for the load chamber to pump before Transfer.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>NOTE</strong><br />
+Stage caution Use the chamber camera and established height limits to avoid collisions with the column or detector.</p>
+</blockquote>
+<h2>Logic review — item requiring confirmation</h2>
+<blockquote>
+<p><strong>PLACEHOLDER — VERIFY STAGE CLEARANCE:</strong> The source SOP includes a stage/holder clearance condition during transfer, but the local documents use different wording and calibration values. Confirm the current safe transfer position/clearance and add it here as an explicit pre-transfer verification.</p>
+</blockquote>
+</section><section class="doc-section"><h1>Starting a Session</h1>
+<ol>
+<li><p>Confirm the appropriate aperture before turning on the gun.</p>
+</li>
+<li><p>Power the ET detector; power the flood gun only when needed.</p>
+</li>
+<li><p>Select helium and allow gas pressure to stabilize.</p>
+</li>
+<li><p>Set landing energy, aperture and Spot Control for the intended work.</p>
+</li>
+<li><p>Enable Lens 2 and focus according to the local SOP/training.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>WARNING</strong><br />
+Operator boundary Do not use Extract Voltage as an ordinary user control unless explicitly trained/authorized.</p>
+</blockquote>
+</section><section class="doc-section"><h1>Trimer Check &amp; Alignment</h1>
+<ol>
+<li><p>Move to the standard Au sample / saved reference site.</p>
+</li>
+<li><p>Rough focus at the documented working distance and use a short dwell time.</p>
+</li>
+<li><p>Enter SFIM mode and grab an image.</p>
+</li>
+<li><p>Check whether the designated trimer atom is centered; use Gun Tilt if adjustment is required.</p>
+</li>
+<li><p>Expose the trimer as briefly as possible, then return to normal imaging/Gun Shift mode.</p>
+</li>
+</ol>
+</section><section class="doc-section"><h1>Imaging</h1>
+<p>Tune on a standard sample where possible to minimize exposure of the specimen.</p>
+<ol>
+<li><p>Navigate to the region of interest and use Continuous scanning for setup.</p>
+</li>
+<li><p>Set the desired beam current/spot, dwell time and scan size.</p>
+</li>
+<li><p>At a flat region, iteratively correct astigmatism, Gun Shift/wobbler and focus.</p>
+</li>
+<li><p>For capture, the local SOP suggests line averaging 8/16 and 2 µs dwell; increase dwell when higher quality is required.</p>
+</li>
+<li><p>Stop scanning, then use Grab and save the image to the approved data location.</p>
+</li>
+</ol>
+</section><section class="doc-section"><h1>Patterning</h1>
+<ol>
+<li><p>Open the Patterning tab and focus before patterning.</p>
+</li>
+<li><p>Set dose in ions/cm² and verify expected beam current.</p>
+</li>
+<li><p>Use the local SOP values appropriate to He or Ne and the intended process.</p>
+</li>
+<li><p>For complex patterns, use NPVE; verify the server/communication connection before starting.</p>
+</li>
+<li><p>Draw/import patterns, review parameters, select the intended patterns and start from the NPVE GUI.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>NOTE</strong><br />
+Source note The local SOP records example process values; treat them as local working notes, not universal defaults.</p>
+</blockquote>
+<h2>Logic review — item requiring confirmation</h2>
+<blockquote>
+<p><strong>PLACEHOLDER — VERIFY PATTERNING PARAMETERS:</strong> The local SOP itself contains “Other patterning parameters?” after the listed dose/current/dwell/pixel-spacing guidance. Define the approved parameter checklist for He, Ne, ZEN and NPVE before treating this page as a complete patterning procedure.</p>
+</blockquote>
+</section><section class="doc-section"><h1>Working with Neon</h1>
+<ol>
+<li><p>Set up the microscope and save stage positions while still working with helium.</p>
+</li>
+<li><p>Switch to a neon-compatible aperture before changing gas.</p>
+</li>
+<li><p>Select Neon in Gas Control and wait for helium evacuation and neon regulation.</p>
+</li>
+<li><p>Proceed with the normal GFIS workflow and re-check alignment.</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>WARNING</strong><br />
+Aperture warning The ZEISS manual states gold apertures are easily damaged by neon; use the designated neon/moly aperture positions for the installed aperture set.</p>
+</blockquote>
+</section><section class="doc-section"><h1>Ending a Session</h1>
+<ol>
+<li><p>Return tilt and scan rotation to 0°.</p>
+</li>
+<li><p>Select Exchange to move to the transfer condition.</p>
+</li>
+<li><p>Unload the sample using Transfer → Vent → Store, or load the next sample.</p>
+</li>
+<li><p>Make sure gas is Off / GFIS is in Standby.</p>
+</li>
+<li><p>Power down the detector as required; return the standard holder/sample according to the local SOP.</p>
+</li>
+<li><p>Complete the logbook, clean the work area and transfer data using the approved method.</p>
+</li>
+</ol>
+</section><section class="doc-section"><h1>Warning Signals / When to Stop</h1>
+<blockquote>
+<p><strong>WARNING</strong><br />
+Stop and contact a Superuser Unexplained system errors; gun temperature above the permitted range; insufficient LN₂; abnormal vacuum; O₂/fire/facility alarms; unexpected mechanical or transfer behavior.</p>
+</blockquote>
+<p>Normal users should recognize abnormal states but should not attempt chamber venting, high-voltage work, pump recovery, source maintenance or power-outage recovery.</p>
+</section></body></html>
