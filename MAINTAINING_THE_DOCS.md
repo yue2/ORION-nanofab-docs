@@ -33,6 +33,43 @@ orion_nanofab_docs/
 5. Review the change in Git (diff + reviewer), then run `python3 build_site.py` from the project root.
 6. Open `index.html` locally and test both User and Superuser navigation before publishing.
 
+## Git workflow and version control
+
+All documentation changes are tracked in Git. This enables:
+- **Author attribution** on each page (Last edited by, Last modified, Git revision)
+- **Contributor list** on the home page (extracted from all commits to `docs/`)
+- **Change history** and accountability via Git log
+
+### Initial setup (one time only)
+
+```bash
+cd /path/to/project
+git init
+git config user.name "Your Name"
+git config user.email "your.email@example.com"
+git add docs/ sources/ assets/
+git commit -m "Initial documentation" 
+```
+
+Or if already configured globally, just initialize and commit:
+
+```bash
+git init
+git add docs/ sources/ assets/
+git commit -m "Initial documentation"
+```
+
+After editing documentation
+1. Edit Markdown files under docs
+2. Run the build: ```python3 build_site.py```
+3. Review your changes: ```git diff docs/```
+4. Stage and commit: 
+```bash
+git add docs/
+git commit -m "Update [page-name]: [brief change description]"
+```
+
+
 ## Access model
 
 `access: all-users` pages are visible to trained users. `access: superuser` pages are marked restricted. The static site role switch is a preview only; real access control must be enforced by the hosting/authentication system.
@@ -144,7 +181,7 @@ A **WAITING FOR MANUAL CONFIRMATION** block is an editorial safety flag, not an 
 
 ## Exporting the User Guide PDF
 
-The Superuser navigation contains **Export User Guide PDF**. The link downloads `exports/orion-nanofab-user-guide.pdf`. The PDF is generated from the maintained `docs/user-guide/*.md` files, not from hand-edited HTML, and local Markdown images are embedded in the exported PDF.
+The Superuser navigation contains **View User Guide PDF**. The link downloads `exports/orion-nanofab-user-guide.pdf`. The PDF is generated from the maintained `docs/user-guide/*.md` files, not from hand-edited HTML, and local Markdown images are embedded in the exported PDF.
 
 After changing a User Guide page or an image used by it:
 
@@ -154,6 +191,14 @@ After changing a User Guide page or an image used by it:
 4. Commit the Markdown, image assets, generated website data and regenerated PDF together according to your repository policy.
 
 `build_user_guide_pdf.py` reads only local Markdown and local image assets and writes the PDF under `exports/` using ReportLab. It does not make network requests, invoke a shell, or execute content from the documentation.
+
+**Important:** The "View User Guide PDF" button in the SPA is a **static download link**. It does not execute `build_user_guide_pdf.py` or any build commands. You must:
+
+1. Run `python3 build_user_guide_pdf.py` manually on your local machine
+2. Commit the updated PDF to Git
+3. Push to the repository so the hosted site serves the updated PDF
+
+Do not expect the SPA to regenerate PDFs; the PDF is a pre-built artifact only.
 
 ## Editing signatures and change monitoring
 

@@ -19,6 +19,25 @@ def git_signature(path):
         pass
     return {}
 
+def get_all_contributors():
+    """Return list of all unique contributors (name, email) from Git."""
+    try:
+        r=subprocess.run(['git','log','--format=%an%x1f%ae','--','docs/'],cwd=ROOT,capture_output=True,text=True,timeout=10,check=False)
+        if r.returncode==0 and r.stdout.strip():
+            seen=set()
+            contributors=[]
+            for line in r.stdout.strip().split('\n'):
+                if line and '\x1f' in line:
+                    name,email=line.split('\x1f',1)
+                    key=(name.strip(),email.strip())
+                    if key not in seen:
+                        seen.add(key)
+                        contributors.append(key)
+            return contributors
+    except (OSError,subprocess.SubprocessError):
+        pass
+    return []
+
 NAV=[('home','index.md'),('before','user-guide/before-you-start.md'),('loading','user-guide/loading-unloading.md'),('start','user-guide/starting-session.md'),('trimercheck','user-guide/trimer-check.md'),('imaging','user-guide/imaging.md'),('patterning','user-guide/patterning.md'),('neon','user-guide/neon.md'),('end','user-guide/ending-session.md'),('warning','user-guide/warning-signals.md'),('training','superuser/training/index.md'),('safetytraining','superuser/training/safety-training.md'),('session1','superuser/training/session-1.md'),('session2','superuser/training/session-2.md'),('competency','superuser/training/competency-test.md'),('maintenance','superuser/maintenance/index.md'),('routine','superuser/maintenance/routine-checks.md'),('trimer','superuser/maintenance/trimer-formation.md'),('ln2','superuser/maintenance/ln2-system.md'),('gas','superuser/maintenance/gas-cylinders.md'),('source','superuser/maintenance/source-maintenance.md'),('shutdown','superuser/error-recovery/shutdown/planned-shutdown.md'),('powerup','superuser/error-recovery/shutdown/power-up.md'),('vacuumrecovery','superuser/error-recovery/shutdown/vacuum-recovery.md'),('gfisrecovery','superuser/error-recovery/shutdown/gfis-recovery.md'),('trouble','superuser/error-recovery/troubleshooting/index.md'),('chamber','superuser/error-recovery/troubleshooting/main-chamber-vent.md'),('overheat','superuser/error-recovery/troubleshooting/gun-overheat.md'),('vacuum','superuser/error-recovery/troubleshooting/vacuum-problems.md'),('comm','superuser/error-recovery/troubleshooting/communication-firmware.md'),('trimerproblem','superuser/error-recovery/troubleshooting/trimer-problems.md'),('imageproblem','superuser/error-recovery/troubleshooting/image-problems.md'),('safety','safety/index.md'),('o2','safety/oxygen-nitrogen.md'),('fire','safety/fire-suppression.md'),('hv','safety/high-voltage.md'),('chambersafety','safety/vacuum-chamber.md'),('emergency','safety/emergency.md'),('system','reference/system-overview.md'),('gfis','reference/gfis-controls.md'),('vacref','reference/vacuum-system.md'),('concepts','reference/imaging-concepts.md'),('glossary','reference/glossary.md'),('originals','reference/original-documents.md'),('infobase','information-base/index.md')]
 for p in sorted((DOCS/'information-base').glob('*.md')):
     if p.name!='index.md': NAV.append(('src-'+p.stem, str(p.relative_to(DOCS))))
@@ -120,7 +139,21 @@ def parse(path):
         body += '<details class="doc-info"><summary>Document information</summary><dl>'+''.join('<dt>'+html.escape(str(k))+'</dt><dd>'+html.escape(str(v))+'</dd>' for k,v in info)+'</dl></details>'
     sources=meta.get('sources',[])
     if sources: body += '<p class="source"><b>Sources:</b> '+', '.join(html.escape(x) for x in sources)+'</p>'
-    return '<div class="crumb">ORION NanoFab Documentation</div>'+badge+body
+    result='<div class="crumb">ORION NanoFab Documentation</div>'+badge+body
+# Add contributors list to home page only
+    result='<div class="crumb">ORION NanoFab Documentation</div>'+badge+body
+    # Add contributors list to home page only
+    if path.name=='index.md':
+        contributors=get_all_contributors()
+        if contributors:
+            result+='<hr style="margin:40px 0;border:none;border-top:1px solid #e5e7eb"><div class="contributors"><h3>Documentation Contributors</h3><ul style="list-style:none;padding:0;font-size:12px">'
+            for name,email in contributors:
+                result+=f'<li style="padding:3px 0"><strong>{html.escape(name)}</strong> &lt;{html.escape(email)}&gt;</li>'
+            result+='</ul></div>'
+    return result
+
+    return result
+
 pages={}
 for key,rel in NAV:
     p=DOCS/rel
