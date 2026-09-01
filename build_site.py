@@ -39,7 +39,48 @@ def get_all_contributors():
         pass
     return []
 
-NAV=[('home','index.md'),('before','user-guide/before-you-start.md'),('loading','user-guide/loading-unloading.md'),('start','user-guide/starting-session.md'),('trimercheck','user-guide/trimer-check.md'),('imaging','user-guide/imaging.md'),('patterning','user-guide/patterning.md'),('neon','user-guide/neon.md'),('end','user-guide/ending-session.md'),('warning','user-guide/warning-signals.md'),('training','superuser/training/index.md'),('safetytraining','superuser/training/safety-training.md'),('session1','superuser/training/session-1.md'),('session2','superuser/training/session-2.md'),('competency','superuser/training/competency-test.md'),('maintenance','superuser/maintenance/index.md'),('routine','superuser/maintenance/routine-checks.md'),('trimer','superuser/maintenance/trimer-formation.md'),('ln2','superuser/maintenance/ln2-system.md'),('gas','superuser/maintenance/gas-cylinders.md'),('source','superuser/maintenance/source-maintenance.md'),('shutdown','superuser/error-recovery/shutdown/planned-shutdown.md'),('powerup','superuser/error-recovery/shutdown/power-up.md'),('vacuumrecovery','superuser/error-recovery/shutdown/vacuum-recovery.md'),('gfisrecovery','superuser/error-recovery/shutdown/gfis-recovery.md'),('trouble','superuser/error-recovery/troubleshooting/index.md'),('chamber','superuser/error-recovery/troubleshooting/main-chamber-vent.md'),('overheat','superuser/error-recovery/troubleshooting/gun-overheat.md'),('vacuum','superuser/error-recovery/troubleshooting/vacuum-problems.md'),('comm','superuser/error-recovery/troubleshooting/communication-firmware.md'),('trimerproblem','superuser/error-recovery/troubleshooting/trimer-problems.md'),('imageproblem','superuser/error-recovery/troubleshooting/image-problems.md'),('safety','safety/index.md'),('o2','safety/oxygen-nitrogen.md'),('fire','safety/fire-suppression.md'),('hv','safety/high-voltage.md'),('chambersafety','safety/vacuum-chamber.md'),('emergency','safety/emergency.md'),('system','reference/system-overview.md'),('gfis','reference/gfis-controls.md'),('vacref','reference/vacuum-system.md'),('concepts','reference/imaging-concepts.md'),('glossary','reference/glossary.md'),('originals','reference/original-documents.md'),('infobase','information-base/index.md')]
+NAV=[('home','index.md'),
+('before','user-guide/before-you-start.md'),
+('loading','user-guide/loading-unloading.md'),
+('start','user-guide/starting-session.md'),
+('imaging','user-guide/imaging.md'),
+('patterning','user-guide/patterning.md'),
+('neon','user-guide/neon.md'),
+('end','user-guide/ending-session.md'),
+('warning','user-guide/warning-signals.md'),
+('training','superuser/training/index.md'),
+('safetytraining','superuser/training/safety-training.md'),
+('session1','superuser/training/session-1.md'),
+('session2','superuser/training/session-2.md'),
+('competency','superuser/training/competency-test.md'),
+('maintenance','superuser/maintenance/index.md'),
+('routine','superuser/maintenance/routine-checks.md'),
+('trimer','superuser/maintenance/trimer-formation.md'),
+('ln2','superuser/maintenance/ln2-system.md'),
+('gas','superuser/maintenance/gas-cylinders.md'),
+('source','superuser/maintenance/source-maintenance.md'),
+('shutdown','superuser/error-recovery/shutdown/planned-shutdown.md'),
+('powerup','superuser/error-recovery/shutdown/power-up.md'),
+('vacuumrecovery','superuser/error-recovery/shutdown/vacuum-recovery.md'),
+('gfisrecovery','superuser/error-recovery/shutdown/gfis-recovery.md'),
+('trouble','superuser/error-recovery/troubleshooting/index.md'),
+('chamber','superuser/error-recovery/troubleshooting/main-chamber-vent.md'),
+('overheat','superuser/error-recovery/troubleshooting/gun-overheat.md'),
+('vacuum','superuser/error-recovery/troubleshooting/vacuum-problems.md'),
+('comm','superuser/error-recovery/troubleshooting/communication-firmware.md'),
+('trimerproblem','superuser/error-recovery/troubleshooting/trimer-problems.md'),
+('imageproblem','superuser/error-recovery/troubleshooting/image-problems.md'),
+('safety','safety/index.md'),('o2','safety/oxygen-nitrogen.md'),
+('fire','safety/fire-suppression.md'),('hv','safety/high-voltage.md'),
+('chambersafety','safety/vacuum-chamber.md'),
+('emergency','safety/emergency.md'),
+('system','reference/system-overview.md'),
+('gfis','reference/gfis-controls.md'),
+('vacref','reference/vacuum-system.md'),
+('concepts','reference/imaging-concepts.md'),
+('glossary','reference/glossary.md'),
+('originals','reference/original-documents.md'),
+('infobase','information-base/index.md')]
 for p in sorted((DOCS/'information-base').glob('*.md')):
     if p.name!='index.md': NAV.append(('src-'+p.stem, str(p.relative_to(DOCS))))
 def inline_md(text):
@@ -181,6 +222,180 @@ for key,rel in NAV:
     p=DOCS/rel
     if p.exists() and include_page(p): pages[key]=parse(p)
 
+def write_page_json_files():
+    """Generate _pages/*.json files for hybrid SPA architecture.
+    
+    Returns: count of files written.
+    """
+    pages_dir = ROOT / '_pages'
+    pages_dir.mkdir(exist_ok=True)
+    
+    written = 0
+    for key, rel in NAV:
+        p = DOCS / rel
+        if p.exists() and include_page(p):
+            html_content = pages[key]  # Already parsed above
+            
+            # Extract frontmatter metadata
+            text = p.read_text(encoding='utf-8')
+            meta = {}
+            if text.startswith('---\n'):
+                try:
+                    _, fm, _ = text.split('---\n', 2)
+                    for line in fm.splitlines():
+                        if line.startswith('  - ') and 'sources' in fm:
+                            # Initialize sources as list if not already done
+                            if 'sources' not in meta or not isinstance(meta['sources'], list):
+                                meta['sources'] = []
+                            meta['sources'].append(line[4:].strip().strip('"'))
+                        elif ':' in line and not line.startswith('  '):  # Skip list items
+                            k, v = line.split(':', 1)
+                            key_name = k.strip()
+                            val = v.strip().strip('"')
+                            # Don't overwrite sources if it's already a list
+                            if key_name != 'sources' or key_name not in meta:
+                                meta[key_name] = val
+                except ValueError:
+                    pass
+            
+            # Create page JSON object
+            page_json = {
+                'key': key,
+                'title': meta.get('title', 'Untitled'),
+                'access': meta.get('access', 'all-users'),
+                'content': html_content,
+                'metadata': {
+                    'status': meta.get('status', ''),
+                    'owner': meta.get('owner', ''),
+                    'last-reviewed': meta.get('last-reviewed', ''),
+                    'sources': meta.get('sources', []) if isinstance(meta.get('sources'), list) else ([meta.get('sources')] if meta.get('sources') else [])
+                }
+            }
+            
+            # Write to _pages/KEY.json
+            output_file = pages_dir / f'{key}.json'
+            try:
+                output_file.write_text(json.dumps(page_json, ensure_ascii=False, indent=2), encoding='utf-8')
+                written += 1
+            except OSError as e:
+                print(f'Warning: Could not write {output_file}: {e}')
+    
+    return written
+
+def write_search_index():
+    """Generate assets/search-index.json for client-side search filtering by role.
+    
+    Returns: file path written.
+    """
+    search_data = []
+    for key, rel in NAV:
+        p = DOCS / rel
+        if p.exists() and include_page(p):
+            if key not in pages:
+                continue
+            
+            # Extract frontmatter
+            text = p.read_text(encoding='utf-8')
+            meta = {}
+            if text.startswith('---\n'):
+                try:
+                    _, fm, _ = text.split('---\n', 2)
+                    for line in fm.splitlines():
+                        if ':' in line and not line.startswith('  '):  # Skip list items
+                            k, v = line.split(':', 1)
+                            meta[k.strip()] = v.strip().strip('"')
+                except ValueError:
+                    pass
+            
+            html_content = pages[key]
+            
+            def page_title(html_text):
+                m = re.search(r'<h1[^>]*>(.*?)</h1>', html_text, re.IGNORECASE)
+                return html.unescape(re.sub(r'<[^>]+>', '', m.group(1))) if m else 'Untitled'
+            
+            def strip_html(v):
+                d = re.sub(r'<[^>]+>', '', v)
+                return re.sub(r'\s+', ' ', d).strip()
+            
+            search_data.append({
+                'key': key,
+                'title': page_title(html_content),
+                'text': strip_html(html_content)[:200],  # First 200 chars for snippet
+                'access': meta.get('access', 'all-users')
+            })
+    
+    output_file = ROOT / 'assets' / 'search-index.json'
+    (ROOT / 'assets').mkdir(exist_ok=True)
+    try:
+        output_file.write_text(json.dumps(search_data, ensure_ascii=False, indent=2), encoding='utf-8')
+        return str(output_file)
+    except OSError as e:
+        print(f'Warning: Could not write {output_file}: {e}')
+        return None
+
+def generate_nav_html():
+    """Generate navigation HTML from NAV list.
+    
+    Groups pages by folder (first path component).
+    Handles 'home' as a special case (no folder grouping).
+    Generates proper HTML with role badges for superuser sections.
+    
+    Returns: nav HTML string.
+    """
+    nav_html = '<a data-page="home" class="nav-home">Home</a>\n'
+    current_group = None
+    group_pages = []
+    
+    for key, rel in NAV[1:]:  # Skip 'home' (already added)
+        p = DOCS / rel
+        if not p.exists() or not include_page(p):
+            continue
+        
+        # Extract folder from rel: 'user-guide/before-you-start.md' → 'user-guide'
+        parts = rel.split('/')
+        folder = parts[0] if len(parts) > 1 else None
+        
+        if folder and folder != current_group:
+            # Close previous group if any
+            if current_group is not None:
+                nav_html += '\n'.join(f'<a data-page="{k}">{label}</a>' for k, label in group_pages)
+                nav_html += '\n</div></details>\n'
+                group_pages = []
+            
+            # Open new group
+            is_superuser = folder == 'superuser'
+            lock_icon = ' <span class="lock">🔒</span>' if is_superuser else ''
+            group_class = 'nav-group' + (' super-link' if is_superuser else '')
+            folder_label = folder.replace('-', ' ').title()
+            
+            nav_html += f'<details class="{group_class}" data-group="{folder}">\n'
+            nav_html += f'<summary>{folder_label}{lock_icon}</summary>\n'
+            nav_html += '<div class="nav-children">\n'
+            current_group = folder
+        
+        # Extract page label from frontmatter title or use key as fallback
+        meta = {}
+        text = p.read_text(encoding='utf-8')
+        if text.startswith('---\n'):
+            try:
+                _, fm, _ = text.split('---\n', 2)
+                for line in fm.splitlines():
+                    if line.startswith('title:'):
+                        meta['title'] = line.split(':', 1)[1].strip().strip('"')
+                        break
+            except ValueError:
+                pass
+        
+        label = meta.get('title', key.replace('-', ' ').title())
+        group_pages.append((key, label))
+    
+    # Close final group if any
+    if current_group is not None:
+        nav_html += '\n'.join(f'<a data-page="{k}">{label}</a>' for k, label in group_pages)
+        nav_html += '\n</div></details>\n'
+    
+    return nav_html
+
 def app_js_source():
     js_path = ROOT/'assets/app.js'
     if js_path.exists() and js_path.stat().st_size > 0:
@@ -206,31 +421,48 @@ js = app_js_source()
 pattern = r'const pages=\{.*?\};\s*function render'
 # Rebuild app.js from scratch with fresh pages object
 js_base = r"""function setRole(role){localStorage.setItem('orionRole',role);document.body.classList.toggle('superuser',role==='superuser');document.querySelectorAll('[data-role]').forEach(b=>b.classList.toggle('active',b.dataset.role===role));document.querySelectorAll('.super-link').forEach(a=>a.style.opacity=role==='superuser'?'1':'.48');}
-function render(p){if(!pages[p])p='home';if(document.querySelector(`[data-page="${p}"].super-link`)&&!document.body.classList.contains('superuser'))p='access';document.getElementById('content').innerHTML=p==='access'?'<h1>Superuser access required</h1><p>Switch the prototype role to Superuser to preview this section. Production access must be enforced by authentication.</p>':pages[p];document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('active',a.dataset.page===p));if(p!=='access')expandForPage(p);window.scrollTo(0,0)}
-function pageTitle(htmlText){const m=htmlText.match(/<h1[^>]*>(.*?)<\/h1>/i);return m?stripHtml(m[1]):'Documentation'}
-function stripHtml(v){const d=document.createElement('div');d.innerHTML=v;return (d.textContent||'').replace(/\s+/g,' ').trim()}
-const searchIndex=Object.entries(pages).map(([key,value])=>({key,title:pageTitle(value),text:stripHtml(value)}));
+const pages={};
+const searchIndex=[];
+async function render(p){if(!p)p='home';if(!pages[p]){try{const res=await fetch(`_pages/${p}.json`);pages[p]=await res.json();}catch(e){console.error(`Failed to load page ${p}:`,e);p='home';const res=await fetch(`_pages/home.json`);pages[p]=await res.json();}}
+const role=localStorage.getItem('orionRole')||'user';if(pages[p].access==='superuser'&&role!=='superuser'){document.getElementById('content').innerHTML='<h1>Superuser access required</h1><p>Switch the prototype role to Superuser to preview this section.</p>';return;}
+document.getElementById('content').innerHTML=pages[p].content;document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('active',a.dataset.page===p));expandForPage(p);window.scrollTo(0,0);}
 function expandForPage(p){document.querySelectorAll('.nav-group,.nav-subgroup').forEach(d=>d.open=false);const link=document.querySelector(`[data-page="${CSS.escape(p)}"]`);if(!link)return;let el=link.parentElement;while(el){if(el.tagName==='DETAILS')el.open=true;el=el.parentElement}}
-function performSearch(query){const q=query.toLowerCase();const results=searchIndex.filter(e=>e.title.toLowerCase().includes(q)||e.text.toLowerCase().includes(q)).slice(0,10);const resultsDiv=document.getElementById('search-results');if(!q){resultsDiv.hidden=true;return;}resultsDiv.hidden=false;resultsDiv.innerHTML='';if(results.length===0){resultsDiv.innerHTML='<div class="search-empty">No results found</div>';return;}results.forEach(r=>{const div=document.createElement('div');div.className='search-result';const title=document.createElement('div');title.className='search-title';title.textContent=r.title;const snippet=document.createElement('div');snippet.className='search-snippet';snippet.textContent=r.text.substring(0,80)+'...';div.appendChild(title);div.appendChild(snippet);div.onclick=e=>{e.preventDefault();render(r.key);document.getElementById('doc-search').value='';resultsDiv.hidden=true;};div.style.cursor='pointer';resultsDiv.appendChild(div);});}
-document.addEventListener('DOMContentLoaded',function(){const saved=localStorage.getItem('orionRole')||'user';setRole(saved);document.querySelectorAll('[data-page]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();render(this.dataset.page)}));document.getElementById('doc-search').addEventListener('input',e=>performSearch(e.target.value));render('home');});
-"""
+function performSearch(query){const q=query.toLowerCase();const role=localStorage.getItem('orionRole')||'user';const filtered=searchIndex.filter(e=>(role==='superuser'||e.access!=='superuser')&&(e.title.toLowerCase().includes(q)||e.text.toLowerCase().includes(q))).slice(0,10);const resultsDiv=document.getElementById('search-results');if(!q){resultsDiv.hidden=true;return;}resultsDiv.hidden=false;resultsDiv.innerHTML='';if(filtered.length===0){resultsDiv.innerHTML='<div class="search-empty">No results found</div>';return;}filtered.forEach(r=>{const div=document.createElement('div');div.className='search-result';const title=document.createElement('div');title.className='search-title';title.textContent=r.title;const snippet=document.createElement('div');snippet.className='search-snippet';snippet.textContent=r.text.substring(0,80)+'...';div.appendChild(title);div.appendChild(snippet);div.onclick=e=>{e.preventDefault();render(r.key);document.getElementById('doc-search').value='';resultsDiv.hidden=true;};div.style.cursor='pointer';resultsDiv.appendChild(div);});}
+document.addEventListener('DOMContentLoaded',async function(){const saved=localStorage.getItem('orionRole')||'user';setRole(saved);try{const res=await fetch('assets/search-index.json');searchIndex=await res.json();}catch(e){console.error('Failed to load search index:',e);}
+document.querySelectorAll('[data-page]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();render(this.dataset.page)}));document.getElementById('doc-search').addEventListener('input',e=>performSearch(e.target.value));render('home');});"""
 
-# Inject fresh pages object at the top of the JS file
-js = 'const pages=' + json.dumps(pages, ensure_ascii=False) + ';\n' + js_base
-# Inject fresh pages object at the top of the JS file
-js = 'const pages=' + json.dumps(pages, ensure_ascii=False) + ';\n' + js_base
+# Write minimal app.js (no embedded pages)
 (ROOT/'assets').mkdir(exist_ok=True)
-(ROOT/'assets/app.js').write_text(js, encoding='utf-8')
+(ROOT/'assets/app.js').write_text(js_base, encoding='utf-8')
+
+# Generate navigation from NAV list
+nav_html = generate_nav_html()
+
 # Cache-bust the generated JavaScript reference so browsers do not keep an older embedded page bundle.
 index_path=ROOT/'index.html'
 index=index_path.read_text(encoding='utf-8')
 stamp=str(int(time.time()))
 index=re.sub(r'assets/app\.js(?:\?v=[0-9]+)?', 'assets/app.js?v='+stamp, index)
-index_path.write_text(index,encoding='utf-8')
+
+# Inject generated nav into index.html (replace nav element)
+# Find <nav class="nav" id="doc-nav">...</nav> and replace its contents
+nav_start = index.find('<nav class="nav" id="doc-nav">')
+nav_end = index.find('</nav>', nav_start) + len('</nav>')
+if nav_start != -1 and nav_end > nav_start:
+    index = index[:nav_start] + '<nav class="nav" id="doc-nav">\n' + nav_html + '</nav>' + index[nav_end:]
+
+index_path.write_text(index, encoding='utf-8')
+
+# Generate the new hybrid architecture files
+pages_written = write_page_json_files()
+search_index_path = write_search_index()
+
 mode='all pages' if not (args.exclude_drafts or args.drafts_only) else ('excluding drafts' if args.exclude_drafts else 'drafts only')
 print(f'Project root: {ROOT}')
 print(f'Markdown source: {DOCS}')
 print(f'Generated bundle: {ROOT / "assets/app.js"}')
+print(f'Generated search index: {search_index_path}')
+print(f'Generated page files: {ROOT / "_pages"} ({pages_written} files)')
 print(f'Open this file: {index_path}')
 print(f'Build mode: {mode}')
 print(f'Built {len(pages)} pages from Markdown.')

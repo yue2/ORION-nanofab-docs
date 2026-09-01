@@ -13,14 +13,39 @@ revision: "0.1"
 ---
 # Imaging
 
+## Tuning focus
+
 Tune on a standard sample where possible to minimize exposure of the specimen.
 
-1. Navigate to the region of interest and use Continuous scanning for setup.
+1. Set landing energy to your designed value. Set aperture and spot control so that the beam current reaches your designed value.
+2. In normal imaging mode, using a relatively fast scan (1 - 5 us dwell time), start continuous scan.
+3. Adjust magnification and focus.
+4. Adjust beam shift:
+	1. In GFIS settings, find Lens 2 section. Start wobble, choose small or medium. Use a faster scan (0.5 - 1 us) to observe the wobble more clearly. 
+	2. Make sure the status bar shows beam shift before using the x-y knobs to correct the beam shift. 
+	3. When the beam shift values exceed +-200 mrad, the electrical adjustment is not sufficient. Go to aperture settings in the GFIS tab, adjust aperture position to minimize the wobble. Click save to save the aperture position.
+	4. Turn off Lens 2 wobble.
+5. Adjust astigmatism:
+	1. Zoom in to the edge of a feature. Adjust the stigmator knobs on the keyboard to make the edges sharp.
+	2. Take note of the stigmator values in GFIS settings as a reference point.
+- Repeat 3 -5 when necessary to achieve a good image focus.
 
-1. Set the desired beam current/spot, dwell time and scan size.
+## Imaging your sample
 
-1. At a flat region, iteratively correct astigmatism, Gun Shift/wobbler and focus.
+1. Navigate to the region of interest and use Continuous scanning for setup. The stage can tilt -5° to +54°.
+2. Set the desired dwell time and scan size.
+3. At a flat region, iteratively correct astigmatism, Gun Shift/wobbler and focus.
+4. For capture, go to the ==scan settings== in the left column. Set up a high quality scan. Suggested parameters: 1024x1024 px, line averaging 4 - 6, 2 - 5 µs dwell time. Increase dwell time and/or line averaging when higher quality is required.
+5. Stop continuous scan, then use Grab to take the image.
+6. Save the image to the designated data location.
 
-1. For capture, the local SOP suggests line averaging 8/16 and 2 µs dwell; increase dwell when higher quality is required.
+## Using flood gun
 
-1. Stop scanning, then use Grab and save the image to the approved data location.
+Use the flood gun to aid imaging non-conductive samples.
+
+1. In ZEN top menu, open Power Systems window. Turn on flood gun.
+2. From the left column of ZEN, find Flood Gun settings. Click show all to expand the setting options.
+3. Set flood gun mode to line.
+4. Keep default flood gun energy. Default flood time is 200 ms. Tune the flood time to longer if the imaging contrast is not satisfactory. Grid delay time should be >= flood time.
+5. Toggle the deflection x-y in flood gun window to optimize contrast.
+6. Astigmatism usually needs readjustment while using the flood gun.

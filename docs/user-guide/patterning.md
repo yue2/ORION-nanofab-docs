@@ -13,23 +13,26 @@ revision: "0.1"
 ---
 # Patterning
 
-1. Open the Patterning tab and focus before patterning.
+Use the ZEN patterning tab for simple patterns. If more advanced patterning is required, or if you want to use a saved pattern, use the NPVE PC.
 
-1. Set dose in ions/cm² and verify expected beam current.
+## ZEN patterning
 
-1. Use the local SOP values appropriate to He or Ne and the intended process.
+1. Focus on ROI before patterning.
+2. Open the Patterning tab. Select a shape from the graphics window and draw the pattern. Selected shapes show a yellow contour in the imaging window.
+3. In the left column of the software window, find Shape Properties. Set dose in ions/cm² and verify expected beam current.
+4. Click start to start the pattern irradiation.
 
-1. For complex patterns, use NPVE; verify the server/communication connection before starting.
+## NPVE
 
-1. Draw/import patterns, review parameters, select the intended patterns and start from the NPVE GUI.
+1. For complex patterns, use NPVE in the right hand side PC.
+2. Verify the server/communication connection before starting the NPVE software
+3. Click grab on NPVE to refresh the image.
+4. Draw/import patterns, review parameters.
+5. Select the intended patterns. Active shapes are in green.
+6. Click start from the NPVE GUI to start patterning.
+7. Save the current pattern in designated folder if you intend to repeat the pattern in the future.
 
 > **NOTE**  
 > Source note The local SOP records example process values; treat them as local working notes, not universal defaults.
 
-## Logic review — item requiring confirmation
-
-> **WARNING — WAITING FOR MANUAL CONFIRMATION**  
-> **ZEISS manual parameters to confirm for the local checklist:** acceleration voltage/ion species, aperture and Spot Control (beam current/diameter), dwell time and passes/repeats, beam overlap, scan direction, ion dose/fluence, and material-specific volume-per-dose/dose-array information. The NPVE workflow then calls for aperture selection, acceleration voltage, HIM alignment, gas selection, image capture, drawing patterns, setting pattern parameters, defining the stop criterion, and starting the pattern.  
-> **Manual references:** §12.1.1 Patterning Parameters, printed pp. **233–237** (PDF pages **238–242**); §12.2 Patterning Basics Using NPVE and §12.2.1 Patterning Process, printed p. **238** onward (PDF **243** onward).  
-> **Waiting for confirmation:** decide which of these fields are mandatory in the local He/Ne patterning checklist and which values are application-specific rather than fixed defaults.
 

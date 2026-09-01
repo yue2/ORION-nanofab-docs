@@ -1,0 +1,16 @@
+{
+  "key": "powerup",
+  "title": "Power-Up",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>Power-Up</h1>\n<p>Power-up is not simply the reverse of shutdown.</p>\n<ol>\n<li>Verify facility CDA and N₂ are restored.</li>\n</ol>\n<ol>\n<li>Restore Dewar pump, UPS and chase-rack supplies; allow self-checks.</li>\n</ol>\n<ol>\n<li>Boot the NanoFab PC and start Athena/System Manager.</li>\n</ol>\n<ol>\n<li>Verify Power Distribution, hardware communications and firmware Query results.</li>\n</ol>\n<ol>\n<li>Start the vacuum system in the documented rough/pump sequence.</li>\n</ol>\n<ol>\n<li>Restore optional subsystems only after their required vacuum conditions are met.</li>\n</ol>\n<h2>Logic review — source reconciliation required</h2>\n<blockquote><strong>WARNING — WAITING FOR MANUAL CONFIRMATION</strong></blockquote>\n<blockquote>The ZEISS <strong>Operator Manual does not provide the complete facilities power-outage recovery sequence</strong>; that sequence is in the separate ZEISS power-outage procedure. The Operator Manual can, however, supply post-recovery acceptance checks: GFIS column state <strong>Pumped</strong>, gun pressure <strong>&lt;1E-9 Torr</strong>, gun temperature <strong>73–85 K</strong>, column pressure <strong>&lt;1E-8 Torr</strong>, chamber state <strong>Pumped</strong> with chamber pressure <strong>&lt;3E-7 Torr</strong>, and Dewar <strong>Maintain Cool</strong> with bottom temperature <strong>&lt;60 K</strong>.</blockquote>\n<blockquote><strong>Manual references:</strong> ZEISS Operator Manual §5.1 Basic System Checks, printed p. <strong>94</strong> (PDF page <strong>99</strong>); gun/Dewar troubleshooting §7.4, printed pp. <strong>157–165</strong> (PDF <strong>162–170</strong>).</blockquote>\n<blockquote><strong>Waiting for confirmation:</strong> mark non-installed GaFIB/GIS/NPVE options N/A and confirm which of these manufacturer checks are the required local release checkpoints after the separate power-up/recovery procedure.</blockquote><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> HIM_shutdown_and_open_procedure.pdf, ZEISS_Power_Outage_Procedure.pdf, Shutdown_and_Power_Up_NanoFab.jpg</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "HIM_shutdown_and_open_procedure.pdf",
+      "ZEISS_Power_Outage_Procedure.pdf",
+      "Shutdown_and_Power_Up_NanoFab.jpg"
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "key": "gas",
+  "title": "Gas Cylinders",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>Gas Cylinders</h1>\n<p>Local superuser notes distinguish compressed air for column valves and dry N₂ for load-lock purge.</p>\n<ol>\n<li>Monitor local pressure indications and replace cylinders at the locally documented threshold.</li>\n</ol>\n<ol>\n<li>Before disconnecting, place the relevant Dewar/table suspension state as documented locally.</li>\n</ol>\n<ol>\n<li>Close/isolate valves, exchange the cylinder and renew sealing tape as required.</li>\n</ol>\n<ol>\n<li>Perform the documented static pressure leak check before returning to service.</li>\n</ol>\n<ol>\n<li>Re-check pressure over the following days for unexpected loss.</li>\n</ol><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> HIM_superuser_maintenance.pdf, ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "HIM_superuser_maintenance.pdf",
+      "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
+    ]
+  }
+}

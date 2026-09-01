@@ -1,0 +1,15 @@
+{
+  "key": "vacuum",
+  "title": "Vacuum Problems",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>Vacuum Problems</h1>\n<h2>Symptom</h2>\n<p>Use this page when the gun/column, chamber, or Dewar does not reach or maintain its expected vacuum state or pressure, when a pump/valve state is abnormal, or when a vacuum module remains in an unexpected state. The affected region should be identified before any corrective action is attempted.</p>\n<p>The ZEISS manual separates gun/column, chamber and Dewar vacuum regions. Use the Vacuum Dashboard to diagnose state, pressure, valves and pumps.</p>\n<blockquote><strong>NOTE</strong></blockquote>\n<blockquote>Normal users The manufacturer describes the Vacuum Dashboard as useful for observation during normal operation; Superusers use diagnostic controls only under the approved procedure.</blockquote>\n<h2>Logic review — incomplete curated procedure</h2>\n<blockquote><strong>WARNING — WAITING FOR MANUAL CONFIRMATION</strong></blockquote>\n<blockquote><strong>ZEISS manual guidance to confirm locally:</strong> start with the Basic System Checks (gun <strong>&lt;1E-9 Torr</strong>, column <strong>&lt;1E-8 Torr</strong>, chamber <strong>&lt;3E-7 Torr</strong>, Dewar Maintain Cool). Use normal state-machine commands rather than Diagnostic mode; the manual warns that Diag gives individual valve/pump control and should only be used by a trained engineer or under ZEISS instruction. For gun/column faults, §7.4.6 provides Pump-state checks; for Dewar faults, §7.4.5 checks contents pressure, rough valve and rough pump before service escalation.</blockquote>\n<blockquote><strong>Manual references:</strong> §5.1 printed p. <strong>94</strong> (PDF <strong>99</strong>); Vacuum Dashboard §7.1, printed pp. <strong>144–150</strong> (PDF <strong>149–155</strong>); Dewar Issues §7.4.5, printed pp. <strong>161–164</strong> (PDF <strong>166–169</strong>); Gun/Column Pressure §7.4.6, printed pp. <strong>165–166</strong> (PDF <strong>170–171</strong>).</blockquote>\n<blockquote><strong>Waiting for confirmation:</strong> define the site's stop-work thresholds and explicitly list which state-machine actions are authorized for superusers. Keep Diag-mode actions outside the local procedure unless separately authorized.</blockquote><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf, HIM_main_chamber_vent.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf",
+      "HIM_main_chamber_vent.pdf"
+    ]
+  }
+}

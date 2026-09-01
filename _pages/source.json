@@ -1,0 +1,16 @@
+{
+  "key": "source",
+  "title": "Source Maintenance",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>Source Maintenance</h1>\n<p>Use the ZEISS source-maintenance sequence as the primary technical reference: process selection, repair/form source, select trimer, determine BIV, align source and set source distance.</p>\n<blockquote><strong>NOTE</strong></blockquote>\n<blockquote>Local maintenance notes supplement this with site-specific observations and recovery steps. Where local and manufacturer procedures differ, resolve the controlled procedure before publication.</blockquote>\n<h2>Logic review — incomplete curated procedure</h2>\n<blockquote><strong>WARNING — WAITING FOR MANUAL CONFIRMATION</strong></blockquote>\n<blockquote><strong>ZEISS manual guidance to confirm locally:</strong> Use the GFIS Source Maintenance workflow in this order: Basic Source Maintenance / Process Selection, Form the Source, Select a Trimer, Determine BIV, Align Source, then Set Source Distance. The manual says the default Form the Source selections are <strong>Maintain BIV Source Build</strong> and <strong>Keep most recent field</strong>, and the process should reach <strong>Form Completed / SUCCEEDED</strong> before moving to Select a Trimer. Select a Trimer requires a conductive, preferably featureless sample under the beam.</blockquote>\n<blockquote><strong>Manual references:</strong> ZEISS Operator Manual §5.2, printed pp. <strong>95–121</strong> (PDF pages <strong>100–126</strong>); Form the Source §5.2.3, printed pp. <strong>98–104</strong> (PDF <strong>103–109</strong>); Select a Trimer §5.2.4, printed pp. <strong>105–110</strong> (PDF <strong>110–115</strong>).</blockquote>\n<blockquote><strong>Waiting for confirmation:</strong> confirm the site-approved process selection, BIV acceptance range, source-alignment acceptance criteria, and source-distance calibration value before this becomes a controlled local workflow.</blockquote><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> HIM_trimer_form.pdf, HIM_overheat.pdf, ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "HIM_trimer_form.pdf",
+      "HIM_overheat.pdf",
+      "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
+    ]
+  }
+}

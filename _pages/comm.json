@@ -1,0 +1,15 @@
+{
+  "key": "comm",
+  "title": "Communication / Firmware",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>Communication / Firmware</h1>\n<h2>Symptom</h2>\n<p>Suspect a communication or firmware problem when a NanoFab module is <strong>not communicating with the UI</strong>, when its functions cannot be controlled, or when its readbacks stop updating. The Hardware Communication Status and Firmware Update/Query Nodes screens are used to identify the affected controller or node.</p>\n<ol>\n<li>Open Service Machine → Hardware Communication Status and check for yellow/red modules.</li>\n</ol>\n<ol>\n<li>Restart Athena/System Manager if required to re-establish module communication.</li>\n</ol>\n<ol>\n<li>Open Firmware Update and use Query/Query Nodes; verify expected nodes return OK/green checks.</li>\n</ol>\n<ol>\n<li>If a local recovery procedure calls for restarting ZEN/server/PC, record the action and re-check trimer before returning to users.</li>\n</ol><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf, HIM_trimer_form.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf",
+      "HIM_trimer_form.pdf"
+    ]
+  }
+}

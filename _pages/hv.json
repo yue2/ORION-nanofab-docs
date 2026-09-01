@@ -1,0 +1,14 @@
+{
+  "key": "hv",
+  "title": "High Voltage",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>High Voltage</h1>\n<p>ZEISS labels identify electric-shock and UPS live-voltage hazards. Protective cover panels should only be removed by trained ZEISS service engineers. High-voltage electrical currents can be fatal.</p><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "key": "system",
+  "title": "System Overview",
+  "access": "all-users",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge\">ALL USERS</span><h1>System Overview</h1>\n<p>The ORION NanoFab uses a helium or neon gas field ion source (GFIS). Major subsystems include the GFIS gun/column, process chamber and air lock, ET detector, flood gun, Dewar, gas delivery, vacuum system, operator console, and optional Ga FIB/GIS/NPVE systems.</p>\n<p>The ZEISS manual's Figure 4 provides a labeled process-module overview.</p><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
+    ]
+  }
+}

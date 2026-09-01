@@ -1,0 +1,14 @@
+{
+  "key": "overheat",
+  "title": "Gun Overheat",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>Gun Overheat</h1>\n<h2>Symptom</h2>\n<p>When the gun temperature value in the vacuum screen exceeds 95K.</p>\n<h2>Possible causes</h2>\n<ul>\n<li>LN2 supply has been exhausted</li>\n<li>During a Dewar refill. A Dewar fill can temporarily raise gun temperature before it returns to normal.</li>\n</ul>\n<h2>What to do</h2>\n<ol>\n<li>In case of a scheduled Dewar refill (8 am or 8 pm every day), do not use the tool. Avoid starting GFIS from 6 am (pm) to 830 am (pm)</li>\n<li>In case of exhausted LN2 supply, meaning that the main tank is depleted but the next delivery has not arrived.</li>\n<li>In Service Machine → Power Distribution, disable accelerator, Lens 1 and extractor.</li>\n<li>Physically isolate the documented HVP connections only if trained/authorized.</li>\n<li>When LN2 is delivered, connect the heating cable and start the bake and cool process.</li>\n<li>After completion, reconnect, remove heating cable, run GFIS source repair/degas, then form source and trimer.</li>\n</ol>\n<blockquote><strong>WARNING</strong></blockquote>\n<blockquote>High voltage This is restricted maintenance. Follow lockout/site electrical safety requirements.</blockquote>\n<h2>Logic review — unresolved source gaps</h2>\n<blockquote><strong>Manual references:</strong> §7.4.3 Column Maintenance and §7.4.4 Gun Temperature, printed pp. <strong>160–161</strong> (PDF pages <strong>165–166</strong>); §7.4.5 Dewar Issues, printed pp. <strong>161–164</strong> (PDF <strong>166–169</strong>).</blockquote>\n<blockquote><strong>Waiting for confirmation:</strong> the Operator Manual does <strong>not</strong> confirm the local note's physical HVP-disconnection/heating-cable sequence or its bake completion criteria. Confirm whether that intrusive local recovery is still required, and if so document heater connection, bake recipe/duration, completion indication, electrical isolation and reconnection criteria from the applicable service procedure.</blockquote><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> HIM_overheat.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "HIM_overheat.pdf"
+    ]
+  }
+}

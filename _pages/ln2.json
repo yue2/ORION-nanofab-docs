@@ -1,0 +1,15 @@
+{
+  "key": "ln2",
+  "title": "LN₂ System",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>LN₂ System</h1>\n<p>The integrated Dewar cools the GFIS gun to cryogenic temperature and is automatically refilled from an external tank.</p>\n<ol>\n<li>Before external tank exchange, put Dewar Control into servicing mode / Begin Servicing so Auto Fill cannot start.</li>\n</ol>\n<ol>\n<li>Standby the GFIS column when moving the tank because movement can disturb the beam.</li>\n</ol>\n<ol>\n<li>After refill/reconnection, verify valves and use Done Servicing to restore automatic refill.</li>\n</ol>\n<blockquote><strong>WARNING</strong></blockquote>\n<blockquote>Cryogenic hazard Follow institutional LN₂ handling rules and the ZEISS safety labels/MSDS guidance.</blockquote><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> HIM_superuser_maintenance.pdf, ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "HIM_superuser_maintenance.pdf",
+      "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
+    ]
+  }
+}

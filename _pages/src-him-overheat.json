@@ -1,0 +1,14 @@
+{
+  "key": "src-him-overheat",
+  "title": "HIM overheat",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>HIM overheat</h1>\n<blockquote><strong>Source transcription.</strong> Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diagrams, screenshots, handwritten annotations, and layout are preserved even where PDF text extraction is incomplete.</blockquote>\n<h2>Page 1</h2>\n<p>Gun temperature too high bc LN2 exhausted In system manager, found service machine Power distribution -&gt; uncheck accelerator, lens1 and extractor a. b. Physically unplug HVP cables for accelerator, lens1 and extractor. Cover the ends of cables with gloves c. d. 2. HIM overheat Wednesday, February 9, 2022 10:41 AM</p>\n<p>maintenance Page 1</p>\n<p><img src=\"assets/img/pdf-pages/him-overheat/page-001.webp\" alt=\"HIM overheat - page 1\"></p>\n<p><em>Page 1 facsimile from <code>HIM_overheat.pdf</code>.</em></p>\n<h2>Page 2</h2>\n<p>e. Connect heating cable f. g. Start baking process 3.</p>\n<p>maintenance Page 2</p>\n<p><img src=\"assets/img/pdf-pages/him-overheat/page-002.webp\" alt=\"HIM overheat - page 2\"></p>\n<p><em>Page 2 facsimile from <code>HIM_overheat.pdf</code>.</em></p>\n<h2>Page 3</h2>\n<p>4. When finish, Plug back lenses and extractor 1. Unplug heating cable 2. In ZEN, start GFIS source maintenance -&gt; source repair -&gt; degas 3. Form the source and trimer 4. When trimer cannot be formed even at very high, choose decrease BIV source build at form the source stage. Record the BIV number at next trimer formation</p>\n<p>maintenance Page 3</p>\n<p><img src=\"assets/img/pdf-pages/him-overheat/page-003.webp\" alt=\"HIM overheat - page 3\"></p>\n<p><em>Page 3 facsimile from <code>HIM_overheat.pdf</code>.</em></p><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Status</dt><dd>source-transcription</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> HIM_overheat.pdf</p>",
+  "metadata": {
+    "status": "source-transcription",
+    "owner": "HIM Superuser",
+    "last-reviewed": "",
+    "sources": [
+      "HIM_overheat.pdf"
+    ]
+  }
+}

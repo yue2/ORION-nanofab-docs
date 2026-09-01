@@ -16,3 +16,95 @@ The second command regenerates the Superuser-downloadable User Guide PDF with lo
 This project includes a custom VS Code agent (`.agent.md`) for read-only documentation auditing. See `MAINTAINING_THE_DOCS.md` for setup and usage.
 
 The agent enforces strict access controls per `AGENTS.md` and cannot modify files, run builds, or execute Git commands that alter the repository.
+
+## Local Development: Running the Documentation
+
+The documentation uses client-side `fetch()` to load pages dynamically. Modern browsers block fetch requests from the `file://` protocol (double-clicking `index.html`).
+
+**To preview locally, you must serve the files via HTTP:**
+
+### Option 1: Python HTTP Server (Recommended)
+
+```bash
+cd /path/to/project
+python3 -m http.server 8000
+```
+
+Then open in your browser:
+```
+http://localhost:8000
+```
+
+Press `Ctrl+C` to stop the server.
+
+### Option 2: Node.js HTTP Server
+
+If you have Node.js installed:
+
+```bash
+cd /path/to/project
+npx http-server -p 8000
+```
+
+Then open:
+```
+http://localhost:8000
+```
+
+### Option 3: VS Code Live Server Extension
+
+1. Install **Live Server** extension in VS Code
+2. Right-click `index.html` → **Open with Live Server**
+3. Browser opens automatically at `http://127.0.0.1:5500`
+
+---
+
+## Deployment: Static Hosting
+
+The generated site is fully static and works on any HTTP/HTTPS server:
+
+- **GitHub Pages**: Push the project root to a GitHub repository; enable Pages in Settings
+- **AWS S3 + CloudFront**: Upload the entire project directory
+- **Netlify**: Connect your Git repository; auto-deploys on push
+- **Any traditional web hosting**: Upload via FTP/SFTP to `public_html/` or equivalent
+
+No server-side processing is required. The entire site (`index.html`, `assets/`, `_pages/`, etc.) is served as static files.
+
+---
+
+## Build Workflow
+
+1. **Edit Markdown** in `docs/`
+2. **Run the build** locally:
+   ```bash
+   python3 build_site.py
+   ```
+3. **Preview** via HTTP server:
+   ```bash
+   python3 -m http.server 8000
+   # Open http://localhost:8000
+   ```
+4. **Commit changes** to Git
+5. **Push to production** (GitHub Pages, S3, Netlify, etc.)
+
+## User Guide Export (Printable)
+
+Generate a printable HTML version of the User Guide:
+
+```bash
+python3 build_user_guide.py
+```
+
+This creates `exports/user-guide.html` with:
+- All Markdown content parsed and formatted
+- Images embedded (base64-encoded)
+- Print-friendly CSS styling
+- Zero external dependencies
+
+**To save as PDF:**
+1. Open `exports/user-guide.html` in your browser
+2. Press **Cmd+P** (macOS) or **Ctrl+P** (Windows/Linux)
+3. Select "Save as PDF"
+4. Choose location and filename
+
+No `reportlab` package installation required.

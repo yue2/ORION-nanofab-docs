@@ -1,0 +1,15 @@
+{
+  "key": "vacuumrecovery",
+  "title": "Vacuum Recovery",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>Vacuum Recovery</h1>\n<ol>\n<li>Verify Dewar state and required valves.</li>\n</ol>\n<ol>\n<li>Set GFIS Column to Pump No Ion Pump.</li>\n</ol>\n<ol>\n<li>Set Chamber to Rough; after Rough Vac, open the Dewar jacket valve as documented.</li>\n</ol>\n<ol>\n<li>Select Pump for the chamber and monitor transition to Ready.</li>\n</ol>\n<ol>\n<li>Observe pressure trends before enabling ion pumps or isolation states.</li>\n</ol>\n<blockquote><strong>WARNING</strong></blockquote>\n<blockquote>Do not improvise valve/pump sequencing Use the manufacturer procedure and current site configuration.</blockquote><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> HIM_shutdown_and_open_procedure.pdf, ZEISS_Power_Outage_Procedure.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "HIM_shutdown_and_open_procedure.pdf",
+      "ZEISS_Power_Outage_Procedure.pdf"
+    ]
+  }
+}

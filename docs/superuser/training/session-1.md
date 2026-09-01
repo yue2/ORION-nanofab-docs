@@ -12,15 +12,9 @@ revision: "0.1"
 # Training Session 1
 
 1. Basic microscopy and importance of vacuum, temperature and acoustic stability.
-
-1. Tool components and HIM working principle.
-
-1. Pre-use checks: previous logs, temperature, vacuum and LN₂.
-
-1. ZEN GUI and status bars.
-
-1. Sample holder, mounting, height, tilt/rotation, loading/unloading.
-
-1. Hands-on transfer into the main chamber.
-
-1. Beam alignment, stigmatism correction, focus and imaging practice.
+2. Tool components and HIM working principle.
+3. Pre-use checks: previous logs, temperature, vacuum and LN₂.
+4. ZEN GUI and status bars.
+5. Sample holder, mounting, height, tilt/rotation, loading/unloading.
+6. Hands-on transfer into the main chamber.
+7. Beam alignment, stigmatism correction, focus and imaging practice.

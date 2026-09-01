@@ -1,0 +1,326 @@
+[
+  {
+    "key": "home",
+    "title": "Home",
+    "text": "ORION NanoFab DocumentationALL USERSHome ZEISS ORION NanoFab workstation. Operational documentation for trained users and superusers. Use the User Guide for normal operation, Reference for background,",
+    "access": "all-users"
+  },
+  {
+    "key": "before",
+    "title": "Before You Start",
+    "text": "ORION NanoFab DocumentationALL USERSBefore You Start Complete the pre-use checks before beginning a work session. WARNING Stop conditions Do not proceed if there are unexplained errors, gun temperatur",
+    "access": "all-users"
+  },
+  {
+    "key": "loading",
+    "title": "Sample Loading & Unloading",
+    "text": "ORION NanoFab DocumentationALL USERSSample Loading &amp; Unloading Sample stage is stored inside the main chamber by default. In ZEN software, from the top menu buttons, select Sample Management to op",
+    "access": "all-users"
+  },
+  {
+    "key": "start",
+    "title": "Starting a Session",
+    "text": "ORION NanoFab DocumentationALL USERSStarting a Session After loading the samples, wait for the main chamber pressure to go below 5e-7 torr then start your experiments. The following operations will be",
+    "access": "all-users"
+  },
+  {
+    "key": "imaging",
+    "title": "Imaging",
+    "text": "ORION NanoFab DocumentationALL USERSImaging Tuning focus Tune on a standard sample where possible to minimize exposure of the specimen. Set landing energy to your designed value. Set aperture and spot",
+    "access": "all-users"
+  },
+  {
+    "key": "patterning",
+    "title": "Patterning",
+    "text": "ORION NanoFab DocumentationALL USERSPatterning Use the ZEN patterning tab for simple patterns. If more advanced patterning is required, or if you want to use a saved pattern, use the NPVE PC. ZEN patt",
+    "access": "all-users"
+  },
+  {
+    "key": "neon",
+    "title": "Working with Neon",
+    "text": "ORION NanoFab DocumentationALL USERSWorking with Neon Set up the microscope, find your region of interest while working with He. Save stage positions. Stop the scan. In GFIS settings, change aperture ",
+    "access": "all-users"
+  },
+  {
+    "key": "end",
+    "title": "Ending a Session",
+    "text": "ORION NanoFab DocumentationALL USERSEnding a Session Return tilt and scan rotation to 0°. In GFIS settings, turn off gas. Make sure gas is Off / GFIS is in Standby. Ramp down Lens 2 voltage. When volt",
+    "access": "all-users"
+  },
+  {
+    "key": "warning",
+    "title": "Warning Signals / When to Stop",
+    "text": "ORION NanoFab DocumentationALL USERSWarning Signals / When to Stop WARNING Stop and contact a Superuser Unexplained system errors Gun temperature above 95K Insufficient LN₂ Abnormal vacuum O₂/fire/fac",
+    "access": "all-users"
+  },
+  {
+    "key": "training",
+    "title": "Training Overview",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTraining Overview Training is two 3-hour sessions followed by a 30-minute competency test. Safety Training Alarm recognition, cryogenic/high-voltage hazards an",
+    "access": "superuser"
+  },
+  {
+    "key": "safetytraining",
+    "title": "Safety Training",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYSafety Training WARNING O₂ monitor Local superuser notes place the O₂ monitor outside the HIM room, with a normal reading around 20–21%; evacuate personnel if ",
+    "access": "superuser"
+  },
+  {
+    "key": "session1",
+    "title": "Training Session 1",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTraining Session 1 Basic microscopy and importance of vacuum, temperature and acoustic stability. Tool components and HIM working principle. Pre-use checks: pr",
+    "access": "superuser"
+  },
+  {
+    "key": "session2",
+    "title": "Training Session 2",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTraining Session 2 Hands-on repetition of Session 1. Flood-gun use on a non-conducting standard sample. Patterning using ZEN. Patterning using NPVE. Review/cor",
+    "access": "superuser"
+  },
+  {
+    "key": "competency",
+    "title": "Competency Test",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYCompetency Test Duration: 30 minutes. Use the standard gold sample for training/assessment. If the trainee does not qualify, schedule additional training befor",
+    "access": "superuser"
+  },
+  {
+    "key": "maintenance",
+    "title": "Maintenance",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYMaintenance Routine Checks Logs, vacuum, temperature, LN₂ and basic system state. Trimer Formation Form source, select trimer, BIV and alignment. LN₂ System Au",
+    "access": "superuser"
+  },
+  {
+    "key": "routine",
+    "title": "Routine Checks",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYRoutine Checks Maintain a daily log of base pressures, gun temperature and Dewar pressure. The ZEISS manual notes that trend data can provide early warning of ",
+    "access": "superuser"
+  },
+  {
+    "key": "trimer",
+    "title": "Trimer Formation",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTrimer Formation WARNING Maintenance procedure Only trained Superusers should perform source/trimer formation and high-voltage related recovery. Use the standa",
+    "access": "superuser"
+  },
+  {
+    "key": "ln2",
+    "title": "LN₂ System",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYLN₂ System The integrated Dewar cools the GFIS gun to cryogenic temperature and is automatically refilled from an external tank. Before external tank exchange,",
+    "access": "superuser"
+  },
+  {
+    "key": "gas",
+    "title": "Gas Cylinders",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYGas Cylinders Local superuser notes distinguish compressed air for column valves and dry N₂ for load-lock purge. Monitor local pressure indications and replace",
+    "access": "superuser"
+  },
+  {
+    "key": "source",
+    "title": "Source Maintenance",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYSource Maintenance Use the ZEISS source-maintenance sequence as the primary technical reference: process selection, repair/form source, select trimer, determin",
+    "access": "superuser"
+  },
+  {
+    "key": "shutdown",
+    "title": "Planned Shutdown",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYPlanned Shutdown WARNING Start preparation the day before Both the local procedure and ZEISS power-outage procedure require warming the GFIS before vacuum is c",
+    "access": "superuser"
+  },
+  {
+    "key": "powerup",
+    "title": "Power-Up",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYPower-Up Power-up is not simply the reverse of shutdown. Verify facility CDA and N₂ are restored. Restore Dewar pump, UPS and chase-rack supplies; allow self-c",
+    "access": "superuser"
+  },
+  {
+    "key": "vacuumrecovery",
+    "title": "Vacuum Recovery",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYVacuum Recovery Verify Dewar state and required valves. Set GFIS Column to Pump No Ion Pump. Set Chamber to Rough; after Rough Vac, open the Dewar jacket valve",
+    "access": "superuser"
+  },
+  {
+    "key": "gfisrecovery",
+    "title": "GFIS Recovery",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYGFIS Recovery The ZEISS outage procedure states that the GFIS gun/column requires a bake after loss of UHV; its standard recommendation is 100 h. Verify GFIS s",
+    "access": "superuser"
+  },
+  {
+    "key": "trouble",
+    "title": "Troubleshooting",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTroubleshooting Symptom Start here when the instrument shows an abnormal condition, fails to reach an expected state, loses communication, cannot produce a usa",
+    "access": "superuser"
+  },
+  {
+    "key": "chamber",
+    "title": "Main Chamber Vent",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYMain Chamber Vent Symptom WARNING — WAITING FOR MANUAL CONFIRMATION The local source documents the chamber-vent recovery steps but does not clearly state the i",
+    "access": "superuser"
+  },
+  {
+    "key": "overheat",
+    "title": "Gun Overheat",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYGun Overheat Symptom When the gun temperature value in the vacuum screen exceeds 95K. Possible causes LN2 supply has been exhausted During a Dewar refill. A De",
+    "access": "superuser"
+  },
+  {
+    "key": "vacuum",
+    "title": "Vacuum Problems",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYVacuum Problems Symptom Use this page when the gun/column, chamber, or Dewar does not reach or maintain its expected vacuum state or pressure, when a pump/valv",
+    "access": "superuser"
+  },
+  {
+    "key": "comm",
+    "title": "Communication / Firmware",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYCommunication / Firmware Symptom Suspect a communication or firmware problem when a NanoFab module is not communicating with the UI, when its functions cannot ",
+    "access": "superuser"
+  },
+  {
+    "key": "trimerproblem",
+    "title": "Trimer Problems",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTrimer Problems Symptom Use this page when the expected three-atom trimer cannot be found or formed, or when source emission is visible but a usable trimer is ",
+    "access": "superuser"
+  },
+  {
+    "key": "imageproblem",
+    "title": "Image Problems",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYImage Problems Symptom Use this page when the instrument is scanning but there is no valid image, or when the displayed signal does not respond as expected. Th",
+    "access": "superuser"
+  },
+  {
+    "key": "safety",
+    "title": "Safety Overview",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYSafety Overview Standalone safety reference; relevant recognition/stop information is repeated in Training and User Guide. O₂ / N₂ Safety Fire &amp; Gas Suppre",
+    "access": "superuser"
+  },
+  {
+    "key": "o2",
+    "title": "O₂ / N₂ Safety",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYO₂ / N₂ Safety WARNING Low oxygen Local notes: O₂ monitor outside HIM room, channel 1; normal reading about 20–21%. If N₂ leakage causes O₂ below 20%, evacuate",
+    "access": "superuser"
+  },
+  {
+    "key": "fire",
+    "title": "Fire & Gas Suppression",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYFire &amp; Gas Suppression Local superuser notes state there are fire sensors in each room and instruct evacuation to the fire assembly point for a fire. They ",
+    "access": "superuser"
+  },
+  {
+    "key": "hv",
+    "title": "High Voltage",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYHigh Voltage ZEISS labels identify electric-shock and UPS live-voltage hazards. Protective cover panels should only be removed by trained ZEISS service enginee",
+    "access": "superuser"
+  },
+  {
+    "key": "chambersafety",
+    "title": "Vacuum / Chamber Safety",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYVacuum / Chamber Safety Protect the source, detector and vacuum system during chamber work. Chamber vent/open procedures are Superuser-only and require control",
+    "access": "superuser"
+  },
+  {
+    "key": "emergency",
+    "title": "Emergency Procedures",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYEmergency Procedures ZEISS states EMO buttons are only for an actual emergency requiring immediate removal of microscope electrical power. EMO shutdown can cau",
+    "access": "superuser"
+  },
+  {
+    "key": "system",
+    "title": "System Overview",
+    "text": "ORION NanoFab DocumentationALL USERSSystem Overview The ORION NanoFab uses a helium or neon gas field ion source (GFIS). Major subsystems include the GFIS gun/column, process chamber and air lock, ET ",
+    "access": "all-users"
+  },
+  {
+    "key": "gfis",
+    "title": "GFIS Controls",
+    "text": "ORION NanoFab DocumentationALL USERSGFIS Controls The GFIS column includes the source/extractor, Lens 1, quadrupoles, beam-limiting aperture, blanker/Faraday, octopoles, Lens 2 and column isolation va",
+    "access": "all-users"
+  },
+  {
+    "key": "vacref",
+    "title": "Vacuum System",
+    "text": "ORION NanoFab DocumentationALL USERSVacuum System Three vacuum regions are described by ZEISS: gun/column, chamber and Dewar. The Vacuum Dashboard displays their pumps, valves, pressures and states. N",
+    "access": "all-users"
+  },
+  {
+    "key": "concepts",
+    "title": "Imaging Concepts",
+    "text": "ORION NanoFab DocumentationALL USERSImaging Concepts Reference topics include the trimer, Best Imaging Voltage (BIV), focus, astigmatism, contrast/brightness, field of view, scan size, dwell time, ave",
+    "access": "all-users"
+  },
+  {
+    "key": "glossary",
+    "title": "Glossary",
+    "text": "ORION NanoFab DocumentationALL USERSGlossary GFIS: Gas Field Ion Source; helium or neon in the ORION NanoFab. BIV: Best Imaging Voltage, determined during source/trimer maintenance. NPVE: NanoPatterni",
+    "access": "all-users"
+  },
+  {
+    "key": "originals",
+    "title": "Original Documents",
+    "text": "ORION NanoFab DocumentationALL USERSOriginal Documents These source files are retained for traceability. Generated documentation does not replace controlled source documents. HIM_main_chamber_vent.pdf",
+    "access": "all-users"
+  },
+  {
+    "key": "infobase",
+    "title": "PDF Information Base",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYPDF Information Base These pages preserve the complete extracted text and a page facsimile for every uploaded PDF. The facsimiles retain figures, screenshots, ",
+    "access": "superuser"
+  },
+  {
+    "key": "src-him-main-chamber-vent",
+    "title": "HIM main chamber vent",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYHIM main chamber vent Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diagrams, scre",
+    "access": "superuser"
+  },
+  {
+    "key": "src-him-overheat",
+    "title": "HIM overheat",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYHIM overheat Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diagrams, screenshots, ",
+    "access": "superuser"
+  },
+  {
+    "key": "src-him-shutdown-and-open-procedure",
+    "title": "HIM shutdown and open procedure",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYHIM shutdown and open procedure Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diag",
+    "access": "superuser"
+  },
+  {
+    "key": "src-him-shutdown-procedure",
+    "title": "HIM shutdown procedure",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYHIM shutdown procedure Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diagrams, scr",
+    "access": "superuser"
+  },
+  {
+    "key": "src-him-superuser-maintenance",
+    "title": "HIM superuser maintenance",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYHIM superuser maintenance Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diagrams, ",
+    "access": "superuser"
+  },
+  {
+    "key": "src-him-trimer-form",
+    "title": "HIM trimer form",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYHIM trimer form Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diagrams, screenshot",
+    "access": "superuser"
+  },
+  {
+    "key": "src-shutdown-procedure-scanned",
+    "title": "Shutdown procedure scanned",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYShutdown procedure scanned Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diagrams,",
+    "access": "superuser"
+  },
+  {
+    "key": "src-sop-orion-nanofab-he-ne-users",
+    "title": "SOP ORION NanoFab He Ne Users",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYSOP ORION NanoFab He Ne Users Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diagra",
+    "access": "superuser"
+  },
+  {
+    "key": "src-zeiss-orion-nanofab-operator-manual-rev2",
+    "title": "ZEISS ORION NanoFab Operator Manual Rev2",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYZEISS ORION NanoFab Operator Manual Rev2 Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figu",
+    "access": "superuser"
+  },
+  {
+    "key": "src-zeiss-power-outage-procedure",
+    "title": "ZEISS Power Outage Procedure",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYZEISS Power Outage Procedure Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diagram",
+    "access": "superuser"
+  }
+]

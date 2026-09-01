@@ -1,0 +1,14 @@
+{
+  "key": "imageproblem",
+  "title": "Image Problems",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>Image Problems</h1>\n<h2>Symptom</h2>\n<p>Use this page when the instrument is scanning but there is <strong>no valid image</strong>, or when the displayed signal does not respond as expected. The ZEISS troubleshooting sequence distinguishes detector/noise problems from cases where secondary electrons are not reaching the ET detector or no ion beam is present.</p>\n<p>Check the basic image configuration, ET detector, beam presence, focus/stigmation, Gun Shift and trimer alignment. The ZEISS manual contains dedicated troubleshooting sections for image configuration, ET detector and checking for an ion beam.</p>\n<h2>Logic review — incomplete curated procedure</h2>\n<blockquote><strong>WARNING — WAITING FOR MANUAL CONFIRMATION</strong></blockquote>\n<blockquote><strong>ZEISS manual diagnostic order for a no-image condition:</strong> verify imaging gas is on and gun pressure reaches set point; select <strong>Big Hole</strong>; verify <strong>Autoblanking</strong>; verify a suitable sample is under the beam; verify scanning is running; then check the ET detector. If configuration and detector checks pass, verify a trimer/beam is present and verify Accelerator, Extractor, Lens 1 and Lens 2 supplies are enabled. The manual directs service escalation when these checks do not resolve the fault.</blockquote>\n<blockquote><strong>Manual references:</strong> §7.6 Image Issues, printed pp. <strong>167–173</strong> (PDF pages <strong>172–178</strong>); Basic Image Configuration §7.6.1, printed pp. <strong>167–169</strong>; ET Detector §7.6.2, printed pp. <strong>169–172</strong>; Ion Beam §7.6.3, printed pp. <strong>172–173</strong>.</blockquote>\n<blockquote><strong>Waiting for confirmation:</strong> confirm which checks local superusers are authorized to perform and add site-specific branches for poor contrast, charging, focus/astigmatism and escalation.</blockquote><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
+    ]
+  }
+}

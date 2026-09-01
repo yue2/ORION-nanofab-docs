@@ -12,13 +12,12 @@ revision: "0.1"
 ---
 # Working with Neon
 
-1. Set up the microscope and save stage positions while still working with helium.
-
-1. Switch to a neon-compatible aperture before changing gas.
-
-1. Select Neon in Gas Control and wait for helium evacuation and neon regulation.
-
-1. Proceed with the normal GFIS workflow and re-check alignment.
+1. Set up the microscope, find your region of interest while working with He. Save stage positions.
+2. Stop the scan.
+3. In GFIS settings, change aperture to Ne-compatible ones. 
+4. Select Neon in Gas Control and wait for helium evacuation and neon regulation (~10 min).
+5. Proceed with the normal GFIS workflow and re-check alignment.
 
 > **WARNING**  
-> Aperture warning The ZEISS manual states gold apertures are easily damaged by neon; use the designated neon/moly aperture positions for the installed aperture set.
+> Aperture warning 
+> Use the designated neon/moly aperture positions for the installed aperture set.

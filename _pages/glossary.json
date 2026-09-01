@@ -1,0 +1,14 @@
+{
+  "key": "glossary",
+  "title": "Glossary",
+  "access": "all-users",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge\">ALL USERS</span><h1>Glossary</h1>\n<ul>\n<li><strong>GFIS:</strong> Gas Field Ion Source; helium or neon in the ORION NanoFab.</li>\n</ul>\n<ul>\n<li><strong>BIV:</strong> Best Imaging Voltage, determined during source/trimer maintenance.</li>\n</ul>\n<ul>\n<li><strong>NPVE:</strong> NanoPatterning and Visualization Engine.</li>\n</ul>\n<ul>\n<li><strong>Landing Energy:</strong> Energy at which ions hit the sample, determined by accelerator voltage.</li>\n</ul>\n<ul>\n<li><strong>Lens 1:</strong> Upper/condenser lens.</li>\n</ul>\n<ul>\n<li><strong>Lens 2:</strong> Lower/objective lens focusing the beam on the sample.</li>\n</ul><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
+    ]
+  }
+}

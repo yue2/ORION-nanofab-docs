@@ -1,0 +1,15 @@
+{
+  "key": "before",
+  "title": "Before You Start",
+  "access": "all-users",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge\">ALL USERS</span><h1>Before You Start</h1>\n<p>Complete the pre-use checks before beginning a work session.</p>\n<blockquote><strong>WARNING</strong></blockquote>\n<blockquote>Stop conditions Do not proceed if there are unexplained errors, gun temperature is above about 95 K, less than 2 h before LN₂ refill, or vacuum is abnormal. Contact a Superuser.</blockquote>\n<ol>\n<li>The HIM source is very sensitive to vibration. Cool down body/clothing temperature briefly in the lobby area before entering the lab. Keep your volume low while operating the tool.</li>\n<li>From the PC, System Manager should be open. Check error messages from the system manager window.</li>\n<li>Check vacuum screen. If the vacuum screen is not open, find it from the System Manager -&gt; Tools -&gt; Vacuum Screen. Gun vacuum should be ~E-10 torr, Main Chamber should be ~E-8 torr.</li>\n<li>From the vacuum screen, check gun temperature (normal temperature ~92 K).</li>\n<li>Check the logbook. Last user's remarks are OK. No irregularities should be mentioned in their remarks. Check the trimer status provided by the last user: follow the trimer atom they used.</li>\n<li>Open ZEN software. From the top menu bar, select the Dewar button to open the LN2 management window. Check LN₂ remaining time; do not proceed if &lt;2 h.</li>\n<li>When all checks pass, proceed to load your samples.</li>\n</ol>\n<p>Local SOP: Before Measurement.</p>\n<p>---</p><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-09-01T13:45:58+08:00</dd><dt>Git revision</dt><dd>7c16c2b</dd></dl></details><p class=\"source\"><b>Sources:</b> Local_ORION_NanoFab_SOP.docx, SOP_ORION_NanoFab_He_Ne_Users.pdf</p><nav class=\"pagination\"><a href=\"#\" data-page=\"loading\" class=\"pagination-next\">Sample Loading & Unloading →</a></nav>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "Local_ORION_NanoFab_SOP.docx",
+      "SOP_ORION_NanoFab_He_Ne_Users.pdf"
+    ]
+  }
+}

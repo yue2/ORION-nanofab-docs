@@ -1,0 +1,15 @@
+{
+  "key": "end",
+  "title": "Ending a Session",
+  "access": "all-users",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge\">ALL USERS</span><h1>Ending a Session</h1>\n<ol>\n<li>Return tilt and scan rotation to 0°.</li>\n<li>In GFIS settings, turn off gas. Make sure gas is Off / GFIS is in Standby.</li>\n<li>Ramp down Lens 2 voltage. When voltage is below 100 V, uncheck the Lens 2 power.</li>\n<li>Power down the ET detector. Power down flood gun if it was used.</li>\n<li>When gas evacuation is finished, check the vacuum screen. The Gun to Main Chamber valve should be closed.</li>\n<li>Select Exchange to move to the transfer position.</li>\n<li>Unload the sample using Transfer → Store → Vent. Make sure the transfer rod is secured to the sample stage before retraction.</li>\n<li>After unloading your sample, return the sample stage to the Main Chamber using Store → Transfer → Store.</li>\n<li>Complete the logbook, clean the work area and transfer data using email.</li>\n</ol><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> Local_ORION_NanoFab_SOP.docx, SOP_ORION_NanoFab_He_Ne_Users.pdf</p>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": [
+      "Local_ORION_NanoFab_SOP.docx",
+      "SOP_ORION_NanoFab_He_Ne_Users.pdf"
+    ]
+  }
+}

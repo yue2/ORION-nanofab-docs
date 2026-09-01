@@ -1,0 +1,178 @@
+{
+  "index.md": [
+    "home",
+    "index.md"
+  ],
+  "user-guide/before-you-start.md": [
+    "before",
+    "user-guide/before-you-start.md"
+  ],
+  "user-guide/loading-unloading.md": [
+    "loading",
+    "user-guide/loading-unloading.md"
+  ],
+  "user-guide/starting-session.md": [
+    "start",
+    "user-guide/starting-session.md"
+  ],
+  "user-guide/imaging.md": [
+    "imaging",
+    "user-guide/imaging.md"
+  ],
+  "user-guide/patterning.md": [
+    "patterning",
+    "user-guide/patterning.md"
+  ],
+  "user-guide/neon.md": [
+    "neon",
+    "user-guide/neon.md"
+  ],
+  "user-guide/ending-session.md": [
+    "end",
+    "user-guide/ending-session.md"
+  ],
+  "user-guide/warning-signals.md": [
+    "warning",
+    "user-guide/warning-signals.md"
+  ],
+  "superuser/training/index.md": [
+    "training",
+    "superuser/training/index.md"
+  ],
+  "superuser/training/safety-training.md": [
+    "safetytraining",
+    "superuser/training/safety-training.md"
+  ],
+  "superuser/training/session-1.md": [
+    "session1",
+    "superuser/training/session-1.md"
+  ],
+  "superuser/training/session-2.md": [
+    "session2",
+    "superuser/training/session-2.md"
+  ],
+  "superuser/training/competency-test.md": [
+    "competency",
+    "superuser/training/competency-test.md"
+  ],
+  "superuser/maintenance/index.md": [
+    "maintenance",
+    "superuser/maintenance/index.md"
+  ],
+  "superuser/maintenance/routine-checks.md": [
+    "routine",
+    "superuser/maintenance/routine-checks.md"
+  ],
+  "superuser/maintenance/trimer-formation.md": [
+    "trimer",
+    "superuser/maintenance/trimer-formation.md"
+  ],
+  "superuser/maintenance/ln2-system.md": [
+    "ln2",
+    "superuser/maintenance/ln2-system.md"
+  ],
+  "superuser/maintenance/gas-cylinders.md": [
+    "gas",
+    "superuser/maintenance/gas-cylinders.md"
+  ],
+  "superuser/maintenance/source-maintenance.md": [
+    "source",
+    "superuser/maintenance/source-maintenance.md"
+  ],
+  "superuser/error-recovery/shutdown/planned-shutdown.md": [
+    "shutdown",
+    "superuser/error-recovery/shutdown/planned-shutdown.md"
+  ],
+  "superuser/error-recovery/shutdown/power-up.md": [
+    "powerup",
+    "superuser/error-recovery/shutdown/power-up.md"
+  ],
+  "superuser/error-recovery/shutdown/vacuum-recovery.md": [
+    "vacuumrecovery",
+    "superuser/error-recovery/shutdown/vacuum-recovery.md"
+  ],
+  "superuser/error-recovery/shutdown/gfis-recovery.md": [
+    "gfisrecovery",
+    "superuser/error-recovery/shutdown/gfis-recovery.md"
+  ],
+  "superuser/error-recovery/troubleshooting/index.md": [
+    "trouble",
+    "superuser/error-recovery/troubleshooting/index.md"
+  ],
+  "superuser/error-recovery/troubleshooting/main-chamber-vent.md": [
+    "chamber",
+    "superuser/error-recovery/troubleshooting/main-chamber-vent.md"
+  ],
+  "superuser/error-recovery/troubleshooting/gun-overheat.md": [
+    "overheat",
+    "superuser/error-recovery/troubleshooting/gun-overheat.md"
+  ],
+  "superuser/error-recovery/troubleshooting/vacuum-problems.md": [
+    "vacuum",
+    "superuser/error-recovery/troubleshooting/vacuum-problems.md"
+  ],
+  "superuser/error-recovery/troubleshooting/communication-firmware.md": [
+    "comm",
+    "superuser/error-recovery/troubleshooting/communication-firmware.md"
+  ],
+  "superuser/error-recovery/troubleshooting/trimer-problems.md": [
+    "trimerproblem",
+    "superuser/error-recovery/troubleshooting/trimer-problems.md"
+  ],
+  "superuser/error-recovery/troubleshooting/image-problems.md": [
+    "imageproblem",
+    "superuser/error-recovery/troubleshooting/image-problems.md"
+  ],
+  "safety/index.md": [
+    "safety",
+    "safety/index.md"
+  ],
+  "safety/oxygen-nitrogen.md": [
+    "o2",
+    "safety/oxygen-nitrogen.md"
+  ],
+  "safety/fire-suppression.md": [
+    "fire",
+    "safety/fire-suppression.md"
+  ],
+  "safety/high-voltage.md": [
+    "hv",
+    "safety/high-voltage.md"
+  ],
+  "safety/vacuum-chamber.md": [
+    "chambersafety",
+    "safety/vacuum-chamber.md"
+  ],
+  "safety/emergency.md": [
+    "emergency",
+    "safety/emergency.md"
+  ],
+  "reference/system-overview.md": [
+    "system",
+    "reference/system-overview.md"
+  ],
+  "reference/gfis-controls.md": [
+    "gfis",
+    "reference/gfis-controls.md"
+  ],
+  "reference/vacuum-system.md": [
+    "vacref",
+    "reference/vacuum-system.md"
+  ],
+  "reference/imaging-concepts.md": [
+    "concepts",
+    "reference/imaging-concepts.md"
+  ],
+  "reference/glossary.md": [
+    "glossary",
+    "reference/glossary.md"
+  ],
+  "reference/original-documents.md": [
+    "originals",
+    "reference/original-documents.md"
+  ],
+  "information-base/index.md": [
+    "infobase",
+    "information-base/index.md"
+  ]
+}

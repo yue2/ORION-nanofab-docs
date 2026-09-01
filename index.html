@@ -1,13 +1,76 @@
 <!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>ORION NanoFab Documentation</title><link rel="stylesheet" href="assets/style.css"></head><body><div class="app"><aside class="sidebar"><div class="brand">ORION NanoFab Docs</div><div class="rolebox"><small>Preview access as</small><div class="switch"><button data-role="user" onclick="setRole('user')">User</button><button data-role="superuser" onclick="setRole('superuser')">Superuser</button></div></div><div class="search-wrap"><input id="doc-search" type="search" placeholder="Search all documentation..." autocomplete="off"><div id="search-results" class="search-results" hidden></div></div><nav class="nav" id="doc-nav">
 <a data-page="home" class="nav-home">Home</a>
-<details class="nav-group" data-group="user-guide"><summary>User Guide</summary><div class="nav-children">
-<a data-page="before">Before You Start</a><a data-page="loading">Sample Loading &amp; Unloading</a><a data-page="start">Starting a Session</a><a data-page="trimercheck">Trimer Check &amp; Alignment</a><a data-page="imaging">Imaging</a><a data-page="patterning">Patterning</a><a data-page="neon">Working with Neon</a><a data-page="end">Ending a Session</a><a data-page="warning">Warning Signals / When to Stop</a></div></details>
-<details class="nav-group super-link" data-group="superuser"><summary>Superuser <span class="lock">🔒</span></summary><div class="nav-children">
-<div class="super-actions"><a id="export-user-guide" class="export-link" href="exports/orion-nanofab-user-guide.pdf" download>View User Guide PDF</a></div>
-<details class="nav-subgroup"><summary>Training</summary><div class="nav-children"><a data-page="training" class="super-link">Overview</a><a data-page="safetytraining" class="super-link">Safety Training</a><a data-page="session1" class="super-link">Session 1</a><a data-page="session2" class="super-link">Session 2</a><a data-page="competency" class="super-link">Competency Test</a></div></details>
-<details class="nav-subgroup"><summary>Maintenance</summary><div class="nav-children"><a data-page="maintenance" class="super-link">Overview</a><a data-page="routine" class="super-link">Routine Checks</a><a data-page="trimer" class="super-link">Trimer Formation</a><a data-page="ln2" class="super-link">LN₂ System</a><a data-page="gas" class="super-link">Gas Cylinders</a><a data-page="source" class="super-link">Source Maintenance</a></div></details>
-<details class="nav-subgroup"><summary>Error / Recovery</summary><div class="nav-children"><a data-page="shutdown" class="super-link">Planned Shutdown</a><a data-page="powerup" class="super-link">Power-Up</a><a data-page="vacuumrecovery" class="super-link">Vacuum Recovery</a><a data-page="gfisrecovery" class="super-link">GFIS Recovery</a><a data-page="trouble" class="super-link">Troubleshooting</a><a data-page="chamber" class="super-link">Main Chamber Vent</a><a data-page="overheat" class="super-link">Gun Overheat</a><a data-page="vacuum" class="super-link">Vacuum Problems</a><a data-page="comm" class="super-link">Communication / Firmware</a><a data-page="trimerproblem" class="super-link">Trimer Problems</a><a data-page="imageproblem" class="super-link">Image Problems</a></div></details>
+<details class="nav-group" data-group="user-guide">
+<summary>User Guide</summary>
+<div class="nav-children">
+<a data-page="before">Before You Start</a>
+<a data-page="loading">Sample Loading & Unloading</a>
+<a data-page="start">Starting a Session</a>
+<a data-page="imaging">Imaging</a>
+<a data-page="patterning">Patterning</a>
+<a data-page="neon">Working with Neon</a>
+<a data-page="end">Ending a Session</a>
+<a data-page="warning">Warning Signals / When to Stop</a>
 </div></details>
-<details class="nav-group super-link" data-group="safety"><summary>Safety <span class="lock">🔒</span></summary><div class="nav-children"><a data-page="safety" class="super-link">Overview</a><a data-page="o2" class="super-link">O₂ / N₂ Safety</a><a data-page="fire" class="super-link">Fire &amp; Gas Suppression</a><a data-page="hv" class="super-link">High Voltage</a><a data-page="chambersafety" class="super-link">Vacuum / Chamber Safety</a><a data-page="emergency" class="super-link">Emergency Procedures</a></div></details>
-<details class="nav-group" data-group="reference"><summary>Reference</summary><div class="nav-children"><a data-page="system">System Overview</a><a data-page="gfis">GFIS Controls</a><a data-page="vacref">Vacuum System</a><a data-page="concepts">Imaging Concepts</a><a data-page="glossary">Glossary</a><a data-page="originals">Original Documents</a><a data-page="infobase" class="super-link">Full PDF text &amp; figures <span class="lock">🔒</span></a></div></details>
-</nav></aside><main id="content"></main><aside class="toc"><b>Information base</b><a data-page="originals">Original documents</a><a href="DIRECTORY_STRUCTURE.md">Directory chart</a><small>All navigation items are clickable in this revision.</small></aside></div><script src="assets/app.js?v=1788235315"></script></body></html>
+<details class="nav-group super-link" data-group="superuser">
+<summary>Superuser <span class="lock">🔒</span></summary>
+<div class="nav-children">
+<a data-page="training">Training Overview</a>
+<a data-page="safetytraining">Safety Training</a>
+<a data-page="session1">Training Session 1</a>
+<a data-page="session2">Training Session 2</a>
+<a data-page="competency">Competency Test</a>
+<a data-page="maintenance">Maintenance</a>
+<a data-page="routine">Routine Checks</a>
+<a data-page="trimer">Trimer Formation</a>
+<a data-page="ln2">LN₂ System</a>
+<a data-page="gas">Gas Cylinders</a>
+<a data-page="source">Source Maintenance</a>
+<a data-page="shutdown">Planned Shutdown</a>
+<a data-page="powerup">Power-Up</a>
+<a data-page="vacuumrecovery">Vacuum Recovery</a>
+<a data-page="gfisrecovery">GFIS Recovery</a>
+<a data-page="trouble">Troubleshooting</a>
+<a data-page="chamber">Main Chamber Vent</a>
+<a data-page="overheat">Gun Overheat</a>
+<a data-page="vacuum">Vacuum Problems</a>
+<a data-page="comm">Communication / Firmware</a>
+<a data-page="trimerproblem">Trimer Problems</a>
+<a data-page="imageproblem">Image Problems</a>
+</div></details>
+<details class="nav-group" data-group="safety">
+<summary>Safety</summary>
+<div class="nav-children">
+<a data-page="safety">Safety Overview</a>
+<a data-page="o2">O₂ / N₂ Safety</a>
+<a data-page="fire">Fire & Gas Suppression</a>
+<a data-page="hv">High Voltage</a>
+<a data-page="chambersafety">Vacuum / Chamber Safety</a>
+<a data-page="emergency">Emergency Procedures</a>
+</div></details>
+<details class="nav-group" data-group="reference">
+<summary>Reference</summary>
+<div class="nav-children">
+<a data-page="system">System Overview</a>
+<a data-page="gfis">GFIS Controls</a>
+<a data-page="vacref">Vacuum System</a>
+<a data-page="concepts">Imaging Concepts</a>
+<a data-page="glossary">Glossary</a>
+<a data-page="originals">Original Documents</a>
+</div></details>
+<details class="nav-group" data-group="information-base">
+<summary>Information Base</summary>
+<div class="nav-children">
+<a data-page="infobase">PDF Information Base</a>
+<a data-page="src-him-main-chamber-vent">HIM main chamber vent</a>
+<a data-page="src-him-overheat">HIM overheat</a>
+<a data-page="src-him-shutdown-and-open-procedure">HIM shutdown and open procedure</a>
+<a data-page="src-him-shutdown-procedure">HIM shutdown procedure</a>
+<a data-page="src-him-superuser-maintenance">HIM superuser maintenance</a>
+<a data-page="src-him-trimer-form">HIM trimer form</a>
+<a data-page="src-shutdown-procedure-scanned">Shutdown procedure scanned</a>
+<a data-page="src-sop-orion-nanofab-he-ne-users">SOP ORION NanoFab He Ne Users</a>
+<a data-page="src-zeiss-orion-nanofab-operator-manual-rev2">ZEISS ORION NanoFab Operator Manual Rev2</a>
+<a data-page="src-zeiss-power-outage-procedure">ZEISS Power Outage Procedure</a>
+</div></details>
+</nav></aside><main id="content"></main><aside class="toc"><b>Information base</b><a data-page="originals">Original documents</a><a href="DIRECTORY_STRUCTURE.md">Directory chart</a><small>All navigation items are clickable in this revision.</small></aside></div><script src="assets/app.js?v=1788262018"></script></body></html>

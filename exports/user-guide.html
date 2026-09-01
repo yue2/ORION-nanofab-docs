@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORION NanoFab User Guide</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+        }
+        h1 { font-size: 28px; margin-top: 40px; margin-bottom: 16px; page-break-after: avoid; }
+        h2 { font-size: 22px; margin-top: 32px; margin-bottom: 12px; page-break-after: avoid; }
+        h3 { font-size: 18px; margin-top: 24px; margin-bottom: 8px; page-break-after: avoid; }
+        p { margin: 12px 0; }
+        ul, ol { margin: 12px 0; padding-left: 24px; }
+        li { margin: 6px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; font-family: 'Courier New', monospace; }
+        blockquote.warning {
+            background: #fff6df;
+            border-left: 4px solid #d18b00;
+            padding: 12px 16px;
+            margin: 16px 0;
+            page-break-inside: avoid;
+        }
+        figure {
+            max-width: 100%;
+            text-align: center;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+        }
+        figcaption {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+
+        .document-information {
+            margin-top: 64px;
+            padding: 24px 0 32px;
+            border-top: 1px solid #d9dde5;
+            border-bottom: 1px solid #d9dde5;
+            page-break-inside: avoid;
+            }
+
+        .document-information h2 {
+            font-size: 20px;
+            margin: 0 0 24px;
+        }
+
+        .doc-info-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            margin: 10px 0;
+            font-size: 17px;
+        }
+
+        .doc-info-label {
+            color: #6b7280;
+        }
+        /* Print styles */
+        @media print {
+            body { padding: 0; }
+            h1, h2, h3 { page-break-after: avoid; }
+            figure { page-break-inside: avoid; }
+            blockquote { page-break-inside: avoid; }
+            ul, ol { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ORION NanoFab User Guide</h1>
+    <p><em>Generated from the maintained Markdown documentation.</em></p>
+    <blockquote class="warning">
+        <strong>Important:</strong> This is an exported copy. The authoritative source is the online/Markdown documentation. 
+        Future updates may not be reflected here.
+    </blockquote>
+    <hr>
+    <h1>Before You Start</h1>
+<p>Complete the pre-use checks before beginning a work session.</p>
+<blockquote class="warning"><strong>WARNING</strong> Stop conditions Do not proceed if there are unexplained errors, gun temperature is above about 95 K, less than 2 h before LN₂ refill, or vacuum is abnormal. Contact a Superuser.</blockquote>
+<ol>
+<li>The HIM source is very sensitive to vibration. Cool down body/clothing temperature briefly in the lobby area before entering the lab. Keep your volume low while operating the tool.</li>
+<li>From the PC, System Manager should be open. Check error messages from the system manager window.</li>
+<li>Check vacuum screen. If the vacuum screen is not open, find it from the System Manager -&gt; Tools -&gt; Vacuum Screen. Gun vacuum should be ~E-10 torr, Main Chamber should be ~E-8 torr.</li>
+<li>From the vacuum screen, check gun temperature (normal temperature ~92 K).</li>
+<li>Check the logbook. Last user&#x27;s remarks are OK. No irregularities should be mentioned in their remarks. Check the trimer status provided by the last user: follow the trimer atom they used.</li>
+<li>Open ZEN software. From the top menu bar, select the Dewar button to open the LN2 management window. Check LN₂ remaining time; do not proceed if &lt;2 h.</li>
+<li>When all checks pass, proceed to load your samples.</li>
+</ol>
+<p>Local SOP: Before Measurement.</p>
+<p>---</p>
+<div class="page-break"></div>
+<h1>Sample Loading &amp; Unloading</h1>
+<ul>
+<li>Sample stage is stored inside the main chamber by default.</li>
+</ul>
+<ol>
+<li>In ZEN software, from the top menu buttons, select Sample Management to open the sample management window.</li>
+<li>Select Exchange to move the stage to the defined load/Stage Ready position.</li>
+<li>Once Stage Ready is reached (Stage ready indicator is on in the sample management window), select Transfer. The loading dock will start to pump. Wait for ~10 min for the loading dock vacuum goes to 1.5E-2 torr. The transfer door will automatically open.</li>
+<li>Insert the transfer rod steadily, fully couple it to the holder, then screw clockwise the black handle at the end of the transfer rod to lock it to the holder. During holder transfer, visually verify through the air-lock window that the holder slides onto the stage; before pulling the rod back, ensure it is fully disengaged. <strong>If the transfer rod is tilted when inserting, DO NOT lock it to the sample stage. Retract the rod fully then try again.</strong></li>
+<li>Fully retract the transfer rod until Rod Retracted indicator is on. Verify the Rod Retracted interlock either on the loading docker LEDs or Sample Management window in ZEN.</li>
+<li>Select Store to close the transfer door.</li>
+<li>Select Vent , open the load lock. Screw the transfer rod counterclockwise to unmount the sample stage. Remove the sample stage to mount the sample. Photograph the holder position when useful for the Sample Map.</li>
+<li>Slot the sample stage back to the holder, screw the transfer rod clockwise to lock the stage to the rod. Close the load lock and click Store. <strong>Make sure the Rod Retracted indicator is on.</strong> Pump will not start unless the rod is fully retracted.</li>
+<li>Wait for the loading dock to pump to Store status. Then click Transfer, either on the loading dock button or in ZEN software.</li>
+<li>When transfer door is open, push the transfer rod in. Make sure the sample stage is not tilted, and fully secured onto the holder in the main chamber. Unscrew the transfer rod, retract it fully, then press Store to close the transfer door. <strong>If the stage is tilted or not secure on the holder, DO NOT unscrew the transfer rod. Retract fully then try again.</strong></li>
+</ol>
+<blockquote class="warning"><strong>NOTE</strong> Stage caution Use the chamber camera and established height limits to avoid collisions with the column or detector. Sample height limit is 9 mm.</blockquote>
+<blockquote class="warning"><strong>Manual references:</strong> Sample Management controls, printed pp. <strong>55–56</strong> (PDF pages <strong>60–61</strong>); Loading the Sample, printed pp. <strong>61–64</strong> (PDF <strong>66–69</strong>); Stage Motion Risks §4.4.1, printed p. <strong>69</strong> (PDF <strong>74</strong>).</blockquote>
+<div class="page-break"></div>
+<h1>Starting a Session</h1>
+<p>After loading the samples, wait for the main chamber pressure to go below 5e-7 torr then start your experiments. The following operations will be performed in ZEN software unless otherwise stated.</p>
+<h2>Power up</h2>
+<ol>
+<li>In ZEN software, enter the imaging tab on top of the left column. This is the default function mode.</li>
+<li>From the left column, find Sample List. Select &#x27;Std Au&#x27;, click &#x27;go to&#x27; at the right bottom corner of the Sample List window to go to the standard gold sample. <strong>Take note of the movement in the chamber scope. Click stop immediately when the tallest point of you sample is within 2 mm of the detector.</strong></li>
+<li>From the top menu bar, click Power Systems to open the power system window. Power on the ET detector. From the left column, find ET detector tab, set brightness and contrast to 30% - 50% each.</li>
+<li>GFIS power should be in mixed state. Flood gun will be powered up only when needed.</li>
+<li>Check the left bottom row of the software for the current status. Make sure the imaging mode is in Normal Imaging. If not, click the SFIM/Normal button on keyboard to switch.</li>
+<li>From the left column, find GFIS settings, click &#x27;Show all&#x27; to expand the options.</li>
+<li>Confirm the appropriate aperture (Default is #2 10 um He) before turning on the gun. Choose the aperture type based on the gas you will use.</li>
+<li>In gas control, Select helium and allow gas pressure to stabilize.</li>
+<li>Set landing energy (default 30 kV)</li>
+<li>Set Spot Control to achieve the beam current for the intended work (default 1.1 pA).</li>
+<li>Enable Lens 2 power, increase Lens 2 voltage gradually using the GUI slider in the software or the focus knob on keyboard. <strong>Check the leakage current of Lens 2 when powering up. Do not exceed ==check the current==</strong></li>
+<li>Increase the Lens 2 voltage so that the rough focus is achieved. Working distance showing below the image window should be ~9.5 mm. Lens 2 voltage should be ~19000 V to achieve the rough focus.</li>
+</ol>
+<h2>Check trimer status</h2>
+<ol>
+<li>Stay on the standard Au sample / saved reference site.</li>
+<li>Keep the rough focus at 9.5 mm working distance, field of view 100 microns, and use a short dwell time (1 - 2 us).</li>
+<li>Enter SFIM mode by clicking the SFIM/Normal button on keyboard. Grab an image by clicking grab on keyboard or grab button under the imaging tab.</li>
+<li>Image shows at the center of the ZEN window. Check whether the designated trimer atom is centered; use Gun Tilt if adjustment is required. Adjust gun tilt in GFIS options or use the x-y knobs on keyboard while in Gun tilt mode. Check the adjustment mode at the bottom right corner. Click the Mode button on keyboard to toggle between Gun tilt and Gun shift.</li>
+<li>Confirm the tilt is corrected. Beam current should reach a maximum value at the correct tilt position, and the trimer atom appears at the center of the crosshair. If the beam tilt exeeds +- 200 mrad, the aperture housing needs to be manually corrected. Contact a superuser.</li>
+<li>Expose the trimer as briefly as possible, then return to normal imaging and Gun Shift mode.</li>
+</ol>
+<blockquote class="warning"><strong>WARNING</strong> Operator boundary Do not use Extract Voltage as an ordinary user control unless explicitly trained/authorized. If the beam tilt exeeds +- 200 mrad, the aperture housing needs to be manually corrected. Contact a superuser.</blockquote>
+<div class="page-break"></div>
+<h1>Imaging</h1>
+<h2>Tuning focus</h2>
+<p>Tune on a standard sample where possible to minimize exposure of the specimen.</p>
+<ol>
+<li>Set landing energy to your designed value. Set aperture and spot control so that the beam current reaches your designed value.</li>
+<li>In normal imaging mode, using a relatively fast scan (1 - 5 us dwell time), start continuous scan.</li>
+<li>Adjust magnification and focus.</li>
+<li>Adjust beam shift:</li>
+<li>In GFIS settings, find Lens 2 section. Start wobble, choose small or medium. Use a faster scan (0.5 - 1 us) to observe the wobble more clearly.</li>
+<li>Make sure the status bar shows beam shift before using the x-y knobs to correct the beam shift.</li>
+<li>When the beam shift values exceed +-200 mrad, the electrical adjustment is not sufficient. Go to aperture settings in the GFIS tab, adjust aperture position to minimize the wobble. Click save to save the aperture position.</li>
+<li>Turn off Lens 2 wobble.</li>
+<li>Adjust astigmatism:</li>
+<li>Zoom in to the edge of a feature. Adjust the stigmator knobs on the keyboard to make the edges sharp.</li>
+<li>Take note of the stigmator values in GFIS settings as a reference point.</li>
+</ol>
+<ul>
+<li>Repeat 3 -5 when necessary to achieve a good image focus.</li>
+</ul>
+<h2>Imaging your sample</h2>
+<ol>
+<li>Navigate to the region of interest and use Continuous scanning for setup. The stage can tilt -5° to +54°.</li>
+<li>Set the desired dwell time and scan size.</li>
+<li>At a flat region, iteratively correct astigmatism, Gun Shift/wobbler and focus.</li>
+<li>For capture, go to the ==scan settings== in the left column. Set up a high quality scan. Suggested parameters: 1024x1024 px, line averaging 4 - 6, 2 - 5 µs dwell time. Increase dwell time and/or line averaging when higher quality is required.</li>
+<li>Stop continuous scan, then use Grab to take the image.</li>
+<li>Save the image to the designated data location.</li>
+</ol>
+<h2>Using flood gun</h2>
+<p>Use the flood gun to aid imaging non-conductive samples.</p>
+<ol>
+<li>In ZEN top menu, open Power Systems window. Turn on flood gun.</li>
+<li>From the left column of ZEN, find Flood Gun settings. Click show all to expand the setting options.</li>
+<li>Set flood gun mode to line.</li>
+<li>Keep default flood gun energy. Default flood time is 200 ms. Tune the flood time to longer if the imaging contrast is not satisfactory. Grid delay time should be &gt;= flood time.</li>
+<li>Toggle the deflection x-y in flood gun window to optimize contrast.</li>
+<li>Astigmatism usually needs readjustment while using the flood gun.</li>
+</ol>
+<div class="page-break"></div>
+<h1>Patterning</h1>
+<p>Use the ZEN patterning tab for simple patterns. If more advanced patterning is required, or if you want to use a saved pattern, use the NPVE PC.</p>
+<h2>ZEN patterning</h2>
+<ol>
+<li>Focus on ROI before patterning.</li>
+<li>Open the Patterning tab. Select a shape from the graphics window and draw the pattern. Selected shapes show a yellow contour in the imaging window.</li>
+<li>In the left column of the software window, find Shape Properties. Set dose in ions/cm² and verify expected beam current.</li>
+<li>Click start to start the pattern irradiation.</li>
+</ol>
+<h2>NPVE</h2>
+<ol>
+<li>For complex patterns, use NPVE in the right hand side PC.</li>
+<li>Verify the server/communication connection before starting the NPVE software</li>
+<li>Click grab on NPVE to refresh the image.</li>
+<li>Draw/import patterns, review parameters.</li>
+<li>Select the intended patterns. Active shapes are in green.</li>
+<li>Click start from the NPVE GUI to start patterning.</li>
+<li>Save the current pattern in designated folder if you intend to repeat the pattern in the future.</li>
+</ol>
+<blockquote class="warning"><strong>NOTE</strong> Source note The local SOP records example process values; treat them as local working notes, not universal defaults.</blockquote>
+<div class="page-break"></div>
+<h1>Working with Neon</h1>
+<ol>
+<li>Set up the microscope, find your region of interest while working with He. Save stage positions.</li>
+<li>Stop the scan.</li>
+<li>In GFIS settings, change aperture to Ne-compatible ones.</li>
+<li>Select Neon in Gas Control and wait for helium evacuation and neon regulation (~10 min).</li>
+<li>Proceed with the normal GFIS workflow and re-check alignment.</li>
+</ol>
+<blockquote class="warning"><strong>WARNING</strong> Aperture warning Use the designated neon/moly aperture positions for the installed aperture set.</blockquote>
+<div class="page-break"></div>
+<h1>Ending a Session</h1>
+<ol>
+<li>Return tilt and scan rotation to 0°.</li>
+<li>In GFIS settings, turn off gas. Make sure gas is Off / GFIS is in Standby.</li>
+<li>Ramp down Lens 2 voltage. When voltage is below 100 V, uncheck the Lens 2 power.</li>
+<li>Power down the ET detector. Power down flood gun if it was used.</li>
+<li>When gas evacuation is finished, check the vacuum screen. The Gun to Main Chamber valve should be closed.</li>
+<li>Select Exchange to move to the transfer position.</li>
+<li>Unload the sample using Transfer → Store → Vent. Make sure the transfer rod is secured to the sample stage before retraction.</li>
+<li>After unloading your sample, return the sample stage to the Main Chamber using Store → Transfer → Store.</li>
+<li>Complete the logbook, clean the work area and transfer data using email.</li>
+</ol>
+<div class="page-break"></div>
+<h1>Warning Signals / When to Stop</h1>
+<blockquote class="warning"><strong>WARNING</strong> Stop and contact a Superuser</blockquote>
+<ul>
+<li>Unexplained system errors</li>
+<li>Gun temperature above 95K</li>
+<li>Insufficient LN₂</li>
+<li>Abnormal vacuum</li>
+<li>O₂/fire/facility alarms</li>
+<li>Unexpected mechanical or transfer behavior.</li>
+<li>Stage is not secured inside the main chamber but the transfer rod has been retracted.</li>
+</ul>
+<p>Normal users should recognize abnormal states but should not attempt chamber venting, high-voltage work, pump recovery, source maintenance or power-outage recovery.</p>
+<p>Accumulating TWO unapproved operations will result in suspending the usership. A new round of training is required to obtain access to the tool again.</p>
+
+
+    <section class="document-information">
+        <h2>Document information</h2>
+
+        <div class="doc-info-row">
+            <div class="doc-info-label">Generated</div>
+            <div>2026-09-01 19:26 +08:00</div>
+        </div>
+
+        <div class="doc-info-row">
+            <div class="doc-info-label">Git author</div>
+            <div>Ashley Xu</div>
+        </div>
+    </section>
+    
+
+</body>
+</html>
