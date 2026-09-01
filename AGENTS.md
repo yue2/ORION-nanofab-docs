@@ -192,3 +192,43 @@ Every `.md` file in `docs/` contains standardized metadata that an AI reviewer s
 | `revision` | Change history | Number or identifier for this version |
 
 **For AI reviewers**: Check that `sources` references exist under `sources/`, that `access` matches the folder, and that `status` reflects the content stability.
+
+## Project roadmap and audit workflow
+
+The `ROADMAP.md` file tracks documentation completion, code implementation, and publication readiness.
+
+### Content audit workflow
+
+The AI assistant uses the `.agent.md` audit rules to review Markdown files **folder by folder**:
+
+1. **User Guide** (`docs/user-guide/`) — Operator-focused procedures for daily tasks
+2. **Superuser** (`docs/superuser/`) — Training, maintenance, and error recovery (3 subfolders)
+3. **Safety** (`docs/safety/`) — Emergency procedures, hazard warnings, and compliance
+4. **Reference** (`docs/reference/`) — System overviews, glossaries, and original document links
+5. **Information Base** (`docs/information-base/`) — Machine-extracted text and facsimiles from source PDFs
+
+For each folder, the assistant:
+
+- Checks frontmatter completeness (`title`, `access`, `status`, `last-reviewed`, `sources`, `owner`)
+- Verifies `sources:` fields reference existing files under `sources/`
+- Verifies all image paths point to valid files under `assets/img/`
+- Flags missing steps, conflicting guidance, and procedural gaps
+- Marks uncertainty with **WARNING — WAITING FOR MANUAL CONFIRMATION** blocks
+- Cites ZEISS Operator Manual sections and page numbers when available
+- Ensures `access` tags (`all-users`, `superuser`) match folder-level security intent
+
+### Code implementation order
+
+- Pagination and SPA routing must be stable before full-text search is added
+- Search filtering by access level (`all-users` vs. `superuser`) is safety-critical
+- CI/CD and GitHub publication happen only after content and code audits are complete
+
+### Review gates before publication
+
+- [ ] All content audits complete; no unresolved **WARNING** blocks
+- [ ] Tool Owner sign-off on procedural conflicts
+- [ ] Code tests pass for pagination and access-controlled search
+- [ ] GitHub repository configured with branch protection
+- [ ] Colleagues briefed on AGENTS.md read-only policy
+
+See `ROADMAP.md` for checklist progress.

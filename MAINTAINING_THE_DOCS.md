@@ -33,6 +33,53 @@ orion_nanofab_docs/
 5. Review the change in Git (diff + reviewer), then run `python3 build_site.py` from the project root.
 6. Open `index.html` locally and test both User and Superuser navigation before publishing.
 
+## Using the Documentation Reviewer Agent
+
+This project includes a custom AI agent profile (`.agent.md`) that enforces read-only access and provides specialized documentation review guidance.
+
+### Setup (one time)
+
+1. Open this project folder in VS Code.
+2. Open the integrated chat (Ctrl+Shift+I on Mac: Cmd+Shift+I).
+3. Mention the agent in your first message:
+
+   ```
+   @ORION Documentation Reviewer: Review the calibration procedure for gaps.
+   ```
+
+   VS Code will load `.agent.md` automatically. The agent's specialized instructions and tool restrictions are now active.
+
+### What the Agent Does
+
+- **Reviews** Markdown procedures, Python build scripts, and source PDFs
+- **Audits** YAML metadata, image paths, and broken links
+- **Flags** procedural gaps with **WARNING — WAITING FOR MANUAL CONFIRMATION** blocks
+- **Suggests** changes in chat; never modifies files
+- **Enforces** strict read-only access per `AGENTS.md`
+
+### Example Requests
+
+- *"Audit the shutdown procedure against ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf. Are all steps present?"*
+- *"Review docs/superuser/maintenance/ for conflicting guidance between local SOPs and manufacturer guidance."*
+- *"Check all relative image paths in docs/user-guide/. Report broken links."*
+- *"Review build_site.py for bugs in the --exclude-drafts filtering logic."*
+
+### Important Limitations
+
+The agent **cannot**:
+- Edit, create, or delete files
+- Run builds or Git commands that modify state
+- Install packages or change settings
+- Apply patches; it describes changes for you to apply manually
+
+If a task requires file modification, the agent will describe the change in chat. You apply it manually.
+
+### Customizing the Agent
+
+If your workflow or access requirements change, edit `.agent.md` directly. The changes take effect the next time you reference the agent in a chat.
+
+Refer to `AGENTS.md` for the access policy and governance rules that underpin the agent's behavior.
+
 ## Git workflow and version control
 
 All documentation changes are tracked in Git. This enables:

@@ -1,5 +1,6 @@
 from pathlib import Path
 import re, html, json, subprocess, argparse, time
+
 ROOT=Path(__file__).resolve().parent; DOCS=ROOT/'docs'
 parser=argparse.ArgumentParser(description='Build ORION NanoFab documentation from Markdown.')
 group=parser.add_mutually_exclusive_group()
@@ -138,10 +139,32 @@ def parse(path):
     if info:
         body += '<details class="doc-info"><summary>Document information</summary><dl>'+''.join('<dt>'+html.escape(str(k))+'</dt><dd>'+html.escape(str(v))+'</dd>' for k,v in info)+'</dl></details>'
     sources=meta.get('sources',[])
+  
     if sources: body += '<p class="source"><b>Sources:</b> '+', '.join(html.escape(x) for x in sources)+'</p>'
+
+    # Inject pagination links from frontmatter
+    nav_prev_key = meta.get('nav_previous')
+    nav_prev_path = meta.get('nav_previous_path')
+    nav_next_key = meta.get('nav_next')
+    nav_next_path = meta.get('nav_next_path')
+    
+    if nav_prev_path or nav_next_path:
+        body += '<nav class="pagination">'
+        if nav_prev_path:
+            # Extract the page key from NAV mapping: 'user-guide/loading-unloading.md' → find its key
+            prev_page_key = next((k for k, rel in NAV if rel == nav_prev_path.lstrip('./')), None)
+            if prev_page_key:
+                body += f'<a href="#" data-page="{prev_page_key}" class="pagination-prev">← {nav_prev_key or "Previous"}</a>'
+        if nav_next_path:
+            # Extract the page key from NAV mapping: 'user-guide/loading-unloading.md' → find its key
+            next_page_key = next((k for k, rel in NAV if rel == nav_next_path.lstrip('./')), None)
+            if next_page_key:
+                body += f'<a href="#" data-page="{next_page_key}" class="pagination-next">{nav_next_key or "Next"} →</a>'
+        body += '</nav>'
+    
     result='<div class="crumb">ORION NanoFab Documentation</div>'+badge+body
-# Add contributors list to home page only
-    result='<div class="crumb">ORION NanoFab Documentation</div>'+badge+body
+
+
     # Add contributors list to home page only
     if path.name=='index.md':
         contributors=get_all_contributors()
@@ -152,7 +175,6 @@ def parse(path):
             result+='</ul></div>'
     return result
 
-    return result
 
 pages={}
 for key,rel in NAV:
