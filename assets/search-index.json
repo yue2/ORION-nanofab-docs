@@ -8,13 +8,13 @@
   {
     "key": "before",
     "title": "Before You Start",
-    "text": "ORION NanoFab DocumentationALL USERSBefore You Start Complete the pre-use checks before beginning a work session. WARNING Stop conditions Do not proceed if there are unexplained errors, gun temperatur",
+    "text": "ORION NanoFab DocumentationALL USERSBefore You Start Complete the pre-use checks before beginning a work session. WARNING No food or drink in the lab! Stop conditions Do not proceed if there are unexp",
     "access": "all-users"
   },
   {
     "key": "loading",
     "title": "Sample Loading & Unloading",
-    "text": "ORION NanoFab DocumentationALL USERSSample Loading &amp; Unloading Sample stage is stored inside the main chamber by default. In ZEN software, from the top menu buttons, select Sample Management to op",
+    "text": "ORION NanoFab DocumentationALL USERSSample Loading &amp; Unloading Sample stage is stored inside the main chamber by default. Bring the holder out (unload) In ZEN software, from the top menu buttons, ",
     "access": "all-users"
   },
   {
@@ -44,13 +44,13 @@
   {
     "key": "end",
     "title": "Ending a Session",
-    "text": "ORION NanoFab DocumentationALL USERSEnding a Session Return tilt and scan rotation to 0°. In GFIS settings, turn off gas. Make sure gas is Off / GFIS is in Standby. Ramp down Lens 2 voltage. When volt",
+    "text": "ORION NanoFab DocumentationALL USERSEnding a Session Return tilt and scan rotation to 0°. Good Practice: Return to the Au std sample position, grab a frame to confirm that the standard sample is in fo",
     "access": "all-users"
   },
   {
     "key": "warning",
     "title": "Warning Signals / When to Stop",
-    "text": "ORION NanoFab DocumentationALL USERSWarning Signals / When to Stop WARNING Stop and contact a Superuser Unexplained system errors Gun temperature above 95K Insufficient LN₂ Abnormal vacuum O₂/fire/fac",
+    "text": "ORION NanoFab DocumentationALL USERSWarning Signals / When to Stop Stop and contact a superuser when you encounter: Unexplained system errors Gun temperature above 95 K (note: a brief rise toward 95 K",
     "access": "all-users"
   },
   {
@@ -92,25 +92,25 @@
   {
     "key": "routine",
     "title": "Routine Checks",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYRoutine Checks Maintain a daily log of base pressures, gun temperature and Dewar pressure. The ZEISS manual notes that trend data can provide early warning of ",
-    "access": "superuser"
-  },
-  {
-    "key": "trimer",
-    "title": "Trimer Formation",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTrimer Formation WARNING Maintenance procedure Only trained Superusers should perform source/trimer formation and high-voltage related recovery. Use the standa",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYRoutine Checks Maintain a weekly log of base pressures, gun temperature and Dewar pressure. The ZEISS manual notes that trend data can provide early warning of",
     "access": "superuser"
   },
   {
     "key": "ln2",
     "title": "LN₂ System",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYLN₂ System The integrated Dewar cools the GFIS gun to cryogenic temperature and is automatically refilled from an external tank. Before external tank exchange,",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYLN₂ System The integrated Dewar cools the GFIS gun to cryogenic temperature and is automatically refilled from an external transfer tank twice a day (8 am and ",
     "access": "superuser"
   },
   {
     "key": "gas",
     "title": "Gas Cylinders",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYGas Cylinders Local superuser notes distinguish compressed air for column valves and dry N₂ for load-lock purge. Monitor local pressure indications and replace",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYGas Cylinders Gas cylinders are stored in the backroom of the HIM lab. There are 3 cylinder slots, one for compressed zero air (CDA), one for dry N₂, the other",
+    "access": "superuser"
+  },
+  {
+    "key": "trimer",
+    "title": "Trimer Formation",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTrimer Formation WARNING Maintenance procedure Only trained Superusers should perform source/trimer formation and high-voltage related recovery. Trimer refers ",
     "access": "superuser"
   },
   {
@@ -152,7 +152,7 @@
   {
     "key": "chamber",
     "title": "Main Chamber Vent",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYMain Chamber Vent Symptom WARNING — WAITING FOR MANUAL CONFIRMATION The local source documents the chamber-vent recovery steps but does not clearly state the i",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYMain Chamber Vent Symptom Sample falls from the stage. Stage is not secured wh WARNING — WAITING FOR MANUAL CONFIRMATION The local source documents the chamber",
     "access": "superuser"
   },
   {

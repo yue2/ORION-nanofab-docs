@@ -19,7 +19,10 @@ orion_nanofab_docs/
 │   └── reference/                # all users
 ├── sources/                      # original PDFs/DOCX/JPG; preserve for traceability
 ├── assets/                       # site CSS/JS/images
-├── build_site.py                 # converts Markdown to HTML data
+├── src/data/nav_order.json       # GENERATED page order; do not hand-edit
+├── build_site.py                 # converts Markdown to HTML data; writes nav_order.json
+├── build_guide.py                # exports any docs/ folder to printable HTML in exports/
+├── exports/                      # GENERATED printable HTML (user-guide.html, maintenance.html, ...)
 ├── index.html                    # generated site shell
 └── MAINTAINING_THE_DOCS.md
 ```
@@ -32,6 +35,8 @@ orion_nanofab_docs/
 4. Do not silently reconcile conflicting source procedures. Record the conflict in the Markdown and have the Tool Owner approve the controlled wording.
 5. Review the change in Git (diff + reviewer), then run `python3 build_site.py` from the project root.
 6. Open `index.html` locally and test both User and Superuser navigation before publishing.
+7. If you distribute printable exports, regenerate them with `python3 build_guide.py --<folder>` and verify the output under `exports/` (see "Exporting printable guides" below).
+
 
 ## Using the Documentation Reviewer Agent
 
@@ -116,7 +121,6 @@ git add docs/
 git commit -m "Update [page-name]: [brief change description]"
 ```
 
-
 ## Access model
 
 `access: all-users` pages are visible to trained users. `access: superuser` pages are marked restricted. The static site role switch is a preview only; real access control must be enforced by the hosting/authentication system.
@@ -135,7 +139,7 @@ Use one H1 title per page, numbered lists for procedures, bullets for checks, an
 
 ## Adding a page
 
-Create the `.md` file in the correct folder, add YAML metadata, then add its page entry to `build_site.py` navigation. Rebuild and test all links.
+Create the `.md` file in the correct folder, add YAML metadata, then add its page entry to the `NAV` list in `build_site.py`. Running `build_site.py` regenerates `src/data/nav_order.json` automatically, so site navigation, pagination, search, and printable exports all keep the same order. Rebuild and test all links. Do not hand-edit `nav_order.json`.
 
 ## Source of truth
 
@@ -226,26 +230,22 @@ When reviewing a new or revised procedure:
 
 A **WAITING FOR MANUAL CONFIRMATION** block is an editorial safety flag, not an approved instruction. Manufacturer text may be appended inside the block for review, but it must not be presented as locally approved until confirmation is recorded.
 
-## Exporting the User Guide PDF
+## Exporting printable guides
 
-The Superuser navigation contains **View User Guide PDF**. The link downloads `exports/orion-nanofab-user-guide.pdf`. The PDF is generated from the maintained `docs/user-guide/*.md` files, not from hand-edited HTML, and local Markdown images are embedded in the exported PDF.
+`build_guide.py` exports any documentation folder under `docs/` into a single self-contained, printable HTML file under `exports/`. Local Markdown images are embedded as base64 so the exported file works offline. The script reads only local Markdown and local image assets, makes no network requests, invokes no shell, and never executes documentation content.
 
-After changing a User Guide page or an image used by it:
+Run it with no flag for the default User Guide export, or pass a folder flag:
 
-1. Run `python3 build_site.py` to rebuild the website.
-2. Run `python3 build_user_guide_pdf.py` to rebuild the downloadable User Guide PDF.
-3. Open `exports/orion-nanofab-user-guide.pdf` and verify page order, warnings, figures, captions and page breaks.
-4. Commit the Markdown, image assets, generated website data and regenerated PDF together according to your repository policy.
-
-`build_user_guide_pdf.py` reads only local Markdown and local image assets and writes the PDF under `exports/` using ReportLab. It does not make network requests, invoke a shell, or execute content from the documentation.
-
-**Important:** The "View User Guide PDF" button in the SPA is a **static download link**. It does not execute `build_user_guide_pdf.py` or any build commands. You must:
-
-1. Run `python3 build_user_guide_pdf.py` manually on your local machine
-2. Commit the updated PDF to Git
-3. Push to the repository so the hosted site serves the updated PDF
-
-Do not expect the SPA to regenerate PDFs; the PDF is a pre-built artifact only.
+```bash
+python3 build_guide.py                 # docs/user-guide/            → exports/user-guide.html
+python3 build_guide.py --training      # docs/superuser/training/    → exports/training.html
+python3 build_guide.py --maintenance   # docs/superuser/maintenance/ → exports/maintenance.html
+python3 build_guide.py --shutdown      # docs/superuser/error-recovery/shutdown/       → exports/shutdown.html
+python3 build_guide.py --troubleshooting  # docs/superuser/error-recovery/troubleshooting/ → exports/troubleshooting.html
+python3 build_guide.py --safety        # docs/safety/                → exports/safety.html
+python3 build_guide.py --reference     # docs/reference/             → exports/reference.html
+python3 build_guide.py --information-base  # docs/information-base/  → exports/information-base.html
+```
 
 ## Editing signatures and change monitoring
 
@@ -271,7 +271,7 @@ These fallback fields are not cryptographic signatures and should not be treated
 
 ## Code safety / malicious-operation review
 
-Before publishing this revision, the build and browser code was reviewed for dangerous or unexpected operations. The intended code paths are limited to reading documentation/assets, writing generated local files, querying local Git metadata, rendering a local PDF, browser-side search/navigation, and downloading the pre-generated User Guide PDF.
+Before publishing this revision, the build and browser code was reviewed for dangerous or unexpected operations. The intended code paths are limited to reading documentation/assets, writing generated local files, querying local Git metadata, exporting local Markdown to HTML files under `exports/`, browser-side search/navigation, and serving the pre-generated exported files.
 
 The project does **not** intentionally contain code for deleting files, modifying permissions/ownership, installing software, uploading documentation, sending network requests, executing arbitrary Markdown content, or invoking shell command strings. `build_site.py` invokes only `git log` using a fixed argument list and `shell=False` (the Python default). `build_user_guide_pdf.py` renders local Markdown and image files with ReportLab and writes the PDF under `exports/`.
 
@@ -279,13 +279,13 @@ Future maintainers should repeat a source review when adding scripts or third-pa
 
 ## Build dependencies
 
-`build_site.py` is intentionally **dependency-free** and uses only the Python standard library. You should be able to rebuild the HTML with:
+`build_guide.py` reads local Markdown and image files and writes printable HTML under `exports/`; it makes no network requests and invokes no shell.
 
 ```bash
 python3 build_site.py
 ```
 
-No `pip install mistune` step is required. Earlier project versions used the third-party `mistune` package; this was removed so a future superuser can rebuild the static site with a normal Python 3 installation. `build_user_guide_pdf.py` still uses ReportLab for PDF generation; if that optional export is needed and ReportLab is not installed, install it in your chosen managed Python environment.
+No `pip install` step is required. Both `build_site.py` and `build_guide.py` use only the Python standard library, so a future superuser can rebuild the site and the printable exports with a normal Python 3 installation. Earlier project versions depended on third-party packages such as `mistune`; those dependencies were removed. Keep any new build or export scripts dependency-free, or document their requirements in this section.
 
 ## Build modes and seeing local edits
 

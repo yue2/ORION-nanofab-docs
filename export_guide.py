@@ -1,28 +1,70 @@
-
 from pathlib import Path
+import argparse
+import json
 import re
 import base64
 import subprocess
 from datetime import datetime
 from html import escape
-import sys
+
 ROOT = Path(__file__).resolve().parent
 DOCS = ROOT / 'docs'
-OUT = ROOT / 'exports' / 'user-guide.html'
+EXPORTS = ROOT / 'exports'
 
-sys.path.insert(0, str(ROOT))
-# Import NAV from build_site.py (assuming it's defined at module level)
-# Then filter for user-guide pages only:
-try:
-    from build_site import NAV
-    PAGES = [rel for key, rel in NAV if rel.startswith('user-guide/')]
-except ImportError:
-    # Fallback if import fails
-    PAGES = [
-        'user-guide/before-you-start.md',
-        'user-guide/loading-unloading.md',
-        # ... add all user-guide pages
-    ]
+# ---- Folder selection ------------------------------------------------------
+# Single source of truth for both selection and compile order is
+# src/data/nav_order.json: its top-level key order mirrors build_site.py's NAV
+# list (the site's navigation/pagination order).
+
+NAV_ORDER_FILE = ROOT / 'src' / 'data' / 'nav_order.json'
+with open(NAV_ORDER_FILE, encoding='utf-8') as fh:
+    NAV_ORDER = json.load(fh)          # {rel_path: [slug, rel_path]} in site order
+
+def _folder_of(rel):
+    return str(Path(rel).parent)
+
+# Ordered exportable folders: 'user-guide', 'superuser/training', ... (root
+# 'index.md' excluded). Order = first appearance in nav_order.json.
+FOLDERS = list(dict.fromkeys(_folder_of(rel) for rel in NAV_ORDER if '/' in rel))
+
+def _flag(folder):
+    return '--' + folder.split('/')[-1]
+
+def _dest(folder):
+    return _flag(folder)[2:].replace('-', '_')
+
+parser = argparse.ArgumentParser(
+    description='Export one documentation folder into a single printable HTML '
+                'file (order follows src/data/nav_order.json).'
+)
+for folder in FOLDERS:
+    parser.add_argument(_flag(folder), action='store_true',
+                        help=f'export {folder}/')
+parser.add_argument('--out', default=None,
+                    help='output file name (default: exports/<folder>.html)')
+args = parser.parse_args()
+
+# No flag given -> user-guide (backwards-compatible default).
+chosen = 'user-guide'
+for folder in FOLDERS:
+    if getattr(args, _dest(folder)):
+        chosen = folder
+        break
+
+# Pages of the chosen folder, already in nav_order.json order.
+PAGES = [rel for rel in NAV_ORDER if _folder_of(rel) == chosen]
+missing = [rel for rel in PAGES if not (DOCS / rel).exists()]
+if missing:
+    print('WARNING: skipping pages not found on disk:', *missing, sep='\n  ')
+PAGES = [rel for rel in PAGES if (DOCS / rel).exists()]
+if not PAGES:
+    parser.error(f'no pages found in nav_order.json under {chosen}/')
+
+GROUP_LABEL = ('User Guide' if chosen == 'user-guide'
+               else chosen.rsplit('/', 1)[-1].replace('-', ' ').title())
+doc_title = f'ORION NanoFab {GROUP_LABEL}'
+OUT = EXPORTS / (args.out or (chosen.rsplit('/', 1)[-1] + '.html'))
+
 
 def get_latest_git_author():
     """Return the author of the latest commit affecting User Guide files."""
@@ -102,11 +144,11 @@ def parse_markdown_to_html(md_path):
     lines = text.splitlines()
     html_parts = []
     i = 0
-    
+
     while i < len(lines):
         line = lines[i].rstrip()
         st = line.strip()
-        
+
         # Handle images
         m = re.match(r'^!\[(.*?)\]\((.*?)\)$', st)
         if m:
@@ -116,7 +158,7 @@ def parse_markdown_to_html(md_path):
             if i + 1 < len(lines) and re.match(r'^\*.+\*$', lines[i + 1].strip()):
                 caption = lines[i + 1].strip().strip('*')
                 i += 1
-            
+
             if img_path.exists():
                 b64 = image_to_base64(img_path)
                 html_parts.append(f'<figure><img src="data:image/png;base64,{b64}" alt="figure">')
@@ -125,7 +167,7 @@ def parse_markdown_to_html(md_path):
                 html_parts.append('</figure>')
             i += 1
             continue
-        
+
         # Handle headings
         if st.startswith('# '):
             html_parts.append(f'<h1>{inline(st[2:])}</h1>')
@@ -139,7 +181,7 @@ def parse_markdown_to_html(md_path):
             html_parts.append(f'<h3>{inline(st[4:])}</h3>')
             i += 1
             continue
-        
+
         # Handle blockquotes (warnings)
         if st.startswith('> '):
             quote_lines = []
@@ -148,7 +190,7 @@ def parse_markdown_to_html(md_path):
                 i += 1
             html_parts.append(f'<blockquote class="warning">{inline(" ".join(quote_lines))}</blockquote>')
             continue
-        
+
         # Handle ordered lists
         if re.match(r'^\d+\.\s+', st):
             html_parts.append('<ol>')
@@ -158,7 +200,7 @@ def parse_markdown_to_html(md_path):
                 i += 1
             html_parts.append('</ol>')
             continue
-        
+
         # Handle unordered lists
         if st.startswith('- '):
             html_parts.append('<ul>')
@@ -168,7 +210,7 @@ def parse_markdown_to_html(md_path):
                 i += 1
             html_parts.append('</ul>')
             continue
-        
+
         # Handle paragraphs
         if st:
             paras = [st]
@@ -178,9 +220,9 @@ def parse_markdown_to_html(md_path):
                 i += 1
             html_parts.append(f'<p>{inline(" ".join(paras))}</p>')
             continue
-        
+
         i += 1
-    
+
     return '\n'.join(html_parts)
 
 # Generate HTML document
@@ -199,7 +241,7 @@ full_html = f"""<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ORION NanoFab User Guide</title>
+    <title>{doc_title}</title>
     <style>
         body {{
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -278,10 +320,10 @@ full_html = f"""<!DOCTYPE html>
 </head>
 
 <body>
-    <h1>ORION NanoFab User Guide</h1>
-    <p><em>Generated from the maintained Markdown documentation.</em></p>
+    <h1>{doc_title}</h1>
+    <p><em>Generated from the maintained Markdown documentation ({chosen}/).</em></p>
     <blockquote class="warning">
-        <strong>Important:</strong> This is an exported copy. The authoritative source is the online/Markdown documentation. 
+        <strong>Important:</strong> This is an exported copy. The authoritative source is the online/Markdown documentation.
         Future updates may not be reflected here.
     </blockquote>
     <hr>
@@ -294,5 +336,5 @@ full_html = f"""<!DOCTYPE html>
 """
 
 OUT.write_text(full_html, encoding='utf-8')
-print(f'User Guide exported to: {OUT}')
+print(f'{GROUP_LABEL} exported to: {OUT}')
 print('Open in browser and press Cmd+P to print/save as PDF.')

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORION NanoFab Maintenance</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+        }
+        h1 { font-size: 28px; margin-top: 40px; margin-bottom: 16px; page-break-after: avoid; }
+        h2 { font-size: 22px; margin-top: 32px; margin-bottom: 12px; page-break-after: avoid; }
+        h3 { font-size: 18px; margin-top: 24px; margin-bottom: 8px; page-break-after: avoid; }
+        p { margin: 12px 0; }
+        ul, ol { margin: 12px 0; padding-left: 24px; }
+        li { margin: 6px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; font-family: 'Courier New', monospace; }
+        blockquote.warning {
+            background: #fff6df;
+            border-left: 4px solid #d18b00;
+            padding: 12px 16px;
+            margin: 16px 0;
+            page-break-inside: avoid;
+        }
+        figure {
+            max-width: 100%;
+            text-align: center;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+        }
+        figcaption {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+
+        .document-information {
+            margin-top: 64px;
+            padding: 24px 0 32px;
+            border-top: 1px solid #d9dde5;
+            border-bottom: 1px solid #d9dde5;
+            page-break-inside: avoid;
+            }
+
+        .document-information h2 {
+            font-size: 20px;
+            margin: 0 0 24px;
+        }
+
+        .doc-info-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            margin: 10px 0;
+            font-size: 17px;
+        }
+
+        .doc-info-label {
+            color: #6b7280;
+        }
+        /* Print styles */
+        @media print {
+            body { padding: 0; }
+            h1, h2, h3 { page-break-after: avoid; }
+            figure { page-break-inside: avoid; }
+            blockquote { page-break-inside: avoid; }
+            ul, ol { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ORION NanoFab Maintenance</h1>
+    <p><em>Generated from the maintained Markdown documentation (superuser/maintenance/).</em></p>
+    <blockquote class="warning">
+        <strong>Important:</strong> This is an exported copy. The authoritative source is the online/Markdown documentation.
+        Future updates may not be reflected here.
+    </blockquote>
+    <hr>
+    <h1>Maintenance</h1>
+<ul>
+<li><strong>Routine Checks Logs, vacuum, temperature, LN₂ and basic system state.</strong></li>
+</ul>
+<ul>
+<li><strong>Trimer Formation Form source, select trimer, BIV and alignment.</strong></li>
+</ul>
+<ul>
+<li><strong>LN₂ System Auto-fill/service and external tank handling.</strong></li>
+</ul>
+<ul>
+<li><strong>Gas Cylinders CDA/N₂ pressure and cylinder exchange.</strong></li>
+</ul>
+<ul>
+<li><strong>Source Maintenance Source formation and recovery references.</strong></li>
+</ul>
+<div class="page-break"></div>
+<h1>Routine Checks</h1>
+<p>Maintain a weekly log of base pressures, gun temperature and Dewar pressure. The ZEISS manual notes that trend data can provide early warning of problems and help service personnel.</p>
+<ol>
+<li>Review previous log entries and alerts.</li>
+<li>Record gun, mid-column and chamber base pressures.</li>
+<li>Record gun temperature and Dewar bottom pressure.</li>
+<li>Inspect gas/CDA and LN₂ status. Place order in advance.</li>
+<li>Verify trimer and basic communications when appropriate.</li>
+</ol>
+<div class="page-break"></div>
+<h1>LN₂ System</h1>
+<p>The integrated Dewar cools the GFIS gun to cryogenic temperature and is automatically refilled from an external transfer tank twice a day (8 am and 8 pm). The external tank itself is refilled by the LN₂ supplier about every 16 days (roughly 2 weeks).</p>
+<p>Delivery needs to be scheduled at least one day in advance.</p>
+<ol>
+<li>Before the supplier exchanges the external tank, put the Dewar into Service mode so Auto Fill cannot start while the tank is disconnected. In ZEN software, click the Dewar Fill icon on the top menu bar to open the Dewar Control tool panel, then click Begin Servicing at the bottom of the panel.</li>
+<li>Make sure the GFIS column is in standby mode when moving the tank because movement can disturb the beam. User can continue to use the tool when the tank is moved out of the room.</li>
+<li>After refill/reconnection, verify the external tank outlet valve and the transfer-line valves are open. The delivery personnel will help you to open the valves. Do not attempt on your own without proper PPE.</li>
+<li>Click Done Servicing in Dewar Control to restore automatic refill. Do not leave the tool in Service mode after the exchange: while servicing mode is active the Dewar does not fill and the emergency fill is suppressed, so the Dewar can run out and the gun will warm up if the mode is left on (ZEISS §4.5, printed p. 79; §4.8.4–4.8.5, printed p. 88).</li>
+<li>Sign the delivery order with signature and date. Hand the singed copy to Mr. Teo for billing purposes.</li>
+</ol>
+<blockquote class="warning"><strong>WARNING</strong> <strong>Cryogenic hazard</strong> Follow institutional LN₂ handling rules and the ZEISS safety labels/MSDS guidance.</blockquote>
+<div class="page-break"></div>
+<h1>Gas Cylinders</h1>
+<p>Gas cylinders are stored in the backroom of the HIM lab. There are 3 cylinder slots, one for compressed zero air (CDA), one for dry N₂, the other one for storing a spare zero air cylinder.</p>
+<ol>
+<li>Compressed zero air is used for column valves and dry N₂ for load-lock purge.</li>
+<li>Pressure monitor is on the back of the base of the machine. An LCD window shows 2 values, the upper one being compressed air, and the lower one being N₂.</li>
+<li>Monitor local pressure indications weekly. Normal pressure range for CDA is 80 - 90 psi, N₂ is 9 - 13 psi.</li>
+<li>When cylinder pressure is lower than 200 psi, prepare to order new cylinders. Cylinders are delivered on Mondays, Wednesdays, and Fridays only, so place the order in advance so the new cylinder arrives before the current one runs out.</li>
+<li>When cylinder pressure is lower than 100 psi, change to a new cylinder. One CDA cylinder typically lasts one month, N₂ cylinder can be longer.</li>
+<li>When gas pressure is out of range, a warning message appears in the Vacuum Dashboard window from the main PC. Check the cylinder gauge to determine if changing new cylinder is required. If cylinder pressure is &gt; 200 psi but gas pressure shows lower than the normal range, tune the regulator to the normal pressure.</li>
+</ol>
+<h2>Replace gas cylinders</h2>
+<ol>
+<li>Before disconnecting, suspend the air table. In Vacuum Dashboard, click the Air Lock and Chamber tab, right click the air table icon below Chamber -&gt; Turn Off. This prevents a sudden pressure drop from dropping the table while the supply is disconnected.</li>
+<li>In the back room, close the cylinder valve and exchange the cylinder using a spanner. Follow the site manifold sequence: decrease the regulator (valve 1) to relieve the line, then shut the main valve (valve 2) fully before loosening the connection.</li>
+<li>Perform the static pressure leak check: open the main valve to see the pressure reading rise, then close it again immediately. Monitor the gauge for one minute. If the reading is stable, there is no leak; open the main valve fully.</li>
+<li>Increase the regulator (valve 1) to ~85 psi and confirm the main-chamber CA reading is around 86 psi. For the N₂ line, confirm the reading is back in its normal range.</li>
+<li>Re-check pressure over the following 3 days; if pressure drops too quickly, repeat the leak check.</li>
+</ol>
+<div class="page-break"></div>
+<h1>Trimer Formation</h1>
+<blockquote class="warning"><strong>WARNING</strong> Maintenance procedure Only trained Superusers should perform source/trimer formation and high-voltage related recovery.</blockquote>
+<ol>
+<li>Use the standard Au sample, power ET detector and place GFIS in Standby.</li>
+<li>Maintenance → GFIS → Form the source; run the documented source-build recipe.</li>
+<li>Start trimer selection and observe in SFIM.</li>
+<li>Adjust accelerator/extractor/Lens 1 according to the local maintenance record until the three-atom structure is resolved.</li>
+<li>Determine BIV by measuring trimer intensity and tuning extractor for maximum intensity.</li>
+<li>Mechanically align the source and set source distance.</li>
+<li>Capture a final screenshot and record BIV/maintenance details.</li>
+</ol>
+<p>See HIM trimer form.pdf and ZEISS manual §5.2.</p>
+<div class="page-break"></div>
+<h1>Source Maintenance</h1>
+<p>Use the ZEISS source-maintenance sequence as the primary technical reference: process selection, repair/form source, select trimer, determine BIV, align source and set source distance.</p>
+<blockquote class="warning"><strong>NOTE</strong> Local maintenance notes supplement this with site-specific observations and recovery steps. Where local and manufacturer procedures differ, resolve the controlled procedure before publication.</blockquote>
+<h2>Logic review — incomplete curated procedure</h2>
+<blockquote class="warning"><strong>WARNING — WAITING FOR MANUAL CONFIRMATION</strong> <strong>ZEISS manual guidance to confirm locally:</strong> Use the GFIS Source Maintenance workflow in this order: Basic Source Maintenance / Process Selection, Form the Source, Select a Trimer, Determine BIV, Align Source, then Set Source Distance. The manual says the default Form the Source selections are <strong>Maintain BIV Source Build</strong> and <strong>Keep most recent field</strong>, and the process should reach <strong>Form Completed / SUCCEEDED</strong> before moving to Select a Trimer. Select a Trimer requires a conductive, preferably featureless sample under the beam. <strong>Manual references:</strong> ZEISS Operator Manual §5.2, printed pp. <strong>95–121</strong> (PDF pages <strong>100–126</strong>); Form the Source §5.2.3, printed pp. <strong>98–104</strong> (PDF <strong>103–109</strong>); Select a Trimer §5.2.4, printed pp. <strong>105–110</strong> (PDF <strong>110–115</strong>). <strong>Waiting for confirmation:</strong> confirm the site-approved process selection, BIV acceptance range, source-alignment acceptance criteria, and source-distance calibration value before this becomes a controlled local workflow.</blockquote>
+
+
+    <section class="document-information">
+        <h2>Document information</h2>
+
+        <div class="doc-info-row">
+            <div class="doc-info-label">Generated</div>
+            <div>2026-09-02 15:06 +08:00</div>
+        </div>
+
+        <div class="doc-info-row">
+            <div class="doc-info-label">Git author</div>
+            <div>Ashley Xu</div>
+        </div>
+    </section>
+    
+
+</body>
+</html>

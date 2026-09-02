@@ -55,9 +55,9 @@ NAV=[('home','index.md'),
 ('competency','superuser/training/competency-test.md'),
 ('maintenance','superuser/maintenance/index.md'),
 ('routine','superuser/maintenance/routine-checks.md'),
-('trimer','superuser/maintenance/trimer-formation.md'),
 ('ln2','superuser/maintenance/ln2-system.md'),
 ('gas','superuser/maintenance/gas-cylinders.md'),
+('trimer','superuser/maintenance/trimer-formation.md'),
 ('source','superuser/maintenance/source-maintenance.md'),
 ('shutdown','superuser/error-recovery/shutdown/planned-shutdown.md'),
 ('powerup','superuser/error-recovery/shutdown/power-up.md'),
@@ -180,7 +180,7 @@ def parse(path):
     if info:
         body += '<details class="doc-info"><summary>Document information</summary><dl>'+''.join('<dt>'+html.escape(str(k))+'</dt><dd>'+html.escape(str(v))+'</dd>' for k,v in info)+'</dl></details>'
     sources=meta.get('sources',[])
-  
+
     if sources: body += '<p class="source"><b>Sources:</b> '+', '.join(html.escape(x) for x in sources)+'</p>'
 
     # Inject pagination links from frontmatter
@@ -188,7 +188,7 @@ def parse(path):
     nav_prev_path = meta.get('nav_previous_path')
     nav_next_key = meta.get('nav_next')
     nav_next_path = meta.get('nav_next_path')
-    
+
     if nav_prev_path or nav_next_path:
         body += '<nav class="pagination">'
         if nav_prev_path:
@@ -202,7 +202,7 @@ def parse(path):
             if next_page_key:
                 body += f'<a href="#" data-page="{next_page_key}" class="pagination-next">{nav_next_key or "Next"} →</a>'
         body += '</nav>'
-    
+
     result='<div class="crumb">ORION NanoFab Documentation</div>'+badge+body
 
 
@@ -224,18 +224,18 @@ for key,rel in NAV:
 
 def write_page_json_files():
     """Generate _pages/*.json files for hybrid SPA architecture.
-    
+
     Returns: count of files written.
     """
     pages_dir = ROOT / '_pages'
     pages_dir.mkdir(exist_ok=True)
-    
+
     written = 0
     for key, rel in NAV:
         p = DOCS / rel
         if p.exists() and include_page(p):
             html_content = pages[key]  # Already parsed above
-            
+
             # Extract frontmatter metadata
             text = p.read_text(encoding='utf-8')
             meta = {}
@@ -257,7 +257,7 @@ def write_page_json_files():
                                 meta[key_name] = val
                 except ValueError:
                     pass
-            
+
             # Create page JSON object
             page_json = {
                 'key': key,
@@ -271,7 +271,7 @@ def write_page_json_files():
                     'sources': meta.get('sources', []) if isinstance(meta.get('sources'), list) else ([meta.get('sources')] if meta.get('sources') else [])
                 }
             }
-            
+
             # Write to _pages/KEY.json
             output_file = pages_dir / f'{key}.json'
             try:
@@ -279,12 +279,12 @@ def write_page_json_files():
                 written += 1
             except OSError as e:
                 print(f'Warning: Could not write {output_file}: {e}')
-    
+
     return written
 
 def write_search_index():
     """Generate assets/search-index.json for client-side search filtering by role.
-    
+
     Returns: file path written.
     """
     search_data = []
@@ -293,7 +293,7 @@ def write_search_index():
         if p.exists() and include_page(p):
             if key not in pages:
                 continue
-            
+
             # Extract frontmatter
             text = p.read_text(encoding='utf-8')
             meta = {}
@@ -306,24 +306,24 @@ def write_search_index():
                             meta[k.strip()] = v.strip().strip('"')
                 except ValueError:
                     pass
-            
+
             html_content = pages[key]
-            
+
             def page_title(html_text):
                 m = re.search(r'<h1[^>]*>(.*?)</h1>', html_text, re.IGNORECASE)
                 return html.unescape(re.sub(r'<[^>]+>', '', m.group(1))) if m else 'Untitled'
-            
+
             def strip_html(v):
                 d = re.sub(r'<[^>]+>', '', v)
                 return re.sub(r'\s+', ' ', d).strip()
-            
+
             search_data.append({
                 'key': key,
                 'title': page_title(html_content),
                 'text': strip_html(html_content)[:200],  # First 200 chars for snippet
                 'access': meta.get('access', 'all-users')
             })
-    
+
     output_file = ROOT / 'assets' / 'search-index.json'
     (ROOT / 'assets').mkdir(exist_ok=True)
     try:
@@ -333,46 +333,67 @@ def write_search_index():
         print(f'Warning: Could not write {output_file}: {e}')
         return None
 
+def write_nav_order():
+            """Write src/data/nav_order.json from NAV (single source of truth).
+
+            Preserves site order; maps each relative page path to [slug, path]
+            exactly like the NAV list. Consumed by export_guide.py so exported
+            guides follow the same order as the site navigation.
+            """
+            nav_data = {rel: [key, rel] for key, rel in NAV}
+            out_dir = ROOT / 'src' / 'data'
+            out_dir.mkdir(parents=True, exist_ok=True)
+            output_file = out_dir / 'nav_order.json'
+            try:
+                output_file.write_text(
+                    json.dumps(nav_data, ensure_ascii=False, indent=2) + '\n',
+                    encoding='utf-8',
+                )
+                return str(output_file)
+            except OSError as e:
+                print(f'Warning: Could not write {output_file}: {e}')
+                return None
+
 def generate_nav_html():
     """Generate navigation HTML from NAV list.
-    
+
     Groups pages by folder (first path component).
     Handles 'home' as a special case (no folder grouping).
     Generates proper HTML with role badges for superuser sections.
-    
+
     Returns: nav HTML string.
     """
     nav_html = '<a data-page="home" class="nav-home">Home</a>\n'
     current_group = None
     group_pages = []
-    
+
     for key, rel in NAV[1:]:  # Skip 'home' (already added)
         p = DOCS / rel
         if not p.exists() or not include_page(p):
             continue
-        
+
         # Extract folder from rel: 'user-guide/before-you-start.md' → 'user-guide'
         parts = rel.split('/')
         folder = parts[0] if len(parts) > 1 else None
-        
+
         if folder and folder != current_group:
             # Close previous group if any
             if current_group is not None:
                 nav_html += '\n'.join(f'<a data-page="{k}">{label}</a>' for k, label in group_pages)
                 nav_html += '\n</div></details>\n'
                 group_pages = []
-            
+
             # Open new group
             is_superuser = folder == 'superuser'
             lock_icon = ' <span class="lock">🔒</span>' if is_superuser else ''
             group_class = 'nav-group' + (' super-link' if is_superuser else '')
             folder_label = folder.replace('-', ' ').title()
-            
+
             nav_html += f'<details class="{group_class}" data-group="{folder}">\n'
             nav_html += f'<summary>{folder_label}{lock_icon}</summary>\n'
             nav_html += '<div class="nav-children">\n'
             current_group = folder
-        
+
         # Extract page label from frontmatter title or use key as fallback
         meta = {}
         text = p.read_text(encoding='utf-8')
@@ -385,15 +406,15 @@ def generate_nav_html():
                         break
             except ValueError:
                 pass
-        
+
         label = meta.get('title', key.replace('-', ' ').title())
         group_pages.append((key, label))
-    
+
     # Close final group if any
     if current_group is not None:
         nav_html += '\n'.join(f'<a data-page="{k}">{label}</a>' for k, label in group_pages)
         nav_html += '\n</div></details>\n'
-    
+
     return nav_html
 
 def app_js_source():
@@ -456,6 +477,8 @@ index_path.write_text(index, encoding='utf-8')
 # Generate the new hybrid architecture files
 pages_written = write_page_json_files()
 search_index_path = write_search_index()
+nav_order_path = write_nav_order()
+
 
 mode='all pages' if not (args.exclude_drafts or args.drafts_only) else ('excluding drafts' if args.exclude_drafts else 'drafts only')
 print(f'Project root: {ROOT}')

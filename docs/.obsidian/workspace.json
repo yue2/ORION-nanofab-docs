@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "user-guide/warning-signals.md",
+                "file": "superuser/maintenance/ln2-system.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "warning-signals"
+              "title": "ln2-system"
             }
           }
         ]
@@ -190,11 +190,16 @@
   },
   "active": "3e72c0a354e62c6e",
   "lastOpenFiles": [
+    "superuser/maintenance/gas-cylinders.md",
     "user-guide/ending-session.md",
+    "user-guide/before-you-start.md",
+    "user-guide/warning-signals.md",
+    "superuser/maintenance/source-maintenance.md",
+    "superuser/maintenance/trimer-formation.md",
+    "superuser/maintenance/routine-checks.md",
     "user-guide/imaging.md",
     "user-guide/starting-session.md",
     "user-guide/loading-unloading.md",
-    "user-guide/before-you-start.md",
     "user-guide/patterning.md",
     "user-guide/neon.md",
     "superuser/training/session-2.md",

@@ -63,10 +63,6 @@
     "routine",
     "superuser/maintenance/routine-checks.md"
   ],
-  "superuser/maintenance/trimer-formation.md": [
-    "trimer",
-    "superuser/maintenance/trimer-formation.md"
-  ],
   "superuser/maintenance/ln2-system.md": [
     "ln2",
     "superuser/maintenance/ln2-system.md"
@@ -74,6 +70,10 @@
   "superuser/maintenance/gas-cylinders.md": [
     "gas",
     "superuser/maintenance/gas-cylinders.md"
+  ],
+  "superuser/maintenance/trimer-formation.md": [
+    "trimer",
+    "superuser/maintenance/trimer-formation.md"
   ],
   "superuser/maintenance/source-maintenance.md": [
     "source",
@@ -174,5 +174,45 @@
   "information-base/index.md": [
     "infobase",
     "information-base/index.md"
+  ],
+  "information-base/him-main-chamber-vent.md": [
+    "src-him-main-chamber-vent",
+    "information-base/him-main-chamber-vent.md"
+  ],
+  "information-base/him-overheat.md": [
+    "src-him-overheat",
+    "information-base/him-overheat.md"
+  ],
+  "information-base/him-shutdown-and-open-procedure.md": [
+    "src-him-shutdown-and-open-procedure",
+    "information-base/him-shutdown-and-open-procedure.md"
+  ],
+  "information-base/him-shutdown-procedure.md": [
+    "src-him-shutdown-procedure",
+    "information-base/him-shutdown-procedure.md"
+  ],
+  "information-base/him-superuser-maintenance.md": [
+    "src-him-superuser-maintenance",
+    "information-base/him-superuser-maintenance.md"
+  ],
+  "information-base/him-trimer-form.md": [
+    "src-him-trimer-form",
+    "information-base/him-trimer-form.md"
+  ],
+  "information-base/shutdown-procedure-scanned.md": [
+    "src-shutdown-procedure-scanned",
+    "information-base/shutdown-procedure-scanned.md"
+  ],
+  "information-base/sop-orion-nanofab-he-ne-users.md": [
+    "src-sop-orion-nanofab-he-ne-users",
+    "information-base/sop-orion-nanofab-he-ne-users.md"
+  ],
+  "information-base/zeiss-orion-nanofab-operator-manual-rev2.md": [
+    "src-zeiss-orion-nanofab-operator-manual-rev2",
+    "information-base/zeiss-orion-nanofab-operator-manual-rev2.md"
+  ],
+  "information-base/zeiss-power-outage-procedure.md": [
+    "src-zeiss-power-outage-procedure",
+    "information-base/zeiss-power-outage-procedure.md"
   ]
 }
