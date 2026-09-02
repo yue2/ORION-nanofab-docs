@@ -62,25 +62,25 @@
   {
     "key": "safetytraining",
     "title": "Safety Training",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYSafety Training WARNING O₂ monitor Local superuser notes place the O₂ monitor outside the HIM room, with a normal reading around 20–21%; evacuate personnel if ",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYSafety Training Trainees must finish facility fire safety induction before requesting tool trainings. Facility facts every trainee must know: O₂ monitoring — t",
     "access": "superuser"
   },
   {
     "key": "session1",
     "title": "Training Session 1",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTraining Session 1 Basic microscopy and importance of vacuum, temperature and acoustic stability. Tool components and HIM working principle. Pre-use checks: pr",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTraining Session 1 Agenda for the first hands-on session. Prereading: Safety Training. Basic microscopy and environmental stability — why the HIM needs vacuum,",
     "access": "superuser"
   },
   {
     "key": "session2",
     "title": "Training Session 2",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTraining Session 2 Hands-on repetition of Session 1. Flood-gun use on a non-conducting standard sample. Patterning using ZEN. Patterning using NPVE. Review/cor",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTraining Session 2 Second hands-on session. Prerequisites: Session 1 skills (loading/unloading, focus, alignment) and the Safety Training briefing. The trainee",
     "access": "superuser"
   },
   {
     "key": "competency",
     "title": "Competency Test",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYCompetency Test Duration: 30 minutes. Use the standard gold sample for training/assessment. If the trainee does not qualify, schedule additional training befor",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYCompetency Test Duration: ~30 minutes. Sample: standard gold (Au) sample for all imaging items. Open book: the User Guide may be brought along and consulted du",
     "access": "superuser"
   },
   {
