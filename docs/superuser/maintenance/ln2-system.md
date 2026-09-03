@@ -4,11 +4,15 @@ access: superuser
 category: superuser
 owner: HIM Superuser
 status: draft
-last-reviewed: 2026-08-31
+last-reviewed: 2026-09-03
 sources:
   - "HIM_superuser_maintenance.pdf"
   - "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
 revision: "0.1"
+nav_previous: "Routine Checks"
+nav_previous_path: "./routine-checks.md"
+nav_next_path: "./gas-cylinders.md"
+nav_next: "Gas Cylinders"
 ---
 # LN₂ System
 

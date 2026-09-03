@@ -20,6 +20,8 @@ These source files are retained for traceability. Generated documentation does n
 - [HIM_superuser_maintenance.pdf](../../sources/HIM_superuser_maintenance.pdf)
 - [HIM_trimer_form.pdf](../../sources/HIM_trimer_form.pdf)
 - [Local_ORION_NanoFab_SOP.docx](../../sources/Local_ORION_NanoFab_SOP.docx)
+- [NPVE User Guide.pdf](../../sources/NPVE%20User%20Guide.pdf)
+- [Setting up NPVE GIS control for the ORION Nanofab.pdf](../../sources/Setting%20up%20NPVE%20GIS%20control%20for%20the%20ORION%20Nanofab.pdf)
 - [SOP_ORION_NanoFab_He_Ne_Users.pdf](../../sources/SOP_ORION_NanoFab_He_Ne_Users.pdf)
 - [Shutdown_and_Power_Up_NanoFab.jpg](../../sources/Shutdown_and_Power_Up_NanoFab.jpg)
 - [Shutdown_procedure_scanned.pdf](../../sources/Shutdown_procedure_scanned.pdf)

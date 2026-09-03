@@ -1,5 +1,5 @@
 from pathlib import Path
-import re, html, json, subprocess, argparse, time
+import re, html, json, subprocess, argparse, time, posixpath
 
 ROOT=Path(__file__).resolve().parent; DOCS=ROOT/'docs'
 parser=argparse.ArgumentParser(description='Build ORION NanoFab documentation from Markdown.')
@@ -58,7 +58,6 @@ NAV=[('home','index.md'),
 ('ln2','superuser/maintenance/ln2-system.md'),
 ('gas','superuser/maintenance/gas-cylinders.md'),
 ('trimer','superuser/maintenance/trimer-formation.md'),
-('source','superuser/maintenance/source-maintenance.md'),
 ('shutdown','superuser/error-recovery/shutdown/planned-shutdown.md'),
 ('powerup','superuser/error-recovery/shutdown/power-up.md'),
 ('vacuumrecovery','superuser/error-recovery/shutdown/vacuum-recovery.md'),
@@ -153,7 +152,7 @@ def include_page(path):
         return status == 'draft'
     return True
 
-def parse(path):
+def parse(path, page_rel=None):
     text=path.read_text(encoding='utf-8'); meta={}
     if text.startswith('---\n'):
         _,fm,text=text.split('---\n',2); key=None
@@ -166,6 +165,19 @@ def parse(path):
     body=body.replace('src="../assets/','src="assets/').replace('src="../../assets/','src="assets/').replace('src="../../../assets/','src="assets/').replace('src="../../../../assets/','src="assets/')
     # source-file links from docs are also rooted at project root in the generated SPA.
     body=body.replace('href="../../sources/','href="sources/').replace('href="../../../sources/','href="sources/')
+    # Rewrite internal page links to SPA data-page anchors so cross-page
+    # Markdown links navigate without a full page load.
+    def _link_key(href, page_rel):
+        target = posixpath.normpath(posixpath.join(posixpath.dirname(page_rel), href))
+        return next((k for k, r in NAV if r == target), None)
+    body = re.sub(
+        r'<a href="((?:\.\./|\./)?[^"]+\.md)">([^<]*)</a>',
+        lambda m: (
+            f'<a href="#" data-page="{_link_key(m.group(1), page_rel)}">{m.group(2)}</a>'
+            if _link_key(m.group(1), page_rel) else m.group(0)
+        ),
+        body,
+    )
     badge='<span class="badge super">SUPERUSER ONLY</span>' if meta.get('access')=='superuser' else '<span class="badge">ALL USERS</span>'
     sig=git_signature(path)
     info=[]
@@ -220,7 +232,7 @@ def parse(path):
 pages={}
 for key,rel in NAV:
     p=DOCS/rel
-    if p.exists() and include_page(p): pages[key]=parse(p)
+    if p.exists() and include_page(p): pages[key]=parse(p, str(p.relative_to(DOCS)))
 
 def write_page_json_files():
     """Generate _pages/*.json files for hybrid SPA architecture.
@@ -357,64 +369,77 @@ def write_nav_order():
 def generate_nav_html():
     """Generate navigation HTML from NAV list.
 
-    Groups pages by folder (first path component).
-    Handles 'home' as a special case (no folder grouping).
-    Generates proper HTML with role badges for superuser sections.
-
-    Returns: nav HTML string.
+    Groups pages by top-level folder (docs/ layout) and emits a nested,
+    collapsible tree for the superuser section matching docs/superuser/:
+    Training, Maintenance, and Error Recovery (with Shutdown and
+    Troubleshooting subgroups). Order always follows NAV.
     """
-    nav_html = '<a data-page="home" class="nav-home">Home</a>\n'
-    current_group = None
-    group_pages = []
-
-    for key, rel in NAV[1:]:  # Skip 'home' (already added)
-        p = DOCS / rel
-        if not p.exists() or not include_page(p):
-            continue
-
-        # Extract folder from rel: 'user-guide/before-you-start.md' → 'user-guide'
-        parts = rel.split('/')
-        folder = parts[0] if len(parts) > 1 else None
-
-        if folder and folder != current_group:
-            # Close previous group if any
-            if current_group is not None:
-                nav_html += '\n'.join(f'<a data-page="{k}">{label}</a>' for k, label in group_pages)
-                nav_html += '\n</div></details>\n'
-                group_pages = []
-
-            # Open new group
-            is_superuser = folder == 'superuser'
-            lock_icon = ' <span class="lock">🔒</span>' if is_superuser else ''
-            group_class = 'nav-group' + (' super-link' if is_superuser else '')
-            folder_label = folder.replace('-', ' ').title()
-
-            nav_html += f'<details class="{group_class}" data-group="{folder}">\n'
-            nav_html += f'<summary>{folder_label}{lock_icon}</summary>\n'
-            nav_html += '<div class="nav-children">\n'
-            current_group = folder
-
-        # Extract page label from frontmatter title or use key as fallback
-        meta = {}
-        text = p.read_text(encoding='utf-8')
+    def page_label(rel, key):
+        text = (DOCS / rel).read_text(encoding='utf-8')
         if text.startswith('---\n'):
             try:
                 _, fm, _ = text.split('---\n', 2)
                 for line in fm.splitlines():
                     if line.startswith('title:'):
-                        meta['title'] = line.split(':', 1)[1].strip().strip('"')
-                        break
+                        return line.split(':', 1)[1].strip().strip('"')
             except ValueError:
                 pass
+        return key.replace('-', ' ').title()
 
-        label = meta.get('title', key.replace('-', ' ').title())
-        group_pages.append((key, label))
+    folders = {}          # top folder -> [(key, rel, parts)]
+    order = []
+    for key, rel in NAV[1:]:            # skip 'home'
+        p = DOCS / rel
+        if not p.exists() or not include_page(p):
+            continue
+        parts = rel.split('/')
+        folder = parts[0] if len(parts) > 1 else None
+        if folder is None:
+            continue
+        if folder not in folders:
+            folders[folder] = []
+            order.append(folder)
+        folders[folder].append((key, rel, parts))
 
-    # Close final group if any
-    if current_group is not None:
-        nav_html += '\n'.join(f'<a data-page="{k}">{label}</a>' for k, label in group_pages)
-        nav_html += '\n</div></details>\n'
+    def render_tree(entries):
+        from collections import OrderedDict
+        root = {'dirs': OrderedDict(), 'pages': []}
+        for key, rel, parts in entries:
+            node = root
+            for d in parts[1:-1]:       # intermediate directories
+                node = node['dirs'].setdefault(d, {'dirs': OrderedDict(), 'pages': []})
+            node['pages'].append((key, page_label(rel, key)))
 
+        def emit(node):
+            out = []
+            for key, label in node['pages']:
+                out.append(f'<a data-page="{key}">{label}</a>')
+            for d, child in node['dirs'].items():
+                out.append('<details class="nav-subgroup">')
+                out.append(f'<summary>{d.replace("-", " ").title()}</summary>')
+                out.append('<div class="nav-children">')
+                out.append(emit(child))
+                out.append('</div></details>')
+            return '\n'.join(out)
+
+        return emit(root)
+
+    nav_html = '<a data-page="home" class="nav-home">Home</a>\n'
+    for folder in order:
+        entries = folders[folder]
+        is_superuser = folder == 'superuser'
+        lock_icon = ' <span class="lock">🔒</span>' if is_superuser else ''
+        group_class = 'nav-group' + (' super-link' if is_superuser else '')
+        folder_label = folder.replace('-', ' ').title()
+
+        nav_html += f'<details class="{group_class}" data-group="{folder}">\n'
+        nav_html += f'<summary>{folder_label}{lock_icon}</summary>\n'
+        nav_html += '<div class="nav-children">\n'
+        if is_superuser:
+            nav_html += render_tree(entries) + '\n'
+        else:
+            nav_html += '\n'.join(f'<a data-page="{k}">{page_label(rel, k)}</a>' for k, rel, _ in entries) + '\n'
+        nav_html += '</div></details>\n'
     return nav_html
 
 def app_js_source():
@@ -450,8 +475,8 @@ document.getElementById('content').innerHTML=pages[p].content;document.querySele
 function expandForPage(p){document.querySelectorAll('.nav-group,.nav-subgroup').forEach(d=>d.open=false);const link=document.querySelector(`[data-page="${CSS.escape(p)}"]`);if(!link)return;let el=link.parentElement;while(el){if(el.tagName==='DETAILS')el.open=true;el=el.parentElement}}
 function performSearch(query){const q=query.toLowerCase();const role=localStorage.getItem('orionRole')||'user';const filtered=searchIndex.filter(e=>(role==='superuser'||e.access!=='superuser')&&(e.title.toLowerCase().includes(q)||e.text.toLowerCase().includes(q))).slice(0,10);const resultsDiv=document.getElementById('search-results');if(!q){resultsDiv.hidden=true;return;}resultsDiv.hidden=false;resultsDiv.innerHTML='';if(filtered.length===0){resultsDiv.innerHTML='<div class="search-empty">No results found</div>';return;}filtered.forEach(r=>{const div=document.createElement('div');div.className='search-result';const title=document.createElement('div');title.className='search-title';title.textContent=r.title;const snippet=document.createElement('div');snippet.className='search-snippet';snippet.textContent=r.text.substring(0,80)+'...';div.appendChild(title);div.appendChild(snippet);div.onclick=e=>{e.preventDefault();render(r.key);document.getElementById('doc-search').value='';resultsDiv.hidden=true;};div.style.cursor='pointer';resultsDiv.appendChild(div);});}
 document.addEventListener('DOMContentLoaded',async function(){const saved=localStorage.getItem('orionRole')||'user';setRole(saved);try{const res=await fetch('assets/search-index.json');searchIndex=await res.json();}catch(e){console.error('Failed to load search index:',e);}
-document.querySelectorAll('[data-page]').forEach(a=>a.addEventListener('click',function(e){e.preventDefault();render(this.dataset.page)}));document.getElementById('doc-search').addEventListener('input',e=>performSearch(e.target.value));render('home');});"""
-
+document.getElementById('doc-search').addEventListener('input',e=>performSearch(e.target.value));render('home');});
+document.addEventListener('click',function(e){const a=e.target.closest('a[data-page]');if(a){e.preventDefault();render(a.dataset.page)}});"""
 # Write minimal app.js (no embedded pages)
 (ROOT/'assets').mkdir(exist_ok=True)
 (ROOT/'assets/app.js').write_text(js_base, encoding='utf-8')

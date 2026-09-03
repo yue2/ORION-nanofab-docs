@@ -126,6 +126,7 @@ def strip_frontmatter(text):
 def inline(s):
     """Convert inline Markdown to HTML."""
     s = escape(s.strip())
+    s = re.sub(r'\[([^\]]+)\]\([^)]+\)', r'\1', s)
     s = re.sub(r'\*\*(.+?)\*\*', r'<strong>\1</strong>', s)
     s = re.sub(r'(?<!\*)\*(.+?)\*(?!\*)', r'<em>\1</em>', s)
     s = re.sub(r'`(.+?)`', r'<code>\1</code>', s)

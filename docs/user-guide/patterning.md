@@ -4,12 +4,14 @@ access: all-users
 category: user-guide
 owner: HIM Superuser
 status: draft
-last-reviewed: 2026-09-02
+last-reviewed: 2026-09-03
 sources:
   - "Local_ORION_NanoFab_SOP.docx"
   - "SOP_ORION_NanoFab_He_Ne_Users.pdf"
   - "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
-revision: "0.1"
+  - "NPVE User Guide.pdf"
+  - "Setting up NPVE GIS control for the ORION Nanofab.pdf"
+revision: "0.2"
 nav_previous: "Imaging"
 nav_previous_path: "./user-guide/imaging.md"
 nav_next_path: "./user-guide/neon.md"
@@ -37,7 +39,7 @@ Use the ZEN patterning tab for simple patterns. If more advanced patterning is r
 7. Click start from the NPVE GUI to start patterning.
 8. Save the current pattern in designated folder if you intend to repeat the pattern in the future.
 
-For advanced pattern and dose details, see the NPVE User Guide (ZEISS §12.2: `Program Files (x86) > Fibics > NPVE 4Z > Documentation`).
+For advanced pattern and dose details, see the [NPVE User Guide transcript](../../information-base/npve-user-guide.md) in the Information Base (Fibics v4.0, 2013). Note the installed NPVE is v4.6.2, so treat the guide as a concept reference and follow the installed GUI for exact controls.
 
 > **NOTE**  
 > Pattern depth depends on the material and on dose/beam current. Determine your stop condition (time, dose, repeats, or endpoint) before starting; use a Dose Array to calibrate milling depth for an unknown material.

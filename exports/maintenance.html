@@ -94,26 +94,31 @@
 <li><strong>Routine Checks Logs, vacuum, temperature, LN₂ and basic system state.</strong></li>
 </ul>
 <ul>
-<li><strong>Trimer Formation Form source, select trimer, BIV and alignment.</strong></li>
-</ul>
-<ul>
 <li><strong>LN₂ System Auto-fill/service and external tank handling.</strong></li>
 </ul>
 <ul>
 <li><strong>Gas Cylinders CDA/N₂ pressure and cylinder exchange.</strong></li>
 </ul>
 <ul>
-<li><strong>Source Maintenance Source formation and recovery references.</strong></li>
+<li><strong>Trimer Formation Form source, select trimer, BIV and alignment.</strong></li>
 </ul>
 <div class="page-break"></div>
 <h1>Routine Checks</h1>
-<p>Maintain a weekly log of base pressures, gun temperature and Dewar pressure. The ZEISS manual notes that trend data can provide early warning of problems and help service personnel.</p>
+<p>Maintain a log of base pressures, gun temperature and Dewar pressure to spot drift early; the ZEISS manual notes this data can serve as an early warning of problems and helps service personnel. The site logs <strong>weekly</strong>.</p>
+<p>Compare each reading against the normal ranges:</p>
+<ul>
+<li>GFIS column <strong>Pumped</strong>; gun pressure <strong>in E-10 Torr range</strong></li>
+<li>Gun temperature <strong>92–95 K</strong> This instrument&#x27;s gun-temperature readback runs <strong>92–95 K</strong> in normal operation because of the thermocouple mounting, higher than the ZEISS §5.1 range of <strong>73–85 K</strong>. Use <strong>92–95 K</strong> as the local normal band; treat a reading above ~95 K sustained outside a Dewar fill as the relevant flag, not the manual&#x27;s 85 K value.</li>
+<li>Mid-column pressure <strong>&lt;1E-8 Torr</strong></li>
+<li>Chamber <strong>Pumped</strong>; chamber pressure <strong>&lt;3E-7 Torr</strong></li>
+<li>Dewar <strong>Maintain Cool</strong>; Dewar bottom temperature <strong>&lt;60 K</strong></li>
+</ul>
 <ol>
-<li>Review previous log entries and alerts.</li>
-<li>Record gun, mid-column and chamber base pressures.</li>
-<li>Record gun temperature and Dewar bottom pressure.</li>
-<li>Inspect gas/CDA and LN₂ status. Place order in advance.</li>
-<li>Verify trimer and basic communications when appropriate.</li>
+<li>Review previous log entries and alerts before starting.</li>
+<li>Record gun, mid-column and chamber base pressures (pre gas-on, as per ZEISS §6.1.1). Flag any reading outside the ranges above.</li>
+<li>Record gun temperature and Dewar bottom pressure; confirm the Dewar is in Maintain Cool.</li>
+<li>Inspect gas pressure: CDA and LN₂ status. Order CDA/N₂ cylinders in advance when the cylinder pressure falls below 200 psi — deliveries are Mon/Wed/Fri (see Gas Cylinders); plan the external LN₂ tank refill ~16 days after the last one (see LN₂ System).</li>
+<li>Verify the trimer is present and the beam behaves normally, and that the controllers show green communication arrows — do this after any error/alarm or when a session behaves oddly (see Trimer Problems, Communication / Firmware).</li>
 </ol>
 <div class="page-break"></div>
 <h1>LN₂ System</h1>
@@ -148,23 +153,41 @@
 </ol>
 <div class="page-break"></div>
 <h1>Trimer Formation</h1>
-<blockquote class="warning"><strong>WARNING</strong> Maintenance procedure Only trained Superusers should perform source/trimer formation and high-voltage related recovery.</blockquote>
+<p>The trimer is a tungsten tip sharpened to an apex of <strong>three atoms</strong>. Helium is ionized on one apex atom to form the beam; after continued electrical stress that atom eventually &quot;pops&quot; — at this site roughly every 1–2 months — so the tip must be re-formed and a new trimer selected. The remaining dimer can still image, but is markedly less stable: if the tip is in the dimer state, the tool may be used but a new trimer formation should be scheduled promptly.</p>
+<blockquote class="warning"><strong>WARNING</strong> Trimer formation applies kilovolt-level extractor/accelerator voltages and mechanical gun-head movement. Follow the wizard exactly; if the source shows no organized pyramid, or no trimer appears by ≈ −50 kV, stop and run the ion-beam checks (ZEISS §7.6.3) before continuing. Do not guess — contact a Superuser/Service Engineer.</blockquote>
+<h2>Prepare</h2>
 <ol>
-<li>Use the standard Au sample, power ET detector and place GFIS in Standby.</li>
-<li>Maintenance → GFIS → Form the source; run the documented source-build recipe.</li>
-<li>Start trimer selection and observe in SFIM.</li>
-<li>Adjust accelerator/extractor/Lens 1 according to the local maintenance record until the three-atom structure is resolved.</li>
-<li>Determine BIV by measuring trimer intensity and tuning extractor for maximum intensity.</li>
-<li>Mechanically align the source and set source distance.</li>
-<li>Capture a final screenshot and record BIV/maintenance details.</li>
+<li>Move the stage to the standard Au sample; power on the ET detector; adjust ET detector to default values (30% - 50% for brightness and contrast); put the GFIS column in <strong>Standby</strong>. In SFIM: spot control <strong>4.0</strong>, FOV start <strong>1</strong>, dwell <strong>2 µs</strong> .</li>
+<li>ZEN top menu bar <strong>Maintenance → GFIS → GFIS Source Maintenance</strong>. The wizard opens on the <strong>Process Selection</strong> list.</li>
 </ol>
-<p>See HIM trimer form.pdf and ZEISS manual §5.2.</p>
-<div class="page-break"></div>
-<h1>Source Maintenance</h1>
-<p>Use the ZEISS source-maintenance sequence as the primary technical reference: process selection, repair/form source, select trimer, determine BIV, align source and set source distance.</p>
-<blockquote class="warning"><strong>NOTE</strong> Local maintenance notes supplement this with site-specific observations and recovery steps. Where local and manufacturer procedures differ, resolve the controlled procedure before publication.</blockquote>
-<h2>Logic review — incomplete curated procedure</h2>
-<blockquote class="warning"><strong>WARNING — WAITING FOR MANUAL CONFIRMATION</strong> <strong>ZEISS manual guidance to confirm locally:</strong> Use the GFIS Source Maintenance workflow in this order: Basic Source Maintenance / Process Selection, Form the Source, Select a Trimer, Determine BIV, Align Source, then Set Source Distance. The manual says the default Form the Source selections are <strong>Maintain BIV Source Build</strong> and <strong>Keep most recent field</strong>, and the process should reach <strong>Form Completed / SUCCEEDED</strong> before moving to Select a Trimer. Select a Trimer requires a conductive, preferably featureless sample under the beam. <strong>Manual references:</strong> ZEISS Operator Manual §5.2, printed pp. <strong>95–121</strong> (PDF pages <strong>100–126</strong>); Form the Source §5.2.3, printed pp. <strong>98–104</strong> (PDF <strong>103–109</strong>); Select a Trimer §5.2.4, printed pp. <strong>105–110</strong> (PDF <strong>110–115</strong>). <strong>Waiting for confirmation:</strong> confirm the site-approved process selection, BIV acceptance range, source-alignment acceptance criteria, and source-distance calibration value before this becomes a controlled local workflow.</blockquote>
+<h2>Form the source</h2>
+<ol>
+<li>Select <strong>Form the source</strong>. Keep the defaults <strong>Maintain BIV Source Build</strong> and <strong>Keep most recent field</strong>. Click <strong>Begin</strong>: gas is first turned off (evacuation can take up to ~5 min), voltages ramp down, then the tip is heated and re-shaped (recipe ~20 min total — HIM slide p. 1). Completion shows <strong>State: Form Completed / SUCCEEDED</strong>.</li>
+<li>Click <strong>Next</strong> to enter <strong>Form a Trimer</strong>. SFIM imaging starts, the aperture is set to <strong>Big Hole</strong> automatically, gas restarts, and the column pressure reaches ~1e-6 torr.</li>
+</ol>
+<h2>Form a trimer</h2>
+<ol>
+<li>With extraction below ionization, set the accelerator to <strong>20–25 kV</strong> and lens 1 to ~<strong>80% of the accelerator</strong> (≈16–20 kV). Slowly increase the extraction field (more negative) until a bright spot appears in imaging — typically <strong>−20 to −25 kV</strong>.</li>
+<li>Increase the extraction to ≈ <strong>−32 kV</strong>, then raise the accelerator to <strong>30 kV</strong> and adjust lens 1 to go over the focus crossover, continue to increase lens 1 voltage to spread the signal until emission from <strong>individual atoms</strong> is visible; raise extraction further to peel atoms, adjusting contrast to avoid saturation.</li>
+<li>Continue until the organized <strong>pyramid/trimer</strong> forms — expected roughly −40 to −45 kV. If the structure is disorganized, repeat <strong>Form the source</strong>. If <strong>no trimer appears by ≈ −50 kV</strong>, stop and check for an ion beam (ZEISS §7.6.3, printed p. 111 / PDF p. 116).</li>
+<li><strong>As soon as the three-atom structure is in sight, reduce the extraction to ≈ −35 kV</strong> to avoid evaporating the trimer. Stop the scan, click <strong>Done</strong>, then <strong>Next</strong>.</li>
+<li>If formation fails with a &quot;hollow center,&quot; click <strong>Finish</strong>, then re-run the build from Form the Source keeping <strong>Maintain BIV</strong>. If the build still does not produce a usable source, choose the <strong>increase BIV</strong> option for the next build. If no trimer forms even at very high extraction, re-run the build choosing <strong>decrease BIV</strong> and record the BIV number at the next trimer formation.</li>
+</ol>
+<blockquote class="warning"><strong>NOTE</strong> — Repair the Source (e.g., post-overheat degas/recovery) is a separate Service/Tool-Owner workflow (ZEISS §5.2.2); it is not part of this routine trimer formation procedure. See the gun-overheat recovery page if an overheat occurred.</blockquote>
+<h2>Determine BIV</h2>
+<ol>
+<li>With the trimer live, click <strong>Show All</strong>, then in the <strong>Graphics</strong> tab draw a circle around the trimer and enable <strong>M</strong> (measure). Tune the extractor up and down for the <strong>maximum mean intensity</strong> (the last logged site value was ≈ −32.5 kV — consult the log book） Round to the nearest 500 V, enter it, and click <strong>Set BIV</strong>. Click <strong>Next</strong>.</li>
+</ol>
+<h3>Align the source</h3>
+<ol>
+<li><strong>Tilt alignment:</strong> adjust lens 1 to <strong>crossover</strong>, then note the above- and below-crossover lens-1 values and use <strong>Back</strong> to toggle between them. Check <strong>Enable air bearing</strong>, draw a circle around the atom to align (brightest recommended), and use <strong>Gun Tilt</strong> virtual joystick iteratively until the atom sits in the circle in both views. Uncheck <strong>Enable air bearing</strong>.</li>
+<li><strong>Shift alignment:</strong> select <strong>Shift Alignment</strong>, choose a previously aligned aperture, zoom the trimer, and use the <strong>physical gun shift knobs</strong> on the machine column to center the atom on the cross-hairs; back the knobs off slightly to remove tension.</li>
+</ol>
+<h2>Set source distance and finish</h2>
+<ol>
+<li>Click <strong>Next → Set source distance</strong>. The software selects Big Hole; adjust <strong>lens 1</strong> for the sharpest aperture edge, select fine and tracking for lens 1 to allow fine tuning. Then adjust <strong>Source Distance</strong> until the <strong>Crossover Position reads ≈ −104.0 mm</strong>. Click <strong>Done</strong> and <strong>Finish</strong>.</li>
+<li>Return to the ZEN imaging tab. In SFIM, grab an image of the new trimer, capture a final screenshot, and record the BIV/maintenance details.</li>
+</ol>
 
 
     <section class="document-information">
@@ -172,7 +195,7 @@
 
         <div class="doc-info-row">
             <div class="doc-info-label">Generated</div>
-            <div>2026-09-02 15:06 +08:00</div>
+            <div>2026-09-03 17:03 +08:00</div>
         </div>
 
         <div class="doc-info-row">

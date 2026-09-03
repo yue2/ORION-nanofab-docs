@@ -75,10 +75,6 @@
     "trimer",
     "superuser/maintenance/trimer-formation.md"
   ],
-  "superuser/maintenance/source-maintenance.md": [
-    "source",
-    "superuser/maintenance/source-maintenance.md"
-  ],
   "superuser/error-recovery/shutdown/planned-shutdown.md": [
     "shutdown",
     "superuser/error-recovery/shutdown/planned-shutdown.md"
@@ -198,6 +194,10 @@
   "information-base/him-trimer-form.md": [
     "src-him-trimer-form",
     "information-base/him-trimer-form.md"
+  ],
+  "information-base/npve-user-guide.md": [
+    "src-npve-user-guide",
+    "information-base/npve-user-guide.md"
   ],
   "information-base/shutdown-procedure-scanned.md": [
     "src-shutdown-procedure-scanned",

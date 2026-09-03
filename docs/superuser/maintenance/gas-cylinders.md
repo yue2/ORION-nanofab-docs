@@ -9,6 +9,10 @@ sources:
   - "HIM_superuser_maintenance.pdf"
   - "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
 revision: "0.1"
+nav_previous: "LN₂ System"
+nav_previous_path: "./superuser/maintenance/ln2-system.md"
+nav_next_path: "./superuser/maintenance/trimer-formation.md"
+nav_next: "Trimer Formation"
 ---
 # Gas Cylinders
 

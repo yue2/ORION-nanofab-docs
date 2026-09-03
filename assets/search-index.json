@@ -86,13 +86,13 @@
   {
     "key": "maintenance",
     "title": "Maintenance",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYMaintenance Routine Checks Logs, vacuum, temperature, LN₂ and basic system state. Trimer Formation Form source, select trimer, BIV and alignment. LN₂ System Au",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYMaintenance Routine Checks Logs, vacuum, temperature, LN₂ and basic system state. LN₂ System Auto-fill/service and external tank handling. Gas Cylinders CDA/N₂",
     "access": "superuser"
   },
   {
     "key": "routine",
     "title": "Routine Checks",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYRoutine Checks Maintain a weekly log of base pressures, gun temperature and Dewar pressure. The ZEISS manual notes that trend data can provide early warning of",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYRoutine Checks Maintain a log of base pressures, gun temperature and Dewar pressure to spot drift early; the ZEISS manual notes this data can serve as an early",
     "access": "superuser"
   },
   {
@@ -110,13 +110,7 @@
   {
     "key": "trimer",
     "title": "Trimer Formation",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTrimer Formation WARNING Maintenance procedure Only trained Superusers should perform source/trimer formation and high-voltage related recovery. Trimer refers ",
-    "access": "superuser"
-  },
-  {
-    "key": "source",
-    "title": "Source Maintenance",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYSource Maintenance Use the ZEISS source-maintenance sequence as the primary technical reference: process selection, repair/form source, select trimer, determin",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTrimer Formation The trimer is a tungsten tip sharpened to an apex of three atoms. Helium is ionized on one apex atom to form the beam; after continued electri",
     "access": "superuser"
   },
   {
@@ -298,6 +292,12 @@
     "title": "HIM trimer form",
     "text": "ORION NanoFab DocumentationSUPERUSER ONLYHIM trimer form Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diagrams, screenshot",
     "access": "superuser"
+  },
+  {
+    "key": "src-npve-user-guide",
+    "title": "NPVE User Guide",
+    "text": "ORION NanoFab DocumentationALL USERSNPVE User Guide Source transcript. Fibics NPVE User Guide, Version 4.0 (April 2013). Text below is extracted page-by-page from the source PDF. Each page facsimile i",
+    "access": "all-users"
   },
   {
     "key": "src-shutdown-procedure-scanned",
