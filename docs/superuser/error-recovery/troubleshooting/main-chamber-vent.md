@@ -4,37 +4,44 @@ access: superuser
 category: superuser
 owner: HIM Superuser
 status: draft
-last-reviewed: 2026-08-31
+last-reviewed: 2026-09-07
 sources:
   - "HIM_main_chamber_vent.pdf"
-revision: "0.1"
+revision: "0.2"
+nav_previous: "Troubleshooting"
+nav_previous_path: "./superuser/error-recovery/troubleshooting/index.md"
+nav_next_path: "./superuser/error-recovery/troubleshooting/gun-overheat.md"
+nav_next: "Gun Overheat"
 ---
 # Main Chamber Vent
 
 ## Symptom
 
-Sample falls from the stage. Stage is not secured wh
-
-> **WARNING — WAITING FOR MANUAL CONFIRMATION**  
-> The local source documents the chamber-vent recovery steps but does **not clearly state the initiating symptom**. The procedure appears intended for an intrusive chamber recovery such as retrieving a sample holder that cannot be recovered through the normal air-lock transfer path. Confirm the approved site-specific trigger before treating this as the authoritative symptom description.
+Sample falls from the stage. Stage is not secured and the transfer rod is retracted so the sample stage is left tilted in the main chamber. Thus, an intrusive chamber recovery is required, such as retrieving a sample holder that cannot be recovered through the normal air-lock transfer path.
 
 > **WARNING**  
-> Intrusive recovery This procedure opens the process chamber and risks contact with the ET detector filament/source region.
+> **Intrusive recovery:** this procedure opens the process chamber and risks contact with the ET detector filament/source region.
 
-1. Keep the transfer door open as documented.
-2. Close the Dewar jacket valve; command Main Chamber → Vent.
-3. Wait until main chamber and loading dock are vented.
-4. Turn off table stabilization and open the chamber from the service side.
-5. Retrieve the holder without touching the ET detector filament or source tip.
-6. Close/reseal the chamber, pump down, restore stabilization and pump overnight.
-7. Check vacuum and ion source the next day.
-8. When main chamber pressure is restored to E-8 torr, schedule a chamber cleaning from ZEN software top menu bar: Maintenance -> System -> Chamber Cleaning.
-9. Choose Light or Medium for 1 - 2 hours. Schedule the Start Time outside of office hours. Click Schedule Clean to confirm the schedule.
-10. Check the system after the scheduled cleaning to confirm the procedure is finished.
+> **WARNING**  
+> **Access policy:** if this main-chamber vent was caused by mishandling of the transfer procedure (e.g., retracting the rod before confirming the holder is secured, or an unsecured/tilted sample stage), it counts as **one unauthorized operation** under the local access policy. Accumulating a second unauthorized operation results in suspension of tool access and a new round of training. This is one of the most common mishaps — always report it honestly to a Superuser and follow the recovery steps above.
 
-## Logic review — unresolved source gaps
 
-> **WARNING — WAITING FOR MANUAL CONFIRMATION**  
-> **ZEISS manual guidance to confirm locally:** the column isolation valve is specifically intended to isolate the gun/column vacuum from the chamber so the chamber can be vented for service, and it is closed when the GFIS column is in Standby. For return-to-service screening, the manufacturer's Basic System Checks specify GFIS state **Pumped**, gun pressure **<1E-9 Torr**, gun temperature **73–85 K**, column pressure **<1E-8 Torr**, chamber state **Pumped** with chamber pressure **<3E-7 Torr**, and Dewar **Maintain Cool** with bottom temperature **<60 K**.  
-> **Manual references:** Column Isolation Valve, printed p. **21** (PDF page **26**); §5.1 Basic System Checks, printed p. **94** (PDF **99**); Vacuum Dashboard state-machine cautions §7.1, printed pp. **144–147** (PDF **149–152**).  
-> **Waiting for confirmation:** confirm the exact pre-vent sequence for this site (including column/ET detector/interlock state) and whether the Basic System Check limits plus any additional overnight-pump criteria are sufficient for local return to service.
+### Vent
+1. Confirm the GFIS column is in **Standby** and the gun/column isolation valve (CIV) is closed (check vacuum screen).
+2. From the air lock, click **Transfer** to keep the transfer door open; make sure the transfer rod is fully retracted.
+3. In the vacuum screen (Dewar tab), close the Dewar jacket valve.
+4. Right-click **Main Chamber → Vent**. Wait until the main chamber and loading dock are vented to **≥ 1000 Torr**.
+5. Turn off table stabilization (air table) in the vacuum screen.
+
+### Retrieve the holder
+6. Using a hex spanner from the cabinet drawer, unscrew the chamber door screws on the **service side** and place them on a **clean tissue**; open the door carefully without pinching cables.
+7. Retrieve the holder without touching the ET detector filament or source tip. Keep the sample stage outside.
+8. Close and re-seal: hand-tighten the screws first, then tighten a few rounds with a screwdriver — **do not over-tighten**.
+
+### Restore
+9. Return the stage through the loading chamber; **hold the loading door** while inserting it, since all chambers are vented.
+10. Pump the main chamber from the vacuum screen (right-click **Main Chamber → Pump**). The loading door closes automatically when the chamber reaches ~1e-2 torr.
+11. **Confirm the loading door is closed**, then restore table stabilization (Air Lock and Chamber tab). Leave the chamber to pump overnight — it should reach the ~1e-8 torr range by the next day.
+12. The next day, check the main-chamber vacuum (~1e-8 torr after the overnight pump) and the gun pressure (should be unaffected, normal ~1E-10 torr range); verify the ion source/trimer on the Au standard sample.
+13. Schedule a **Chamber Cleaning** from ZEN: **Maintenance → System → Chamber Cleaning**. Select **Mild** or **Moderate** intensity for 1–2 hours, with the start time outside office hours; verify completion afterwards.
+14. If the trimer was lost due to vacuum fluctuation, form a new trimer (see [Trimer Formation](../../maintenance/trimer-formation.md)).

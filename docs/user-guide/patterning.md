@@ -39,7 +39,7 @@ Use the ZEN patterning tab for simple patterns. If more advanced patterning is r
 7. Click start from the NPVE GUI to start patterning.
 8. Save the current pattern in designated folder if you intend to repeat the pattern in the future.
 
-For advanced pattern and dose details, see the [NPVE User Guide transcript](../../information-base/npve-user-guide.md) in the Information Base (Fibics v4.0, 2013). Note the installed NPVE is v4.6.2, so treat the guide as a concept reference and follow the installed GUI for exact controls.
+For advanced pattern and dose details, see the NPVE User Guide transcript in the Information Base (Fibics v4.0, 2013). Note the installed NPVE is v4.6.2, so treat the guide as a concept reference and follow the installed GUI for exact controls.
 
 > **NOTE**  
 > Pattern depth depends on the material and on dose/beam current. Determine your stop condition (time, dose, repeats, or endpoint) before starting; use a Dose Array to calibrate milling depth for an unknown material.

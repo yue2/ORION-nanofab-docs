@@ -10,6 +10,10 @@ sources:
   - "ZEISS_Power_Outage_Procedure.pdf"
   - "Shutdown_and_Power_Up_NanoFab.jpg"
 revision: "0.1"
+nav_previous: "Planned Shutdown"
+nav_previous_path: "./superuser/error-recovery/shutdown/planned-shutdown.md"
+nav_next_path: "./superuser/error-recovery/shutdown/vacuum-recovery.md"
+nav_next: "Vacuum Recovery"
 ---
 # Power-Up
 
@@ -33,4 +37,3 @@ Power-up is not simply the reverse of shutdown.
 > The ZEISS **Operator Manual does not provide the complete facilities power-outage recovery sequence**; that sequence is in the separate ZEISS power-outage procedure. The Operator Manual can, however, supply post-recovery acceptance checks: GFIS column state **Pumped**, gun pressure **<1E-9 Torr**, gun temperature **73–85 K**, column pressure **<1E-8 Torr**, chamber state **Pumped** with chamber pressure **<3E-7 Torr**, and Dewar **Maintain Cool** with bottom temperature **<60 K**.  
 > **Manual references:** ZEISS Operator Manual §5.1 Basic System Checks, printed p. **94** (PDF page **99**); gun/Dewar troubleshooting §7.4, printed pp. **157–165** (PDF **162–170**).  
 > **Waiting for confirmation:** mark non-installed GaFIB/GIS/NPVE options N/A and confirm which of these manufacturer checks are the required local release checkpoints after the separate power-up/recovery procedure.
-

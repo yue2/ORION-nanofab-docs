@@ -10,6 +10,8 @@ sources:
   - "ZEISS_Power_Outage_Procedure.pdf"
   - "HIM_trimer_form.pdf"
 revision: "0.1"
+nav_previous: "Vacuum Recovery"
+nav_previous_path: "./superuser/error-recovery/shutdown/vacuum-recovery.md"
 ---
 # GFIS Recovery
 

@@ -9,6 +9,10 @@ sources:
   - "HIM_shutdown_and_open_procedure.pdf"
   - "ZEISS_Power_Outage_Procedure.pdf"
 revision: "0.1"
+nav_previous: "Power-Up"
+nav_previous_path: "./superuser/error-recovery/shutdown/power-up.md"
+nav_next_path: "./superuser/error-recovery/shutdown/gfis-recovery.md"
+nav_next: "GFIS Recovery"
 ---
 # Vacuum Recovery
 

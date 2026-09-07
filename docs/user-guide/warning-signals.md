@@ -38,7 +38,7 @@ Unauthorized operations include
 
 (b) dangerous handling mistakes such as:
 
-1. retracting the transfer rod before confirming the sample stage is secured (risk: dropping the stage in the main chamber, requiring a chamber vent to recover);
+1. retracting the transfer rod before confirming the sample stage is secured, causing a main-chamber vent by mishandling the transfer procedure (sample stage/holder dropped or not secured).
 2. mounting samples without taping/attaching them securely to the holder (risk: foreign objects/debris falling into the main chamber).
 
 > **WARNING**

@@ -140,19 +140,19 @@
   {
     "key": "trouble",
     "title": "Troubleshooting",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTroubleshooting Symptom Start here when the instrument shows an abnormal condition, fails to reach an expected state, loses communication, cannot produce a usa",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTroubleshooting Start here when the instrument shows an abnormal condition, fails to reach an expected state, loses communication, cannot produce a usable trim",
     "access": "superuser"
   },
   {
     "key": "chamber",
     "title": "Main Chamber Vent",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYMain Chamber Vent Symptom Sample falls from the stage. Stage is not secured wh WARNING — WAITING FOR MANUAL CONFIRMATION The local source documents the chamber",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYMain Chamber Vent Symptom Sample falls from the stage. Stage is not secured and the transfer rod is retracted so the sample stage is left tilted in the main ch",
     "access": "superuser"
   },
   {
     "key": "overheat",
     "title": "Gun Overheat",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYGun Overheat Symptom When the gun temperature value in the vacuum screen exceeds 95K. Possible causes LN2 supply has been exhausted During a Dewar refill. A De",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYGun Overheat Symptom Sustained gun temperature above ~95 K outside an LN₂ auto-fill (site readback normal is 92–95 K; a brief rise toward ~95–100 K during the ",
     "access": "superuser"
   },
   {
@@ -164,19 +164,19 @@
   {
     "key": "comm",
     "title": "Communication / Firmware",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYCommunication / Firmware Symptom Suspect a communication or firmware problem when a NanoFab module is not communicating with the UI, when its functions cannot ",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYCommunication / Firmware Symptom Suspect a communication problem when a NanoFab module is not communicating with the UI (no control response or no updated read",
     "access": "superuser"
   },
   {
     "key": "trimerproblem",
     "title": "Trimer Problems",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTrimer Problems Symptom Use this page when the expected three-atom trimer cannot be found or formed, or when source emission is visible but a usable trimer is ",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTrimer Problems Symptom Use this page when the expected three-atom trimer cannot be found while imaging the conductive standard Au sample in SFIM, or when sour",
     "access": "superuser"
   },
   {
     "key": "imageproblem",
     "title": "Image Problems",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYImage Problems Symptom Use this page when the instrument is scanning but there is no valid image, or when the displayed signal does not respond as expected. Th",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYImage Problems Symptom Use this page when the instrument is scanning but no valid image appears, or when the displayed signal does not respond as expected. The",
     "access": "superuser"
   },
   {
