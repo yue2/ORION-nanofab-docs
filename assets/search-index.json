@@ -188,38 +188,38 @@
   {
     "key": "safety",
     "title": "Safety Overview",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYSafety Overview Standalone safety reference; relevant recognition/stop information is repeated in Training and User Guide. O₂ / N₂ Safety Fire &amp; Gas Suppre",
-    "access": "superuser"
+    "text": "ORION NanoFab DocumentationALL USERSSafety Overview Standalone safety reference for all tool users. Recognition and stop information is repeated in the User Guide and Training; these pages are the can",
+    "access": "all-users"
   },
   {
     "key": "o2",
     "title": "O₂ / N₂ Safety",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYO₂ / N₂ Safety WARNING Low oxygen Local notes: O₂ monitor outside HIM room, channel 1; normal reading about 20–21%. If N₂ leakage causes O₂ below 20%, evacuate",
-    "access": "superuser"
+    "text": "ORION NanoFab DocumentationALL USERSO₂ / N₂ Safety WARNING Low oxygen: an N₂ or LN₂ leak in an enclosed space displaces oxygen. The O₂ monitor is on the door frame outside the HIM room (channel 1); no",
+    "access": "all-users"
   },
   {
     "key": "fire",
     "title": "Fire & Gas Suppression",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYFire &amp; Gas Suppression Local superuser notes state there are fire sensors in each room and instruct evacuation to the fire assembly point for a fire. They ",
-    "access": "superuser"
+    "text": "ORION NanoFab DocumentationALL USERSFire &amp; Gas Suppression Building fire-safety induction is required before attending tool training. Recognition and response (all users) The lab rooms have two fi",
+    "access": "all-users"
   },
   {
     "key": "hv",
     "title": "High Voltage",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYHigh Voltage ZEISS labels identify electric-shock and UPS live-voltage hazards. Protective cover panels should only be removed by trained ZEISS service enginee",
-    "access": "superuser"
+    "text": "ORION NanoFab DocumentationALL USERSHigh Voltage Recognition (all users) ZEISS labels identify electric-shock and UPS live-voltage hazards (live voltages remain inside even when main power is off) and",
+    "access": "all-users"
   },
   {
     "key": "chambersafety",
     "title": "Vacuum / Chamber Safety",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYVacuum / Chamber Safety Protect the source, detector and vacuum system during chamber work. Chamber vent/open procedures are Superuser-only and require control",
-    "access": "superuser"
+    "text": "ORION NanoFab DocumentationALL USERSVacuum / Chamber Safety Recognition (all users) Never defeat interlocks, and never put your hands inside the chamber or air lock while pumps are running or the stag",
+    "access": "all-users"
   },
   {
     "key": "emergency",
     "title": "Emergency Procedures",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYEmergency Procedures ZEISS states EMO buttons are only for an actual emergency requiring immediate removal of microscope electrical power. EMO shutdown can cau",
-    "access": "superuser"
+    "text": "ORION NanoFab DocumentationALL USERSEmergency Procedures Immediate response (all users) Fire or smoke: follow the alarm response and evacuate — see Fire &amp; Gas Suppression. Low-oxygen alarm: evacua",
+    "access": "all-users"
   },
   {
     "key": "system",

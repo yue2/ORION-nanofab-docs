@@ -34,4 +34,4 @@ Use this page after **GFIS gun/column vacuum (UHV) was lost** (full outage, cham
 7. In Service Machine → Power Distribution → Power Supplies, **enable the four GFIS high-voltage elements**.
 8. Load a **blank-metal** sample suitable for SFIM and drive the stage to the saved SFIM stage label.
 9. From ZEN GFIS Column Maintenance, perform the **Light Anneal**, then the **Maintain BIV** source build (recommended recovery after the bake — outage transcript p. 6).
-10. Continue with trimer formation and column alignments in the normal manner (see [Trimer Formation](../../maintenance/trimer-formation.md)); if a trimer cannot be formed even at very high extraction, use the **decrease BIV** source build and record the BIV for the next formation.
+10. Only after the column is recovered (gun pressure normal, state Pumped), open the ZEN **GFIS Source Maintenance wizard** and run the routine trimer formation steps (see Trimer Formation). The column-maintenance recipes above are a prerequisite, not a replacement for the wizard.

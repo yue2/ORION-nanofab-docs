@@ -14,7 +14,13 @@ nav_previous_path: "./superuser/maintenance/gas-cylinders.md"
 ---
 # Trimer Formation
 
+
 The trimer is a tungsten tip sharpened to an apex of **three atoms**. Helium is ionized on one apex atom to form the beam; after continued electrical stress that atom eventually "pops" — at this site roughly every 1–2 months — so the tip must be re-formed and a new trimer selected. The remaining dimer can still image, but is markedly less stable: if the tip is in the dimer state, the tool may be used but a new trimer formation should be scheduled promptly.
+
+> **NOTE — When to use this routine vs. column maintenance**
+> If the column has **not** experienced an abrupt event (no high-voltage trip, overheat, UHV/vacuum loss, or chamber vent), a routine trimer formation is achieved with this ZEN **GFIS Source Maintenance wizard alone** (Form the Source → Select a Trimer → Determine BIV → Align → Set Source Distance).
+> If the column **did** experience an abrupt event, column maintenance in Service Machine (**GFIS Column Maintenance**: warm/bake/anneal) is used **first** to recover the column; only when the column is recovered (gun pressure normal, state Pumped) do you return here to run the wizard again.
+
 
 > **WARNING**  
 > Trimer formation applies kilovolt-level extractor/accelerator voltages and mechanical gun-head movement. Follow the wizard exactly; if the source shows no organized pyramid, or no trimer appears by ≈ −50 kV, stop and run the ion-beam checks (ZEISS §7.6.3) before continuing. Do not guess — contact a Superuser/Service Engineer.

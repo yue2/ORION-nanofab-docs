@@ -30,5 +30,5 @@ Gas cylinders are stored in the backroom of the HIM lab. There are 3 cylinder sl
 1. Before disconnecting, suspend the air table. In Vacuum Dashboard, click the Air Lock and Chamber tab, right click the air table icon below Chamber -> Turn Off. This prevents a sudden pressure drop from dropping the table while the supply is disconnected.
 2. In the back room, close the cylinder valve and exchange the cylinder using a spanner. Follow the site manifold sequence: decrease the regulator (valve 1) to relieve the line, then shut the main valve (valve 2) fully before loosening the connection.
 3. Perform the static pressure leak check: open the main valve to see the pressure reading rise, then close it again immediately. Monitor the gauge for one minute. If the reading is stable, there is no leak; open the main valve fully.
-4. Increase the regulator (valve 1) to ~85 psi and confirm the main-chamber CA reading is around 86 psi. For the N₂ line, confirm the reading is back in its normal range.
+4. Increase the regulator (valve 1) to ~95 psi and confirm the main-chamber CA reading is around 86 psi. For the N₂ line, confirm the reading is back in its normal range.
 5. Re-check pressure over the following 3 days; if pressure drops too quickly, repeat the leak check.

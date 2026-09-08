@@ -31,8 +31,8 @@ nav_next: "Starting a session"
 
 ### Mount the sample
 
-8. Select Vent , open the load lock. Screw the transfer rod counterclockwise to unmount the sample stage. Remove the sample stage to mount the sample. Photograph the holder position when useful for the Sample Map.
-9. Slot the sample stage back to the holder, screw the transfer rod clockwise to lock the stage to the rod. Close the load lock and click Store. **Make sure the Rod Retracted indicator is on.** Pump will not start unless the rod is fully retracted.
+8. Select Vent , open the air lock. Screw the transfer rod counterclockwise to unmount the sample stage. Remove the sample stage to mount the sample. Photograph the holder position when useful for the Sample Map.
+9. Slot the sample stage back to the holder, screw the transfer rod clockwise to lock the stage to the rod. Close the air lock and click Store. **Make sure the Rod Retracted indicator is on.** Pump will not start unless the rod is fully retracted.
 
 ### Return the holder (load)
 

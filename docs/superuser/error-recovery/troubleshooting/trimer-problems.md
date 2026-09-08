@@ -22,6 +22,9 @@ Use this page when the expected **three-atom trimer cannot be found** while imag
 
 Trimer loss can result from **aging** (the apex atom pops, typically after ~1–2 months), **gun overheat**, an **extractor high-voltage trip**, or **loss of gun vacuum**.
 
+If the trimer was lost after an **abrupt event** (overheat, HV trip, UHV loss, vent), recover the column first (Gun Overheat / GFIS Recovery), then use the routine wizard to form a new trimer. If the column was undisturbed, use the routine wizard directly.
+
+
 ## Check in order
 
 1. **Dark image panel?** If you are on the Au surface in SFIM mode but the panel is dark, first confirm the ET detector is powered up and brightness/contrast are in the usual 30–50% range.

@@ -42,7 +42,8 @@ Sustained gun temperature above ~95 K **outside** an LN₂ auto-fill (site readb
 7. Put up a notice at the keyboard and message all users: **no one may use the tool during source maintenance**. Wait until the heating procedure starts successfully, then leave it to bake and cool.
 8. After completion, check the gun pressure — it should be in the normal ~1e-10 torr range. If 2 days after a successful bake-and-cool the pressure is still high, run **degas** from source repair, then a **cryosurface regeneration**; if it still does not recover, contact the service representative.
 9. When the gun pressure is back to normal, reconnect the high-voltage cables and remove the heating cable.
-10. Perform a new trimer formation (see [Trimer Formation](../../maintenance/trimer-formation.md)). If a trimer cannot be formed even at very high extraction, choose the **decrease BIV** source build at the Form-the-Source stage and **record the BIV at the next trimer formation**.
+10. Once the gun pressure is back to normal (the bake has recovered the column), run a new trimer formation using the routine ZEN **GFIS Source Maintenance wizard** (see Trimer Formation). Do not attempt routine formation before the bake recovery completes.
+
 
 > **WARNING**  
 > **High voltage:** this is restricted maintenance. Follow lockout/site electrical safety requirements.
