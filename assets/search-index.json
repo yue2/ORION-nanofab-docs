@@ -6,6 +6,12 @@
     "access": "all-users"
   },
   {
+    "key": "user",
+    "title": "User Guide",
+    "text": "ORION NanoFab DocumentationALL USERSUser Guide Normal-operation procedures for trained users. Read the pages in order on your first session; after that, jump to the task you need. If a situation is no",
+    "access": "all-users"
+  },
+  {
     "key": "before",
     "title": "Before You Start",
     "text": "ORION NanoFab DocumentationALL USERSBefore You Start Complete the pre-use checks before beginning a work session. WARNING No food or drink in the lab! Stop conditions Do not proceed if there are unexp",
@@ -52,6 +58,12 @@
     "title": "Warning Signals / When to Stop",
     "text": "ORION NanoFab DocumentationALL USERSWarning Signals / When to Stop Stop and contact a superuser when you encounter: Unexplained system errors Gun temperature above 95 K (note: a brief rise toward 95 K",
     "access": "all-users"
+  },
+  {
+    "key": "superuser",
+    "title": "Superuser Duties",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYSuperuser Duties Restricted tasks performed only by trained Superusers. Normal users should stop and contact a Superuser when any of these areas is involved. T",
+    "access": "superuser"
   },
   {
     "key": "training",
@@ -114,33 +126,27 @@
     "access": "superuser"
   },
   {
+    "key": "recovery",
+    "title": "Error & Recovery",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYError &amp; Recovery Superuser procedures for controlled shutdown/restart and for recovering from abnormal conditions. Start from the page that matches the sit",
+    "access": "superuser"
+  },
+  {
     "key": "shutdown",
     "title": "Planned Shutdown",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYPlanned Shutdown WARNING Start preparation the day before Both the local procedure and ZEISS power-outage procedure require warming the GFIS before vacuum is c",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYPlanned Shutdown This guide is for a planned power outage. The EMO button is for actual emergencies, not routine shutdown — abrupt power removal can lose data ",
     "access": "superuser"
   },
   {
     "key": "powerup",
     "title": "Power-Up",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYPower-Up Power-up is not simply the reverse of shutdown. Verify facility CDA and N₂ are restored. Restore Dewar pump, UPS and chase-rack supplies; allow self-c",
-    "access": "superuser"
-  },
-  {
-    "key": "vacuumrecovery",
-    "title": "Vacuum Recovery",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYVacuum Recovery Verify Dewar state and required valves. Set GFIS Column to Pump No Ion Pump. Set Chamber to Rough; after Rough Vac, open the Dewar jacket valve",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYPower-Up Power-up is not simply the reverse of shutdown. This sequence follows the local scanned power-outage procedure. Facilities and electronics Verify the ",
     "access": "superuser"
   },
   {
     "key": "gfisrecovery",
     "title": "GFIS Recovery",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYGFIS Recovery The ZEISS outage procedure states that the GFIS gun/column requires a bake after loss of UHV; its standard recommendation is 100 h. Verify GFIS s",
-    "access": "superuser"
-  },
-  {
-    "key": "trouble",
-    "title": "Troubleshooting",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYTroubleshooting Start here when the instrument shows an abnormal condition, fails to reach an expected state, loses communication, cannot produce a usable trim",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYGFIS Recovery Use this page after GFIS gun/column vacuum (UHV) was lost (full outage, chamber vent, or a vacuum event) and the column requires a bake before th",
     "access": "superuser"
   },
   {
@@ -300,10 +306,10 @@
     "access": "all-users"
   },
   {
-    "key": "src-shutdown-procedure-scanned",
-    "title": "Shutdown procedure scanned",
-    "text": "ORION NanoFab DocumentationSUPERUSER ONLYShutdown procedure scanned Source transcription. Text below is extracted from the uploaded PDF. Each page also includes a facsimile image so figures, diagrams,",
-    "access": "superuser"
+    "key": "src-shutdown_procedure_transcript",
+    "title": "ORION NanoFab Power Outage Shutdown and Recovery Procedure - Transcript",
+    "text": "ORION NanoFab DocumentationSUPERUSER ONLYORION NanoFab Power Outage Shutdown and Recovery Procedure - Transcript Transcript reconstructed from the scanned document. User-supplied corrections were used",
+    "access": "all-users"
   },
   {
     "key": "src-sop-orion-nanofab-he-ne-users",

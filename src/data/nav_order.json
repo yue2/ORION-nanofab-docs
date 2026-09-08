@@ -3,6 +3,10 @@
     "home",
     "index.md"
   ],
+  "user-guide/index.md": [
+    "user",
+    "user-guide/index.md"
+  ],
   "user-guide/before-you-start.md": [
     "before",
     "user-guide/before-you-start.md"
@@ -34,6 +38,10 @@
   "user-guide/warning-signals.md": [
     "warning",
     "user-guide/warning-signals.md"
+  ],
+  "superuser/index.md": [
+    "superuser",
+    "superuser/index.md"
   ],
   "superuser/training/index.md": [
     "training",
@@ -75,6 +83,10 @@
     "trimer",
     "superuser/maintenance/trimer-formation.md"
   ],
+  "superuser/error-recovery/index.md": [
+    "recovery",
+    "superuser/error-recovery/index.md"
+  ],
   "superuser/error-recovery/shutdown/planned-shutdown.md": [
     "shutdown",
     "superuser/error-recovery/shutdown/planned-shutdown.md"
@@ -83,17 +95,9 @@
     "powerup",
     "superuser/error-recovery/shutdown/power-up.md"
   ],
-  "superuser/error-recovery/shutdown/vacuum-recovery.md": [
-    "vacuumrecovery",
-    "superuser/error-recovery/shutdown/vacuum-recovery.md"
-  ],
   "superuser/error-recovery/shutdown/gfis-recovery.md": [
     "gfisrecovery",
     "superuser/error-recovery/shutdown/gfis-recovery.md"
-  ],
-  "superuser/error-recovery/troubleshooting/index.md": [
-    "trouble",
-    "superuser/error-recovery/troubleshooting/index.md"
   ],
   "superuser/error-recovery/troubleshooting/main-chamber-vent.md": [
     "chamber",
@@ -199,9 +203,9 @@
     "src-npve-user-guide",
     "information-base/npve-user-guide.md"
   ],
-  "information-base/shutdown-procedure-scanned.md": [
-    "src-shutdown-procedure-scanned",
-    "information-base/shutdown-procedure-scanned.md"
+  "information-base/shutdown_procedure_transcript.md": [
+    "src-shutdown_procedure_transcript",
+    "information-base/shutdown_procedure_transcript.md"
   ],
   "information-base/sop-orion-nanofab-he-ne-users.md": [
     "src-sop-orion-nanofab-he-ne-users",

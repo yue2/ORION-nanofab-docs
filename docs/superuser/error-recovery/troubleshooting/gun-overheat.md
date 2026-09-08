@@ -4,7 +4,7 @@ access: superuser
 category: superuser
 owner: HIM Superuser
 status: draft
-last-reviewed: 2026-09-07
+last-reviewed: 2026-09-08
 sources:
   - "HIM_overheat.pdf"
 revision: "0.2"
@@ -31,6 +31,9 @@ Sustained gun temperature above ~95 K **outside** an LN₂ auto-fill (site readb
 1. Do not start GFIS during the fill window (roughly 06:00–08:30). If the gun is already up and the temperature rises during a fill, put the GFIS to standby and wait; it should return to normal within ~1 hour.
 
 ### LN₂ exhausted — source bake-and-cool recovery
+
+> **NOTE** — This is the overheat-recovery bake (Source Repair → **bake and cool**), distinct from the full-outage GFIS bake (`GFIS Recovery`: **Warm, Bake and Get Cold**, HV cables unplugged and wrapped, 72 h).
+
 2. Confirm the Dewar/main tank state (see [LN₂ System](../../maintenance/ln2-system.md)). If the tank is depleted and the next delivery hasn't arrived, a source-repair (bake) procedure is required.
 3. In Service Machine → Power Distribution, disable **accelerator, Lens 1 and extractor**.
 4. Physically isolate the documented HVP connections: unscrew the cable guards and disconnect the feedthroughs; **cover the disconnected cable ends with gloves**. Follow lockout/site electrical safety requirements — this is restricted high-voltage work.

@@ -1,0 +1,12 @@
+{
+  "key": "shutdownindex",
+  "title": "Shutdown & Recovery",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><p># Shutdown &amp; Recovery</p>\n<p>Use these pages for controlled shutdown and return-to-service of the tool. Each page follows its source procedure and gives the check order and end-state.</p>\n<ul>\n<li><strong>Planned Shutdown</strong> — controlled shutdown for a planned power outage (day-before GFIS warm-up, valve/pump order, chase/UPS/Sogevac steps).</li>\n<li><strong>Power-Up</strong> — facilities, electronics, vacuum pumpdown and release gates after power restoration.</li>\n<li><strong>GFIS Recovery</strong> — bake → anneal → trimer sequence after UHV loss.</li>\n</ul>\n<p>Return-to-service after an unplanned vacuum event may also reference the troubleshooting pages.</p><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-08-31</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><hr style=\"margin:40px 0;border:none;border-top:1px solid #e5e7eb\"><div class=\"contributors\"><h3>Documentation Contributors</h3><ul style=\"list-style:none;padding:0;font-size:12px\"><li style=\"padding:3px 0\"><strong>Ashley Xu</strong> &lt;xyue20@u.nus.edu&gt;</li></ul></div>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-08-31",
+    "sources": []
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "key": "superuser",
+  "title": "Superuser Duties",
+  "access": "superuser",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge super\">SUPERUSER ONLY</span><h1>Superuser Duties</h1>\n<p>Restricted tasks performed only by trained Superusers. Normal users should <strong>stop and contact a Superuser</strong> when any of these areas is involved. These pages are access-gated to the Superuser role.</p>\n<h3>Training</h3>\n<ul>\n<li><strong>Safety Training</strong> — facility alarms, gas suppression, cryogenic/electrical/chamber hazards.</li>\n<li><strong>Training Session 1 / Session 2</strong> — hands-on syllabus: transfer, alignment, flood gun, patterning.</li>\n<li><strong>Competency Test</strong> — pass/fail items required before independent tool access.</li>\n</ul>\n<h3>Maintenance</h3>\n<ul>\n<li><strong>Routine Checks</strong> — weekly logs of vacuum, gun temperature, LN₂ and system state, with site normal ranges.</li>\n<li><strong>LN₂ System</strong> — Dewar auto-fill and external tank handling.</li>\n<li><strong>Gas Cylinders</strong> — CDA/N₂ pressure monitoring, ordering and cylinder exchange.</li>\n<li><strong>Trimer Formation</strong> — source formation (source maintenance), trimer selection, BIV and alignment.</li>\n</ul>\n<h3>Error &amp; Recovery</h3>\n<ul>\n<li><strong>Planned Shutdown / Power-Up / GFIS Recovery</strong> — controlled shutdown and return-to-service.</li>\n<li><strong>Troubleshooting</strong> — vent recovery, overheat, vacuum, communication, trimer and image problems.</li>\n</ul><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-09-07</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> HIM_superuser_maintenance.pdf, Training_guideline_HIM.docx, ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf</p><hr style=\"margin:40px 0;border:none;border-top:1px solid #e5e7eb\"><div class=\"contributors\"><h3>Documentation Contributors</h3><ul style=\"list-style:none;padding:0;font-size:12px\"><li style=\"padding:3px 0\"><strong>Ashley Xu</strong> &lt;xyue20@u.nus.edu&gt;</li></ul></div>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-09-07",
+    "sources": [
+      "HIM_superuser_maintenance.pdf",
+      "Training_guideline_HIM.docx",
+      "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
+    ]
+  }
+}

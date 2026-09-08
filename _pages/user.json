@@ -1,0 +1,16 @@
+{
+  "key": "user",
+  "title": "User Guide",
+  "access": "all-users",
+  "content": "<div class=\"crumb\">ORION NanoFab Documentation</div><span class=\"badge\">ALL USERS</span><h1>User Guide</h1>\n<p>Normal-operation procedures for trained users. Read the pages in order on your first session; after that, jump to the task you need. If a situation is not covered here, <strong>stop and contact a Superuser</strong>.</p>\n<ul>\n<li><strong>Before You Start</strong> — pre-use checks, stop conditions and the lab rules for a work session.</li>\n<li><strong>Sample Loading &amp; Unloading</strong> — transferring samples through the air lock; holder mounting, height and interlock cautions.</li>\n<li><strong>Starting a Session</strong> — power-up sequence, He beam set-up, rough focus and trimer status check.</li>\n<li><strong>Imaging</strong> — focus, beam shift/astigmatism correction, image capture, and flood-gun use.</li>\n<li><strong>Patterning</strong> — simple ZEN patterning and advanced NPVE patterning.</li>\n<li><strong>Working with Neon</strong> — switching from He to Ne and back.</li>\n<li><strong>Ending a Session</strong> — shutdown sequence and data transfer rules.</li>\n<li><strong>Warning Signals / When to Stop</strong> — when to stop and escalate, and the local access-policy rules.</li>\n</ul><details class=\"doc-info\"><summary>Document information</summary><dl><dt>Revision</dt><dd>0.1</dd><dt>Status</dt><dd>draft</dd><dt>Owner</dt><dd>HIM Superuser</dd><dt>Last reviewed</dt><dd>2026-09-07</dd><dt>Last edited by</dt><dd>Ashley Xu</dd><dt>Last modified</dt><dd>2026-08-31T21:47:52+08:00</dd><dt>Git revision</dt><dd>a3350f3</dd></dl></details><p class=\"source\"><b>Sources:</b> Local_ORION_NanoFab_SOP.docx, SOP_ORION_NanoFab_He_Ne_Users.pdf, ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf</p><nav class=\"pagination\"><a href=\"#\" data-page=\"before\" class=\"pagination-next\">Before You Start →</a></nav><hr style=\"margin:40px 0;border:none;border-top:1px solid #e5e7eb\"><div class=\"contributors\"><h3>Documentation Contributors</h3><ul style=\"list-style:none;padding:0;font-size:12px\"><li style=\"padding:3px 0\"><strong>Ashley Xu</strong> &lt;xyue20@u.nus.edu&gt;</li></ul></div>",
+  "metadata": {
+    "status": "draft",
+    "owner": "HIM Superuser",
+    "last-reviewed": "2026-09-07",
+    "sources": [
+      "Local_ORION_NanoFab_SOP.docx",
+      "SOP_ORION_NanoFab_He_Ne_Users.pdf",
+      "ZEISS_ORION_NanoFab_Operator_Manual_Rev2.pdf"
+    ]
+  }
+}

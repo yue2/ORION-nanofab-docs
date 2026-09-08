@@ -4,35 +4,42 @@ access: superuser
 category: superuser
 owner: HIM Superuser
 status: draft
-last-reviewed: 2026-08-31
+last-reviewed: 2026-09-07
 sources:
   - "HIM_shutdown_procedure.pdf"
   - "HIM_shutdown_and_open_procedure.pdf"
   - "ZEISS_Power_Outage_Procedure.pdf"
   - "Shutdown_procedure_scanned.pdf"
   - "Shutdown_and_Power_Up_NanoFab.jpg"
-revision: "0.1"
+revision: "0.2"
+nav_previous_path: "./superuser/error-recovery/shutdown/index.md"
+nav_previous: "Planned Shutdown Index"
 nav_next_path: "./superuser/error-recovery/shutdown/power-up.md"
 nav_next: "Power-Up"
 ---
 # Planned Shutdown
 
+This guide is for a **planned** power outage. The EMO button is for actual emergencies, not routine shutdown — abrupt power removal can lose data and may damage turbo pumps.
+
 > **WARNING**  
-> Start preparation the day before Both the local procedure and ZEISS power-outage procedure require warming the GFIS before vacuum is compromised.
+> **Start preparation the day before:** both the local procedure and the power-outage procedure require **warming the GFIS to room temperature** (Dewar heaters) before vacuum is compromised. Allow about **one hour** for the shutdown steps themselves on the day of planned power outage.
 
-1. Stop/override LN₂ refill and start the warm-to-room-temperature process.
-2. Set gas off; power down ET detector, flood gun and optional columns as applicable.
-3. Ramp down/disable GFIS high-voltage supplies using the documented sequence.
-4. Shut down turbo/ion/rough pumping and close the specified valves in sequence.
-5. Power down racks, ZEN/System Manager, PCs and chase-rack supplies.
+### Day before
+1. **Ramp down the GFIS high voltages manually in ZEN** (this site runs ZEN Brisbane — required before warming). Use the GFIS column controls in the order: **Lens 2, Lens 1, Accelerator, Extractor**.
+2. In Service Machine → GFIS **Column Maintenance**, select **Warm to Room Temperature** and click **Execute Now** — this finishes ramping down the high voltage and turns on the Dewar/column heaters. Note: the GFIS high voltages do **not** disable by themselves; rely on the interlock (or Service Machine → Power Distribution) once the gun warms.
 
-1. Shut down UPS/machine/dewar pump only at the documented final stage.
+### Day of shutdown
+2. Save a stage label suitable for SFIM imaging / source maintenance (**blank metal**) and unload the sample.
+3. From ZEN, place the GFIS column in **Standby**: gas (He/Ne) shuts off, the column isolation valve closes, and the column goes to **Pumped** (gun ion pump on). If any action does not happen, do it manually.
+4. From ZEN Operation Center, power down the ET detector (and flood gun if used). **On ZEN Brisbane, also disable the Sample Bias manually** (it only powers down automatically with the detector from the Damascus release onward).
+5. Exit the **NPVE** interface; power down the NPVE controller (white electronics box) and shut down the NPVE PC.
+6. Stop/override the LN₂ auto-refill; **close the CDA and N₂ cylinder valves** and the Dewar jacket valve (site notes).
+7. Vacuum shutdown (vacuum screen): tick **Diag**; turn off the **chamber turbo** and **gun turbo** (right-click green squares); **wait until the status reads "Off" (after "braking")**; close the chamber **foreline valve**, chamber **safety valve** (chamber rough pump off), gun **safety valve** (gun rough pump off), and the **Dewar rough valve**.
+8. Service Machine → Power Distribution: **uncheck all boxes**. Exit ZEN; press **Stop** on Athena System Manager and wait for **"Server is shut down"**; shut down the NanoFab PC.
+9. Chase rack: power off the four switches (**Evactron controller; two Duracomm switches; one Acopian switch**). Reset the chase-rack **EMO**, then switch off both **UPS circuit breakers**.
+10. Stop the **Sogevac Dewar pump** (red Stop button) as the final step.
 
-Use the detailed ZEISS Power Outage Procedure as the step-by-step controlled reference; local shutdown notes provide site-specific hardware cues.
+For a **brief outage (<20 min)**, the UPS keeps Lens 1/Extractor/Accelerator powered: isolate the chambers, power off ion/rough pumps, and restore power supplies when mains return (see the power-outage reference). Return-to-service steps are on the **Power-Up** page (next in the chain).
 
-## Logic review — source reconciliation required
-
-> **WARNING — WAITING FOR MANUAL CONFIRMATION**  
-> The ZEISS **Operator Manual does not contain the full planned facilities shutdown sequence**. It does confirm two important boundaries: the column isolation valve closes in Standby to isolate gun/column vacuum from the chamber, and the EMO is for an actual emergency rather than routine shutdown because abrupt power removal can lose data and may damage turbo pumps.  
-> **Manual references:** Column Isolation Valve, printed p. **21** (PDF page **26**); Emergency Machine Off (EMO), printed p. **13** (PDF page **18**); Ending a Work Session §6.4, printed p. **141** (PDF page **146**).  
-> **Waiting for confirmation:** use the separate ZEISS expected-power-outage procedure for the detailed sequence, then confirm which optional subsystems and site-specific valves/switches apply to this installed instrument.
+> **Manual references:** ORION NanoFab Power Outage Shutdown and Recovery Procedure (scanned), transcript `docs/information-base/shutdown_procedure_transcript.md`, pp. 1–4; ZEISS Power Outage Procedure (controlled reference).
+> **Scope:** this tool has no GaFIB (Capella) or GIS option — the corresponding transcript sections are omitted. NPVE is installed and included.
