@@ -1,22 +1,22 @@
 ## Content
 
-- [ ] revise docs in user-guide/
-  - [ ] imaging.md need to check flood gun default settings
-- [ ] add NPVE User Guide PDF to `sources/`; link it from `docs/reference/original-documents.md`; create its `docs/information-base/` transcription page; cite it on `docs/user-guide/patterning.md` (advanced pattern/dose steps) and on the reference page
+- [x] revise docs in user-guide/
+  - [x] imaging.md need to check flood gun default settings
+- [x] add NPVE User Guide PDF to `sources/`; link it from `docs/reference/original-documents.md`; create its `docs/information-base/` transcription page; cite it on `docs/user-guide/patterning.md` (advanced pattern/dose steps) and on the reference page
 
-- [ ] audit docs/superuser/training/ for completeness and source traceability
-- [ ] audit docs/superuser/maintenance/ for procedure gaps and safety conflicts
-- [ ] audit docs/superuser/error-recovery/ for conflicting guidance vs. ZEISS manual
-- [ ] audit docs/safety/ for emergency procedures and high-voltage warnings
+- [x] audit docs/superuser/training/ for completeness and source traceability
+- [x] audit docs/superuser/maintenance/ for procedure gaps and safety conflicts
+- [x] audit docs/superuser/error-recovery/ for conflicting guidance vs. ZEISS manual
+- [x] audit docs/safety/ for emergency procedures and high-voltage warnings
 - [ ] audit docs/reference/ for glossary completeness and broken internal links
-- [ ] audit docs/information-base/ for source PDF transcription completeness
+- [x] audit docs/information-base/ for source PDF transcription completeness
 - [ ] verify all `sources:` frontmatter fields reference existing PDFs under `sources/`
 - [ ] verify all image paths in Markdown point to valid files under `assets/img/`
-- [ ] verify access-level tags (`all-users`, `superuser`) match folder structure
+- [x] verify access-level tags (`all-users`, `superuser`) match folder structure
 - [ ] resolve all **WARNING — CONFLICTING GUIDANCE** blocks with Tool Owner approval
 - [ ] resolve all **WARNING — WAITING FOR MANUAL CONFIRMATION** blocks
-- [ ] update `last-reviewed` dates for all published pages
-- [ ] check for orphaned or unreferenced pages in NAV
+- [x] update `last-reviewed` dates for all published pages
+- [x] check for orphaned or unreferenced pages in NAV
 
 ## Code
 
@@ -30,10 +30,10 @@ Implemented (verify in the browser before closing):
 - [x] build and export workflow documented in `README.md` and `MAINTAINING_THE_DOCS.md`
 
 Remaining code/content work:
-- [ ] fix malformed pagination frontmatter in `docs/user-guide/`:
+- [x] fix malformed pagination frontmatter in `docs/user-guide/`:
       duplicate `nav_previous:` keys / `nav_previous: null` in `before-you-start.md`,
       trailing space after `nav_previous_path:` in `loading-unloading.md`
-- [ ] add `nav_previous_path` / `nav_next_path` to the remaining user-guide pages
+- [x] add `nav_previous_path` / `nav_next_path` to the remaining user-guide pages
       (`imaging`, `patterning`, `neon`, `ending-session`, `warning-signals`)
 - [ ] manual QA: pagination navigation across all user-guide pages
 - [ ] manual QA: pagination navigation across all superuser pages
