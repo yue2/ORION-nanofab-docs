@@ -469,7 +469,7 @@ pattern = r'const pages=\{.*?\};\s*function render'
 # Rebuild app.js from scratch with fresh pages object
 js_base = r"""function setRole(role){localStorage.setItem('orionRole',role);document.body.classList.toggle('superuser',role==='superuser');document.querySelectorAll('[data-role]').forEach(b=>b.classList.toggle('active',b.dataset.role===role));document.querySelectorAll('.super-link').forEach(a=>a.style.opacity=role==='superuser'?'1':'.48');}
 const pages={};
-const searchIndex=[];
+let searchIndex=[];
 async function render(p){if(!p)p='home';if(!pages[p]){try{const res=await fetch(`_pages/${p}.json`);pages[p]=await res.json();}catch(e){console.error(`Failed to load page ${p}:`,e);p='home';const res=await fetch(`_pages/home.json`);pages[p]=await res.json();}}
 const role=localStorage.getItem('orionRole')||'user';if(pages[p].access==='superuser'&&role!=='superuser'){document.getElementById('content').innerHTML='<h1>Superuser access required</h1><p>Switch the prototype role to Superuser to preview this section.</p>';return;}
 document.getElementById('content').innerHTML=pages[p].content;document.querySelectorAll('.nav a').forEach(a=>a.classList.toggle('active',a.dataset.page===p));expandForPage(p);window.scrollTo(0,0);}
