@@ -89,7 +89,20 @@
         Future updates may not be reflected here.
     </blockquote>
     <hr>
-    <h1>Before You Start</h1>
+    <h1>User Guide</h1>
+<p>Normal-operation procedures for trained users. Read the pages in order on your first session; after that, jump to the task you need. If a situation is not covered here, <strong>stop and contact a Superuser</strong>.</p>
+<ul>
+<li><strong>Before You Start</strong> — pre-use checks, stop conditions and the lab rules for a work session.</li>
+<li><strong>Sample Loading &amp; Unloading</strong> — transferring samples through the air lock; holder mounting, height and interlock cautions.</li>
+<li><strong>Starting a Session</strong> — power-up sequence, He beam set-up, rough focus and trimer status check.</li>
+<li><strong>Imaging</strong> — focus, beam shift/astigmatism correction, image capture, and flood-gun use.</li>
+<li><strong>Patterning</strong> — simple ZEN patterning and advanced NPVE patterning.</li>
+<li><strong>Working with Neon</strong> — switching from He to Ne and back.</li>
+<li><strong>Ending a Session</strong> — shutdown sequence and data transfer rules.</li>
+<li><strong>Warning Signals / When to Stop</strong> — when to stop and escalate, and the local access-policy rules.</li>
+</ul>
+<div class="page-break"></div>
+<h1>Before You Start</h1>
 <p>Complete the pre-use checks before beginning a work session.</p>
 <blockquote class="warning"><strong>WARNING</strong> No food or drink in the lab! Stop conditions Do not proceed if there are unexplained errors, gun temperature is above about 95 K, less than 2 h before LN₂ refill, or vacuum is abnormal. Contact a Superuser.</blockquote>
 <ol>
@@ -120,8 +133,8 @@
 </ol>
 <h3>Mount the sample</h3>
 <ol>
-<li>Select Vent , open the load lock. Screw the transfer rod counterclockwise to unmount the sample stage. Remove the sample stage to mount the sample. Photograph the holder position when useful for the Sample Map.</li>
-<li>Slot the sample stage back to the holder, screw the transfer rod clockwise to lock the stage to the rod. Close the load lock and click Store. <strong>Make sure the Rod Retracted indicator is on.</strong> Pump will not start unless the rod is fully retracted.</li>
+<li>Select Vent , open the air lock. Screw the transfer rod counterclockwise to unmount the sample stage. Remove the sample stage to mount the sample. Photograph the holder position when useful for the Sample Map.</li>
+<li>Slot the sample stage back to the holder, screw the transfer rod clockwise to lock the stage to the rod. Close the air lock and click Store. <strong>Make sure the Rod Retracted indicator is on.</strong> Pump will not start unless the rod is fully retracted.</li>
 </ol>
 <h3>Return the holder (load)</h3>
 <ol>
@@ -219,7 +232,7 @@
 <li>Click start from the NPVE GUI to start patterning.</li>
 <li>Save the current pattern in designated folder if you intend to repeat the pattern in the future.</li>
 </ol>
-<p>For advanced pattern and dose details, see the NPVE User Guide (ZEISS §12.2: <code>Program Files (x86) &gt; Fibics &gt; NPVE 4Z &gt; Documentation</code>).</p>
+<p>For advanced pattern and dose details, see the NPVE User Guide transcript in the Information Base (Fibics v4.0, 2013). Note the installed NPVE is v4.6.2, so treat the guide as a concept reference and follow the installed GUI for exact controls.</p>
 <blockquote class="warning"><strong>NOTE</strong> Pattern depth depends on the material and on dose/beam current. Determine your stop condition (time, dose, repeats, or endpoint) before starting; use a Dose Array to calibrate milling depth for an unknown material.</blockquote>
 <div class="page-break"></div>
 <h1>Working with Neon</h1>
@@ -241,7 +254,7 @@
 <li>Power down the ET detector. Power down flood gun if it was used.</li>
 <li>When gas evacuation is finished, check the vacuum screen. The Gun to Main Chamber valve should be closed.</li>
 <li>Select Exchange to move to the transfer position.</li>
-<li>Unload the sample: with the gate open, push the transfer rod in and thread it clockwise into the holder until fully secured, then pull the holder out into the air lock. Close the gate, vent the air lock, open the door, and detach the rod counter-clockwise to remove your sample stub (detailed steps: [Sample Loading &amp; Unloading](./loading-unloading.md); ZEISS §4.3.8).</li>
+<li>Unload the sample: with the gate open, push the transfer rod in and thread it clockwise into the holder until fully secured, then pull the holder out into the air lock. Close the gate, vent the air lock, open the door, and detach the rod counter-clockwise to remove your sample stub (detailed steps: Sample Loading &amp; Unloading; ZEISS §4.3.8).</li>
 <li>If the session is fully over, leave the (empty) sample stage in the main chamber. Close the air lock door -&gt; press Store to pump the air lock -&gt; press Transfer to open the gate, push the platform back in and verify it seats on the stage, then disengage the rod fully before retracting it. -&gt; press Store to close the transfer door.</li>
 <li>Complete the logbook, clean the work area and transfer data using email.</li>
 </ol>
@@ -258,13 +271,13 @@
 <li>Stage is not secured inside the main chamber but the transfer rod has been retracted.</li>
 </ul>
 <p>Normal users should recognize abnormal states but should not attempt chamber venting, high-voltage work, pump recovery, source maintenance or power-outage recovery.</p>
-<p>For alarm responses (evacuation, fire-suppression abort, low-oxygen procedure) follow the Safety section: [Fire &amp; Gas Suppression](../safety/fire-suppression.md), [O₂/N₂ Safety](../safety/oxygen-nitrogen.md), [Emergency](../safety/emergency.md).</p>
+<p>For alarm responses (evacuation, fire-suppression abort, low-oxygen procedure) follow the Safety section: Fire &amp; Gas Suppression, O₂/N₂ Safety, Emergency.</p>
 <h2>Local access policy</h2>
 <p>Unauthorized operations include</p>
 <p>(a) actions flagged elsewhere in this guide as &quot;notify/contact a superuser&quot; instead of doing it yourself, and</p>
 <p>(b) dangerous handling mistakes such as:</p>
 <ol>
-<li>retracting the transfer rod before confirming the sample stage is secured (risk: dropping the stage in the main chamber, requiring a chamber vent to recover);</li>
+<li>retracting the transfer rod before confirming the sample stage is secured, causing a main-chamber vent by mishandling the transfer procedure (sample stage/holder dropped or not secured).</li>
 <li>mounting samples without taping/attaching them securely to the holder (risk: foreign objects/debris falling into the main chamber).</li>
 </ol>
 <blockquote class="warning"><strong>WARNING</strong> Accumulating two unauthorized operations results in suspension of tool access, and a new round of training is required to regain access.</blockquote>
@@ -275,7 +288,7 @@
 
         <div class="doc-info-row">
             <div class="doc-info-label">Generated</div>
-            <div>2026-09-02 21:22 +08:00</div>
+            <div>2026-09-08 17:38 +08:00</div>
         </div>
 
         <div class="doc-info-row">

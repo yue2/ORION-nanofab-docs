@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORION NanoFab Troubleshooting</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+        }
+        h1 { font-size: 28px; margin-top: 40px; margin-bottom: 16px; page-break-after: avoid; }
+        h2 { font-size: 22px; margin-top: 32px; margin-bottom: 12px; page-break-after: avoid; }
+        h3 { font-size: 18px; margin-top: 24px; margin-bottom: 8px; page-break-after: avoid; }
+        p { margin: 12px 0; }
+        ul, ol { margin: 12px 0; padding-left: 24px; }
+        li { margin: 6px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; font-family: 'Courier New', monospace; }
+        blockquote.warning {
+            background: #fff6df;
+            border-left: 4px solid #d18b00;
+            padding: 12px 16px;
+            margin: 16px 0;
+            page-break-inside: avoid;
+        }
+        figure {
+            max-width: 100%;
+            text-align: center;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+        }
+        figcaption {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+
+        .document-information {
+            margin-top: 64px;
+            padding: 24px 0 32px;
+            border-top: 1px solid #d9dde5;
+            border-bottom: 1px solid #d9dde5;
+            page-break-inside: avoid;
+            }
+
+        .document-information h2 {
+            font-size: 20px;
+            margin: 0 0 24px;
+        }
+
+        .doc-info-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            margin: 10px 0;
+            font-size: 17px;
+        }
+
+        .doc-info-label {
+            color: #6b7280;
+        }
+        /* Print styles */
+        @media print {
+            body { padding: 0; }
+            h1, h2, h3 { page-break-after: avoid; }
+            figure { page-break-inside: avoid; }
+            blockquote { page-break-inside: avoid; }
+            ul, ol { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ORION NanoFab Troubleshooting</h1>
+    <p><em>Generated from the maintained Markdown documentation (superuser/error-recovery/troubleshooting/).</em></p>
+    <blockquote class="warning">
+        <strong>Important:</strong> This is an exported copy. The authoritative source is the online/Markdown documentation.
+        Future updates may not be reflected here.
+    </blockquote>
+    <hr>
+    <h1>Main Chamber Vent</h1>
+<h2>Symptom</h2>
+<p>Sample falls from the stage. Stage is not secured and the transfer rod is retracted so the sample stage is left tilted in the main chamber. Thus, an intrusive chamber recovery is required, such as retrieving a sample holder that cannot be recovered through the normal air-lock transfer path.</p>
+<blockquote class="warning"><strong>WARNING</strong> <strong>Intrusive recovery:</strong> this procedure opens the process chamber and risks contact with the ET detector filament/source region.</blockquote>
+<blockquote class="warning"><strong>WARNING</strong> <strong>Access policy:</strong> if this main-chamber vent was caused by mishandling of the transfer procedure (e.g., retracting the rod before confirming the holder is secured, or an unsecured/tilted sample stage), it counts as <strong>one unauthorized operation</strong> under the local access policy. Accumulating a second unauthorized operation results in suspension of tool access and a new round of training. This is one of the most common mishaps — always report it honestly to a Superuser and follow the recovery steps above.</blockquote>
+<h3>Vent</h3>
+<ol>
+<li>Confirm the GFIS column is in <strong>Standby</strong> and the gun/column isolation valve (CIV) is closed (check vacuum screen).</li>
+<li>From the air lock, click <strong>Transfer</strong> to keep the transfer door open; make sure the transfer rod is fully retracted.</li>
+<li>In the vacuum screen (Dewar tab), close the Dewar jacket valve.</li>
+<li>Right-click <strong>Main Chamber → Vent</strong>. Wait until the main chamber and loading dock are vented to <strong>≥ 1000 Torr</strong>.</li>
+<li>Turn off table stabilization (air table) in the vacuum screen.</li>
+</ol>
+<h3>Retrieve the holder</h3>
+<ol>
+<li>Using a hex spanner from the cabinet drawer, unscrew the chamber door screws on the <strong>service side</strong> and place them on a <strong>clean tissue</strong>; open the door carefully without pinching cables.</li>
+<li>Retrieve the holder without touching the ET detector filament or source tip. Keep the sample stage outside.</li>
+<li>Close and re-seal: hand-tighten the screws first, then tighten a few rounds with a screwdriver — <strong>do not over-tighten</strong>.</li>
+</ol>
+<h3>Restore</h3>
+<ol>
+<li>Return the stage through the loading chamber; <strong>hold the loading door</strong> while inserting it, since all chambers are vented.</li>
+<li>Pump the main chamber from the vacuum screen (right-click <strong>Main Chamber → Pump</strong>). The loading door closes automatically when the chamber reaches ~1e-2 torr.</li>
+<li><strong>Confirm the loading door is closed</strong>, then restore table stabilization (Air Lock and Chamber tab). Leave the chamber to pump overnight — it should reach the ~1e-8 torr range by the next day.</li>
+<li>The next day, check the main-chamber vacuum (~1e-8 torr after the overnight pump) and the gun pressure (should be unaffected, normal ~1E-10 torr range); verify the ion source/trimer on the Au standard sample.</li>
+<li>Schedule a <strong>Chamber Cleaning</strong> from ZEN: <strong>Maintenance → System → Chamber Cleaning</strong>. Select <strong>Mild</strong> or <strong>Moderate</strong> intensity for 1–2 hours, with the start time outside office hours; verify completion afterwards.</li>
+<li>If the trimer was lost due to vacuum fluctuation, form a new trimer (see Trimer Formation).</li>
+</ol>
+<div class="page-break"></div>
+<h1>Gun Overheat</h1>
+<h2>Symptom</h2>
+<p>Sustained gun temperature above ~95 K <strong>outside</strong> an LN₂ auto-fill (site readback normal is 92–95 K; a brief rise toward ~95–100 K during the scheduled fill is expected and should recover within about an hour).</p>
+<h2>Possible causes</h2>
+<ul>
+<li><strong>LN₂ supply exhausted</strong> (main tank depleted before the next delivery).</li>
+<li><strong>Dewar not being pumped / auto-fill interrupted</strong> (check Dewar status first — see LN₂ System).</li>
+<li><strong>Transient Dewar-fill rise</strong> — no action needed; confirm it recovers after the refill.</li>
+</ul>
+<h2>What to do</h2>
+<h3>Transient refill rise (scheduled 8 am / 8 pm fills)</h3>
+<ol>
+<li>Do not start GFIS during the fill window (roughly 06:00–08:30). If the gun is already up and the temperature rises during a fill, put the GFIS to standby and wait; it should return to normal within ~1 hour.</li>
+</ol>
+<h3>LN₂ exhausted — source bake-and-cool recovery</h3>
+<blockquote class="warning"><strong>NOTE</strong> — This is the overheat-recovery bake (Source Repair → <strong>bake and cool</strong>), distinct from the full-outage GFIS bake (<code>GFIS Recovery</code>: <strong>Warm, Bake and Get Cold</strong>, HV cables unplugged and wrapped, 72 h).</blockquote>
+<ol>
+<li>Confirm the Dewar/main tank state (see LN₂ System). If the tank is depleted and the next delivery hasn&#x27;t arrived, a source-repair (bake) procedure is required.</li>
+<li>In Service Machine → Power Distribution, disable <strong>accelerator, Lens 1 and extractor</strong>.</li>
+<li>Physically isolate the documented HVP connections: unscrew the cable guards and disconnect the feedthroughs; <strong>cover the disconnected cable ends with gloves</strong>. Follow lockout/site electrical safety requirements — this is restricted high-voltage work.</li>
+<li>When LN₂ is delivered, connect the heating cable from the back of the tool.</li>
+<li>In Service Machine → Source Repair, choose the <strong>bake and cool</strong> process; enter a bake time of <strong>48 h or 72 h</strong> and start it immediately.</li>
+<li>Put up a notice at the keyboard and message all users: <strong>no one may use the tool during source maintenance</strong>. Wait until the heating procedure starts successfully, then leave it to bake and cool.</li>
+<li>After completion, check the gun pressure — it should be in the normal ~1e-10 torr range. If 2 days after a successful bake-and-cool the pressure is still high, run <strong>degas</strong> from source repair, then a <strong>cryosurface regeneration</strong>; if it still does not recover, contact the service representative.</li>
+<li>When the gun pressure is back to normal, reconnect the high-voltage cables and remove the heating cable.</li>
+<li>Once the gun pressure is back to normal (the bake has recovered the column), run a new trimer formation using the routine ZEN <strong>GFIS Source Maintenance wizard</strong> (see Trimer Formation). Do not attempt routine formation before the bake recovery completes.</li>
+</ol>
+<blockquote class="warning"><strong>WARNING</strong> <strong>High voltage:</strong> this is restricted maintenance. Follow lockout/site electrical safety requirements.</blockquote>
+<div class="page-break"></div>
+<h1>Vacuum Problems</h1>
+<h2>Symptom</h2>
+<p>Use this page when the gun/column, chamber, or Dewar does not reach or maintain its expected vacuum state or pressure, when a pump/valve state is abnormal, or when a vacuum module stays in an unexpected state. <strong>Identify the affected region first</strong>, then apply the checks below.</p>
+<p>Start from the Basic System Checks: gun <strong>~1E-10 Torr</strong>, column <strong>&lt;1E-8 Torr</strong>, chamber <strong>&lt;5E-7 Torr</strong>, Dewar in <strong>Maintain Cool</strong>. Use the Vacuum Dashboard to read state, pressure, valves and pumps (ZEISS §7.1, printed pp. 144–147 / PDF pp. 149–152).</p>
+<h3>Gun / column region</h3>
+<ol>
+<li>Check the gas cylinders and CDA/N₂ supply pressures (see Gas Cylinders); low or absent gas supply can hold the column in an abnormal state.</li>
+<li>Check the ion pumps: if off, check their high-voltage supplies on the back rack of the tool, behind the column. If the state does not recover, follow the gun/column pump-state checks.</li>
+</ol>
+<h3>Chamber region</h3>
+<ol>
+<li>Check the rough pump(s) in the backroom. If the chamber rough pump is off, restart it. Confirm the turbo pump spins up to speed.</li>
+<li>If the main-chamber vacuum is <strong>persistently</strong> higher than normal, review the usage logs for previously loaded samples. <strong>No volatile substance is allowed in this tool</strong> — advise users during training, especially about organic samples. Loading an inappropriate volatile/organic sample counts as <strong>one unapproved use</strong>; do not use the tool if volatile organic residues are suspected (high-voltage arcing can severely damage electronics).</li>
+<li>If inappropriate samples were loaded, a <strong>moderate</strong> chamber cleaning should restore the main-chamber vacuum.</li>
+</ol>
+<h3>Dewar region</h3>
+<ol>
+<li>Check the Dewar state and auto-fill; the Dewar <strong>rotary</strong> (rough) pump is in the backroom. If the rough pump is off, restart it; confirm the Dewar returns to Maintain Cool and LN₂ supply is adequate (see LN₂ System; Dewar issues per ZEISS §7.4.5, printed pp. 161–164 / PDF pp. 166–169).</li>
+</ol>
+<p>If the vacuum does not recover after the above, contact the service representative.</p>
+<blockquote class="warning"><strong>NOTE</strong> <strong>Normal users:</strong> the manufacturer describes the Vacuum Dashboard as useful for observation during normal operation. Superusers use diagnostic/state-machine controls only under the approved procedure; do not use <strong>Diagnostic mode</strong> outside the approved steps.</blockquote>
+<blockquote class="warning"><strong>Related pages:</strong> Communication / Firmware (dashboard/readback faults), Gun Overheat (bake/recovery aftermath), Image Problems (symptom cross-checks), Trimer Formation (post-recovery trimer check).</blockquote>
+<div class="page-break"></div>
+<h1>Communication / Firmware</h1>
+<h2>Symptom</h2>
+<p>Suspect a communication problem when a NanoFab module is <strong>not communicating with the UI</strong> (no control response or no updated readbacks), when the chamber scope is frozen even though the stage movement motor can be heard, or when the imaging window is completely dark with no other explanation.</p>
+<p>The <strong>Hardware Communication Status</strong> and <strong>Firmware Update (Query Nodes)</strong> screens identify the affected controller or node.</p>
+<ol>
+<li>From the Athena System Manager menu, open <strong>Tools → Service Machine → Hardware Communication Status</strong>. Check for yellow/red modules and confirm the <strong>green bidirectional arrows</strong> next to every controller. A lost USB connection is the most likely cause.</li>
+<li>Verify the affected controller is powered on and its communications cable is securely attached. If it is, shut down the ZEN UI and <strong>STOP</strong> the server in the Athena System Manager window.</li>
+<li>Restart the PC to clear cache.</li>
+<li>Open Athena and start the server. When it has started, open <strong>Tools → Service Machine → Firmware Update</strong> and click <strong>Query Nodes</strong>. Green check marks mean all nodes communicate.</li>
+<li>If a node shows a red X:</li>
+</ol>
+<ul>
+<li><strong>Unreachable – Could not ping node</strong> → check power and cable; power-cycle the node; stop and restart the server; if still unreachable → contact the service representative.</li>
+<li><strong>Incompatible firmware</strong> → tick the box next to the red X and click <strong>Download</strong>; re-run Query Nodes; if the message persists → contact the service representative (ZEISS §7.3.2, printed p. 156 / PDF p. 161).</li>
+</ul>
+<ol>
+<li>Finally, reopen <strong>Hardware Communication Status</strong> and confirm all indicators are green before resuming work.</li>
+</ol>
+<blockquote class="warning"><strong>Manual references:</strong> ZEISS Operator Manual §7.3.1, printed pp. <strong>153–154</strong> (PDF <strong>158–159</strong>); §7.3.2, printed pp. <strong>154–156</strong> (PDF <strong>159–161</strong>); local restart sequence per HIM training notes, <code>HIM_trimer_form.pdf</code> p. 2.</blockquote>
+<div class="page-break"></div>
+<h1>Trimer Problems</h1>
+<h2>Symptom</h2>
+<p>Use this page when the expected <strong>three-atom trimer cannot be found</strong> while imaging the conductive standard Au sample in SFIM, or when source emission is visible but no usable trimer is available.</p>
+<p>Trimer loss can result from <strong>aging</strong> (the apex atom pops, typically after ~1–2 months), <strong>gun overheat</strong>, an <strong>extractor high-voltage trip</strong>, or <strong>loss of gun vacuum</strong>.</p>
+<p>If the trimer was lost after an <strong>abrupt event</strong> (overheat, HV trip, UHV loss, vent), recover the column first (Gun Overheat / GFIS Recovery), then use the routine wizard to form a new trimer. If the column was undisturbed, use the routine wizard directly.</p>
+<h2>Check in order</h2>
+<ol>
+<li><strong>Dark image panel?</strong> If you are on the Au surface in SFIM mode but the panel is dark, first confirm the ET detector is powered up and brightness/contrast are in the usual 30–50% range.</li>
+<li><strong>Still completely dark?</strong> The most likely cause is lost hardware communication — check the Hardware Communication Status and restart ZEN/server/PC if needed (see Communication / Firmware). Re-check the trimer once communication is restored.</li>
+<li><strong>Scattered bright points that refresh on Grab, or no trimer visible once communication is normal?</strong> A new trimer formation is required (see Trimer Formation, <code>../../maintenance/trimer-formation.md</code>). Minimize SFIM exposure: confirm the structure only when necessary, on the standard Au sample / saved reference site, following the last recorded trimer atom from the logbook when available.</li>
+<li><strong>Cannot form a trimer even at very high extractor?</strong> Use the <strong>decrease BIV</strong> source build at the Form-the-Source stage and record the BIV at the next formation (HIM overheat notes, p. 3).</li>
+</ol>
+<blockquote class="warning"><strong>WARNING</strong> <strong>Do not expose the source unnecessarily:</strong> use the standard conducting Au sample and minimize SFIM exposure.</blockquote>
+<h2>Related pages</h2>
+<ul>
+<li><strong>Communication / Firmware</strong> — dark panel caused by lost communication.</li>
+<li><strong>Gun Overheat</strong> — overheat triggered a bake/recovery.</li>
+<li><strong>Vacuum Problems</strong> — gun vacuum was lost.</li>
+<li><strong>Trimer Formation</strong> — full formation procedure, including the decrease-BIV recovery.</li>
+</ul>
+<div class="page-break"></div>
+<h1>Image Problems</h1>
+<h2>Symptom</h2>
+<p>Use this page when the instrument is <strong>scanning but no valid image</strong> appears, or when the displayed signal does not respond as expected. The ZEISS sequence distinguishes: detector/noise problems, secondary electrons not reaching the ET detector, and no ion beam present.</p>
+<h2>Diagnostic checklist</h2>
+<ol>
+<li><strong>Imaging gas and gun pressure</strong> — confirm the imaging gas is on and the gun pressure reaches its set point (2E-6 torr for He gas).</li>
+<li><strong>Aperture</strong> — confirm the gas-appropriate aperture is selected; if no image appears, select <strong>Big Hole</strong>.</li>
+<li><strong>Sample</strong> — verify a suitable sample (standard Au) is under the beam.</li>
+<li><strong>Scanning</strong> — verify continuous scanning is running and the beam is not blanked.</li>
+<li><strong>ET detector</strong> — confirm it is powered up with brightness/contrast in the usual 30–50% range; if detector/noise is suspected, follow the ZEISS ET-detector checks.</li>
+<li><strong>Beam/trimer present</strong> — if the panel is dark with only scattered bright points, or no trimer is visible in SFIM, follow the trimer checks and, if needed, form a new trimer (see Trimer Problems; Trimer Formation).</li>
+<li><strong>High-voltage supplies</strong> — if no beam, confirm Accelerator, Extractor, Lens 1 and Lens 2 are enabled (see Gun Overheat if a bake/recovery occurred).</li>
+<li><strong>Alignment drift</strong> — if an image exists but is poor, re-check focus/stigmation, Gun Shift and trimer alignment rather than rebuilding the source.</li>
+</ol>
+<h2>Related pages</h2>
+<ul>
+<li><strong>Trimer Problems</strong> / <strong>Trimer Formation</strong> — dark panel with no trimer; new source/trimer build and the decrease-BIV recovery.</li>
+<li><strong>Communication / Firmware</strong> — dark panel from lost controller communication.</li>
+<li><strong>Gun Overheat</strong> — HV-supply or bake/recovery history.</li>
+<li><strong>Vacuum Problems</strong> — gas or gun vacuum out of range.</li>
+<li><strong>User Guide: Imaging / Starting a Session</strong> — normal configuration baseline.</li>
+</ul>
+<blockquote class="warning"><strong>Manual reference:</strong> ZEISS Operator Manual §7.6 Image Issues (printed pp. 167 ff. / PDF pp. 172 ff.), especially Basic Image Configuration §7.6.1 and Checking for an Ion Beam §7.6.3.</blockquote>
+
+
+    <section class="document-information">
+        <h2>Document information</h2>
+
+        <div class="doc-info-row">
+            <div class="doc-info-label">Generated</div>
+            <div>2026-09-08 17:39 +08:00</div>
+        </div>
+
+        <div class="doc-info-row">
+            <div class="doc-info-label">Git author</div>
+            <div>Ashley Xu</div>
+        </div>
+    </section>
+    
+
+</body>
+</html>

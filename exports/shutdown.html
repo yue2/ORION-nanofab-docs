@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ORION NanoFab Shutdown</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            color: #333;
+        }
+        h1 { font-size: 28px; margin-top: 40px; margin-bottom: 16px; page-break-after: avoid; }
+        h2 { font-size: 22px; margin-top: 32px; margin-bottom: 12px; page-break-after: avoid; }
+        h3 { font-size: 18px; margin-top: 24px; margin-bottom: 8px; page-break-after: avoid; }
+        p { margin: 12px 0; }
+        ul, ol { margin: 12px 0; padding-left: 24px; }
+        li { margin: 6px 0; }
+        code { background: #f5f5f5; padding: 2px 6px; font-family: 'Courier New', monospace; }
+        blockquote.warning {
+            background: #fff6df;
+            border-left: 4px solid #d18b00;
+            padding: 12px 16px;
+            margin: 16px 0;
+            page-break-inside: avoid;
+        }
+        figure {
+            max-width: 100%;
+            text-align: center;
+            margin: 20px 0;
+            page-break-inside: avoid;
+        }
+        figure img {
+            max-width: 100%;
+            height: auto;
+        }
+        figcaption {
+            font-size: 12px;
+            color: #666;
+            margin-top: 8px;
+            font-style: italic;
+        }
+        .page-break {
+            page-break-after: always;
+        }
+
+        .document-information {
+            margin-top: 64px;
+            padding: 24px 0 32px;
+            border-top: 1px solid #d9dde5;
+            border-bottom: 1px solid #d9dde5;
+            page-break-inside: avoid;
+            }
+
+        .document-information h2 {
+            font-size: 20px;
+            margin: 0 0 24px;
+        }
+
+        .doc-info-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            margin: 10px 0;
+            font-size: 17px;
+        }
+
+        .doc-info-label {
+            color: #6b7280;
+        }
+        /* Print styles */
+        @media print {
+            body { padding: 0; }
+            h1, h2, h3 { page-break-after: avoid; }
+            figure { page-break-inside: avoid; }
+            blockquote { page-break-inside: avoid; }
+            ul, ol { page-break-inside: avoid; }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>ORION NanoFab Shutdown</h1>
+    <p><em>Generated from the maintained Markdown documentation (superuser/error-recovery/shutdown/).</em></p>
+    <blockquote class="warning">
+        <strong>Important:</strong> This is an exported copy. The authoritative source is the online/Markdown documentation.
+        Future updates may not be reflected here.
+    </blockquote>
+    <hr>
+    <h1>Planned Shutdown</h1>
+<p>This guide is for a <strong>planned</strong> power outage. The EMO button is for actual emergencies, not routine shutdown — abrupt power removal can lose data and may damage turbo pumps.</p>
+<blockquote class="warning"><strong>WARNING</strong> <strong>Start preparation the day before:</strong> both the local procedure and the power-outage procedure require <strong>warming the GFIS to room temperature</strong> (Dewar heaters) before vacuum is compromised. Allow about <strong>one hour</strong> for the shutdown steps themselves on the day of planned power outage.</blockquote>
+<h3>Day before</h3>
+<ol>
+<li><strong>Ramp down the GFIS high voltages manually in ZEN</strong> (this site runs ZEN Brisbane — required before warming). Use the GFIS column controls in the order: <strong>Lens 2, Lens 1, Accelerator, Extractor</strong>.</li>
+<li>In Service Machine → GFIS <strong>Column Maintenance</strong>, select <strong>Warm to Room Temperature</strong> and click <strong>Execute Now</strong> — this finishes ramping down the high voltage and turns on the Dewar/column heaters. Note: the GFIS high voltages do <strong>not</strong> disable by themselves; rely on the interlock (or Service Machine → Power Distribution) once the gun warms.</li>
+</ol>
+<h3>Day of shutdown</h3>
+<ol>
+<li>Save a stage label suitable for SFIM imaging / source maintenance (<strong>blank metal</strong>) and unload the sample.</li>
+<li>From ZEN, place the GFIS column in <strong>Standby</strong>: gas (He/Ne) shuts off, the column isolation valve closes, and the column goes to <strong>Pumped</strong> (gun ion pump on). If any action does not happen, do it manually.</li>
+<li>From ZEN Operation Center, power down the ET detector (and flood gun if used). <strong>On ZEN Brisbane, also disable the Sample Bias manually</strong> (it only powers down automatically with the detector from the Damascus release onward).</li>
+<li>Exit the <strong>NPVE</strong> interface; power down the NPVE controller (white electronics box) and shut down the NPVE PC.</li>
+<li>Stop/override the LN₂ auto-refill; <strong>close the CDA and N₂ cylinder valves</strong> and the Dewar jacket valve (site notes).</li>
+<li>Vacuum shutdown (vacuum screen): tick <strong>Diag</strong>; turn off the <strong>chamber turbo</strong> and <strong>gun turbo</strong> (right-click green squares); <strong>wait until the status reads &quot;Off&quot; (after &quot;braking&quot;)</strong>; close the chamber <strong>foreline valve</strong>, chamber <strong>safety valve</strong> (chamber rough pump off), gun <strong>safety valve</strong> (gun rough pump off), and the <strong>Dewar rough valve</strong>.</li>
+<li>Service Machine → Power Distribution: <strong>uncheck all boxes</strong>. Exit ZEN; press <strong>Stop</strong> on Athena System Manager and wait for <strong>&quot;Server is shut down&quot;</strong>; shut down the NanoFab PC.</li>
+<li>Chase rack: power off the four switches (<strong>Evactron controller; two Duracomm switches; one Acopian switch</strong>). Reset the chase-rack <strong>EMO</strong>, then switch off both <strong>UPS circuit breakers</strong>.</li>
+<li>Stop the <strong>Sogevac Dewar pump</strong> (red Stop button) as the final step.</li>
+</ol>
+<p>For a <strong>brief outage (&lt;20 min)</strong>, the UPS keeps Lens 1/Extractor/Accelerator powered: isolate the chambers, power off ion/rough pumps, and restore power supplies when mains return (see the power-outage reference). Return-to-service steps are on the <strong>Power-Up</strong> page (next in the chain).</p>
+<blockquote class="warning"><strong>Manual references:</strong> ORION NanoFab Power Outage Shutdown and Recovery Procedure (scanned), transcript <code>docs/information-base/shutdown_procedure_transcript.md</code>, pp. 1–4; ZEISS Power Outage Procedure (controlled reference). <strong>Scope:</strong> this tool has no GaFIB (Capella) or GIS option — the corresponding transcript sections are omitted. NPVE is installed and included.</blockquote>
+<div class="page-break"></div>
+<h1>Power-Up</h1>
+<p>Power-up is <strong>not</strong> simply the reverse of shutdown. This sequence follows the local scanned power-outage procedure.</p>
+<h3>Facilities and electronics</h3>
+<ol>
+<li>Verify the facility <strong>CDA and N₂</strong> are restored and at the desired pressures.</li>
+<li>Unlock the chase-rack <strong>EMO</strong>; switch the <strong>Sogevac Dewar pump</strong> on (Start). Set both <strong>UPS circuit breakers</strong> to ON and allow the self-check (~1 min) until the display reads <strong>&quot;ONLINE MODE&quot;</strong>.</li>
+<li>Switch on the four chase-rack supplies (<strong>Evactron controller; two Duracomm switches; one Acopian switch</strong>) — the Acopian power light will not illuminate yet.</li>
+<li>Power on the NanoFab PC and let it boot; log in, open and start <strong>Athena System Manager</strong>, and wait for <strong>&quot;The server has started.&quot;</strong></li>
+<li>Verify the <strong>Power Distribution</strong> page restarted: the boxes unchecked during shutdown should now be checked (normally only <strong>Dewar Bake</strong> remains unchecked); if not, check every right-side box except Dewar Bake.</li>
+<li>Wait <strong>~5 minutes</strong> for the boards to boot; open <strong>Hardware Communications Status</strong> and verify all modules are talking (no yellow/red); restart Athena if needed. Run <strong>Firmware Update → Query</strong> — all green (see Communication / Firmware).</li>
+<li>Open the vacuum screen from Athena and start the ZEN UI.</li>
+</ol>
+<h3>Vacuum pumpdown</h3>
+<ol>
+<li>In the Dewar tab, verify the Dewar state is <strong>Idle</strong> (prevents auto-fill until the jacket valve is opened later).</li>
+<li>Confirm the rough pump is running; let it run ~<strong>5 minutes</strong>.</li>
+<li>Right-click the <strong>GFIS Column</strong> state → <strong>Pump No Ion Pump</strong>: valves cycle and the gun turbo spins up; the GFIS ion pump stays off.</li>
+<li>When the <strong>gun pressure is below ~1e-4 torr</strong>, open the <strong>column manual valve</strong> (back of the machine, beside the stabilizing module).</li>
+<li>Select <strong>Pump</strong> for the chamber; when the chamber reaches rough vacuum, open the <strong>Dewar jacket valve</strong> (Dewar tab).</li>
+<li>Wait ~<strong>10 minutes</strong> until both the column and chamber read pumped; confirm the chamber turbo spins to <strong>Ready</strong>.</li>
+<li>Leave the ion pumps off ~<strong>2 hours</strong> (better: overnight), watching the pressure trends.</li>
+<li>When the <strong>gun pressure is better than ~1e-6 torr</strong>, turn on the two ion pumps and confirm the pressure keeps decreasing.</li>
+<li>Confirm LN₂ supply is adequate (tank pressure ~<strong>1.5 bar</strong>) so the Dewar can fill.</li>
+<li><strong>Home the stage</strong>, then power up the ET detector (Operation Center); on ZEN Brisbane, enable the sample bias separately when needed.</li>
+<li>After a full outage, continue to the <strong>GFIS Recovery</strong> page (next in this chain) for the bake → anneal → trimer sequence; do not attempt the gun-pressure release gates until that recovery completes.</li>
+</ol>
+<h3>NPVE</h3>
+<ol>
+<li>Power up the <strong>NPVE controller box</strong> and wait ~1 minute, then power up the NPVE PC.</li>
+<li>On the <strong>NanoFab PC</strong> (not the NPVE PC), start the <strong>Zeiss Fibics Server</strong> (FibicsZeissServer.exe under <code>Program Files (x86)\Fibics\Server</code>).</li>
+<li>Log in and start the NPVE user interface.</li>
+</ol>
+<h3>Acceptance (pre-bake)</h3>
+<p>Confirm the states reached by this pumpdown sequence: chamber <strong>Pumped</strong>, chamber pressure <strong>&lt;3E-7 Torr</strong>, Dewar in <strong>Maintain Cool</strong> with bottom <strong>&lt;60 K</strong>, column valve open, ion pumps running, and gun pressure trending below ~1e-6 torr. The full ZEISS §5.1 gun/column gates — GFIS <strong>Pumped</strong>, gun <strong>&lt;1E-9 Torr</strong>, column <strong>&lt;1E-8 Torr</strong> — are confirmed <strong>after</strong> the GFIS bake (see GFIS Recovery); note the site-specific gun-temperature readback of <strong>92–95 K</strong> (thermocouple deviation), not the manual&#x27;s 73–85 K.</p>
+<blockquote class="warning"><strong>Manual references:</strong> vacuum restoration per <code>HIM_shutdown_and_open_procedure.pdf</code>, &quot;Turning on,&quot; pp. 2–4 (site sequence); rack/boot sequence per the scanned outage transcript, p. 5.</blockquote>
+<div class="page-break"></div>
+<h1>GFIS Recovery</h1>
+<p>Use this page after <strong>GFIS gun/column vacuum (UHV) was lost</strong> (full outage, chamber vent, or a vacuum event) and the column requires a <strong>bake</strong> before the source can be recovered. Vacuum restoration is covered on the <strong>Power-Up</strong> page; this page is the single home for the bake → anneal → trimer sequence.</p>
+<blockquote class="warning"><strong>WARNING</strong> <strong>High voltage / restricted maintenance:</strong> follow lockout and site electrical-safety requirements. The GFIS high voltages must remain disabled while cables are unplugged for the bake.</blockquote>
+<h3>Prepare</h3>
+<ol>
+<li>Verify the GFIS column state is <strong>Pumped No Ion Pump</strong>; home the <strong>GFIS apertures</strong>.</li>
+<li><strong>Unplug the accelerator, extractor, and Lens 1 high-voltage cables</strong> at the column and <strong>wrap the cables in clean Al foil</strong> for the bake (HIM open procedure, p. 4).</li>
+<li>Confirm the LN₂ supply is connected and adequate — tank pressure ~<strong>1.5 bar</strong> and the tank valve open — so the Dewar refills after the bake.</li>
+</ol>
+<h3>Bake</h3>
+<ol>
+<li>In Service Machine → GFIS <strong>Column Maintenance</strong>, select <strong>Warm, Bake and Get Cold</strong> and set the hours to bake. <strong>At this site 72 h is sufficient</strong> (the ZEISS standard recommendation is 100 h — Tool-Owner-approved local value). Click <strong>Execute Now</strong> and leave it to complete.</li>
+<li>After the bake completes, <strong>reconnect the high-voltage cables</strong> (remove the Al foil).</li>
+<li>Verify the GFIS state is <strong>Pumped</strong> (GFIS ion pump on) and the <strong>gun pressure reaches ~1e-10 T</strong> — the threshold that allows helium flow for trimer formation. If the pressure does not recover, do not proceed — escalate (degas/cryosurface regeneration per the gun-overheat page, then service if it still fails).</li>
+</ol>
+<h3>Source recovery</h3>
+<ol>
+<li>In Service Machine → Power Distribution → Power Supplies, <strong>enable the four GFIS high-voltage elements</strong>.</li>
+<li>Load a <strong>blank-metal</strong> sample suitable for SFIM and drive the stage to the saved SFIM stage label.</li>
+<li>From ZEN GFIS Column Maintenance, perform the <strong>Light Anneal</strong>, then the <strong>Maintain BIV</strong> source build (recommended recovery after the bake — outage transcript p. 6).</li>
+<li>Only after the column is recovered (gun pressure normal, state Pumped), open the ZEN <strong>GFIS Source Maintenance wizard</strong> and run the routine trimer formation steps (see Trimer Formation). The column-maintenance recipes above are a prerequisite, not a replacement for the wizard.</li>
+</ol>
+
+
+    <section class="document-information">
+        <h2>Document information</h2>
+
+        <div class="doc-info-row">
+            <div class="doc-info-label">Generated</div>
+            <div>2026-09-08 17:39 +08:00</div>
+        </div>
+
+        <div class="doc-info-row">
+            <div class="doc-info-label">Git author</div>
+            <div>Ashley Xu</div>
+        </div>
+    </section>
+    
+
+</body>
+</html>
